@@ -1,0 +1,129 @@
+@(languages:dto.ListDTO[dto.LangDTO],data:dto.InterfaceDataDTO)(content: Html)
+
+@import com.fasterxml.jackson.databind.ObjectMapper
+
+<!DOCTYPE html>
+
+<html>
+    @pageElement.header()
+    <body class="main-container"  ng-app="app" ng-controller="MainCtrl" >
+
+        <div class="global-container" ng-controller="WelcomeCtrl">
+
+                <!-- load data -->
+            <script>
+            var data = @Html(new ObjectMapper().writeValueAsString(data));
+            var languages = @Html(new ObjectMapper().writeValueAsString(languages.getList));
+            var lang = "@ctx().lang().code";
+            </script>
+
+                <!-- menu for little screen : display only when the screen is smaller then 760px -->
+            <div id="sidebar" class="visible-sm-block visible-xs-block">
+                <ul ng-controller="LateralMenuCtrl">
+
+                        <!-- home -->
+                    <li>
+                        <a href="/">
+                            <img src="/assets/images/menu/icon_home.png" class="icon"/>
+                            @Messages("menu.home")
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+                <!-- swipe area : used to display the menu with a swipe -->
+            <div class="swipe-area hidden-md hidden-lg"></div>
+            <div id="main-header-container" class="hidden-md hidden-lg">
+
+                    <!-- header -->
+                <header>
+
+                        <!-- little screen menu button -->
+                    <div class="sidebar-button">
+                        <button type="button" data-toggle=".global-container" id="sidebar-toggle">
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                        <!-- title -->
+                    <h1>@Messages("site.name")</h1>
+
+
+                        <!-- not connected menu -->
+                    <div class="profile-buttons-container" ng-show="myself==null">
+                        <button type="button" class="btn btn-primary" ng-click="login()">@Messages("welcome.login")</button>
+                        @Messages("generic.or")
+                        <button type="button" class="btn btn-primary" ng-click="registration()">@Messages("welcome.signIn")</button>
+                    </div>
+
+                        <!-- connected menu -->
+                    <div class="profile-buttons-container" ng-show="myself!=null"  style="display: inline-block">
+                        <span class="visible-sm-inline">{{myself.firstname}} {{myself.lastname}}</span>
+                        <button type="button" class="btn btn-primary" ng-click="editProfile()">@Messages("welcome.myProfile")</button>
+                        <button type="button" class="btn btn-primary" ng-click="logout()">@Messages("generic.logout")</button>
+                    </div>
+
+                </header>
+            </div>
+
+                <!-- main content -->
+            <div class="main-body">
+                <div class="global-content-container">
+
+                    <div id="main-header-container" class="hidden-sm hidden-xs">
+
+                            <!-- header -->
+                        <header>
+
+                                <!-- title -->
+                            <div class="container">
+
+                                <h1>@Messages("site.name")</h1>
+
+                                    <!-- not connected menu -->
+                                <div class="profile-buttons-container" ng-show="myself==null">
+                                    <button type="button" class="btn btn-primary" ng-click="login()">@Messages("welcome.login")</button>
+                                    @Messages("generic.or")
+                                    <button type="button" class="btn btn-primary" ng-click="registration()">@Messages("welcome.signIn")</button>
+                                </div>
+
+                                    <!-- connected menu -->
+                                <div class="profile-buttons-container" ng-show="myself!=null"  style="display: inline-block">
+                                    {{myself.firstname}} {{myself.lastname}}
+                                    <button type="button" class="btn btn-primary" ng-click="editProfile()">@Messages("welcome.myProfile")</button>
+                                        <button type="button" class="btn btn-primary" ng-click="logout()">@Messages("generic.logout")</button>
+                                </div>
+
+                            </div>
+                        </header>
+                    </div>
+
+                    <div class="container main-container">
+
+                            <!-- big menu -->
+                        <div class="row hidden-sm hidden-xs large-menu-container">
+
+                            <nav class="navbar navbar-default large-menu">
+                                <div class="container-fluid">
+
+                                    <div class="collapse navbar-collapse">
+                                        <ul class="nav navbar-nav navbar-lev-1">
+
+                                            <!-- home -->
+                                            <li><a href="/">@Messages("menu.home")</a></li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+
+                        <!-- content -->
+                        @content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
