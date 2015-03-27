@@ -1,27 +1,10 @@
-myApp.controller('ChangeEmailModalCtrl', function ($scope, $http, $flash, $modalInstance,account,setEmail) {
+myApp.controller('DownloadFieldModalCtrl', function ($scope, $http, $flash, $modalInstance) {
 
     $scope.loading=false;
 
     $scope.fields = {
-        oldPassword: {
-            name:'password',
-            fieldTitle: "generic.yourPassword",
-            validationRegex: "^[a-zA-Z0-9-_%]{6,18}$",
-            validationMessage: "generic.validation.password",
-            fieldType:'password',
-            focus: function(){
-                return true;
-            },
-            disabled:function(){
-                return $scope.loading;
-            }
-        },
-        newEmail: {
-            fieldType:"email",
-            name:'email',
-            fieldTitle: "changeEmailModal.email",
-            validationRegex: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            validationMessage: "generic.validation.email",
+        file: {
+            fieldTitle: "generic.file",
             disabled:function(){
                 return $scope.loading;
             }
@@ -48,8 +31,8 @@ myApp.controller('ChangeEmailModalCtrl', function ($scope, $http, $flash, $modal
     };
 
     $scope.save = function () {
-
         if ($scope.allFieldValid()) {
+            /*
 
             var dto = {
                 oldPassword: $scope.fields.oldPassword.field,
@@ -72,6 +55,7 @@ myApp.controller('ChangeEmailModalCtrl', function ($scope, $http, $flash, $modal
                 $scope.loading=false;
                 $flash.error(data.message);
             });
+             */
         }
     }
 

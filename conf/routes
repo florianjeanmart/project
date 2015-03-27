@@ -19,5 +19,9 @@ PUT         /rest/account/:id                 @controllers.rest.AccountRestContr
 PUT         /rest/account/email/:id           @controllers.rest.AccountRestController.changeEmail(id:Long)
 PUT         /rest/account/password/:id        @controllers.rest.AccountRestController.changePassword(id:Long)
 
+#file
+POST        /rest/file/                      @controllers.rest.FilesController.upload()
+GET         /rest/file/:storedFileId         @controllers.rest.FilesController.download(storedFileId: Long)
+
 ##welcome
 GET         /                                 @controllers.MainController.mainPage()

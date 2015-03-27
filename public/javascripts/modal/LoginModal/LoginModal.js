@@ -25,6 +25,7 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
         },
         openSession:{
             fieldTitle: "registration.form.keepSessionOpen",
+            field:false,
             disabled: function () {
                 return $scope.loading;
             }

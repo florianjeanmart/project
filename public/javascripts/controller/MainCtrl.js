@@ -3,7 +3,7 @@ angular.module("tmh.dynamicLocale").config(function (tmhDynamicLocaleProvider) {
     tmhDynamicLocaleProvider.localeLocationPattern('/assets/components/angular-i18n/angular-locale_{{locale}}.js');
 });
 
-var myApp = angular.module('app', ['ui.bootstrap.datetimepicker', 'ui.bootstrap', "angucomplete", 'tmh.dynamicLocale']);
+var myApp = angular.module('app', ['ui.bootstrap.datetimepicker', 'ui.bootstrap', "angucomplete", 'tmh.dynamicLocale','angularFileUpload']);
 
 myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translationService,$modal) {
 

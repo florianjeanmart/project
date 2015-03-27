@@ -22,7 +22,9 @@ object ApplicationBuild extends Build {
     "org.hibernate.javax.persistence" % "hibernate-jpa-2.1-api" % "1.0.0.Final",
     "org.apache.velocity" % "velocity" % "1.7",
     "org.apache.commons" % "commons-email" % "1.3.1",
-    "commons-io" % "commons-io" % "2.3"
+    "commons-io" % "commons-io" % "2.3",
+    "joda-time" % "joda-time" % "2.2",
+    "com.amazonaws" % "aws-java-sdk" % "1.8.5"
   )
 
   val main = play.Project(name, version, appDependencies)

@@ -46,24 +46,21 @@ myApp.controller('ChangePasswordModalCtrl', function ($scope, $http, $flash, $mo
 
     $scope.allFieldValid = function () {
 
+        var validation = true;
+
         for (var key in $scope.fields) {
             var obj = $scope.fields[key];
+            console.log(obj);
             if ($scope.fields.hasOwnProperty(key) && (obj.isValid == null || obj.isValid === false)) {
-
-                return false;
+                obj.firstAttempt = false;
+                validation= false;
             }
         }
-        return true;
+        return validation;
     };
 
     $scope.save = function () {
 
-        for (var key in $scope.fields) {
-            var field = $scope.fields[key];
-            if ($scope.fields.hasOwnProperty(key)) {
-                field.firstAttempt = false;
-            }
-        }
         if ($scope.allFieldValid()) {
 
             var dto = {

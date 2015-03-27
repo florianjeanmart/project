@@ -90,6 +90,11 @@ changePasswordModal.title=Change your password
 changeEmailModal.title=Change your email
 changeEmailModal.email=Your new email
 
+# field doc
+field.document.inTreatment=Treatment ...
+field.document.download=Download
+field.document.success=The file was downloaded successfully
+
 #
 # Email
 #
@@ -122,3 +127,4 @@ VALIDATION_DEBTOR=At least one roommate must be selected
 VALIDATION_PASSWORD=Please use between 6 and 18 letters, numbers or -_
 VALIDATION_EMAIL=Email expected
 NOT_YOU_COMMENT=This is not your comment {0}
+NOT_YOUR_FILE=This is not your file
