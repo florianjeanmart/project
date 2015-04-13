@@ -1,18 +1,19 @@
 package dto;
 
 import dto.technical.DTO;
-import dto.technical.verification.Pattern;
-import util.ErrorMessage;
+import util.constants.ValidationRegex;
+
+import javax.validation.constraints.Pattern;
 
 /**
  * Created by florian on 27/12/14.
  */
 public class ChangeEmailDTO extends DTO {
 
-    @Pattern(regexp = Pattern.PASSWORD,message = ErrorMessage.VALIDATION_PASSWORD)
+    @Pattern(regexp = ValidationRegex.PASSWORD,message = "validation.dto.password")
     private String oldPassword;
 
-    @Pattern(regexp = Pattern.EMAIL,message = ErrorMessage.VALIDATION_EMAIL)
+    @Pattern(regexp = ValidationRegex.EMAIL,message = "validation.dto.email")
     private String newEmail;
 
     public ChangeEmailDTO() {

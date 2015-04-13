@@ -4,22 +4,18 @@ import com.fasterxml.jackson.databind.JsonNode;
 import controllers.technical.security.CommonSecurityController;
 import controllers.technical.security.SecurityController;
 import dto.technical.DTO;
-import dto.technical.verification.Pattern;
-import dto.technical.verification.Size;
-import play.Logger;
-import play.i18n.Lang;
 import play.mvc.Controller;
 import services.TranslationService;
 import services.impl.TranslationServiceImpl;
 import util.ErrorMessage;
 import util.exception.MyRuntimeException;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
+import java.util.Set;
 
-import dto.technical.verification.NotNull;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 /**
  * Created by florian on 10/11/14.
@@ -44,129 +40,28 @@ public abstract class AbstractController extends Controller {
             throw new MyRuntimeException(ErrorMessage.JSON_CONVERSION_ERROR, DTOclass.getName());
         }
 
-        //control dto
-        try {
-            validDTO(dto);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-            throw new MyRuntimeException(e.getMessage());
-        }
 
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Set<ConstraintViolation<T>> validate = validator.validate(dto);
+//
+        if(validate.size()>0){
+            String message = "";
+            for (ConstraintViolation<T> tConstraintViolation : validate) {
+
+                String messageTranslated = translationService.getTranslation(tConstraintViolation.getMessage(), lang());
+
+                messageTranslated=messageTranslated.replace("{field}",tConstraintViolation.getInvalidValue()+"");
+
+                if (tConstraintViolation.getConstraintDescriptor().getAnnotation() instanceof javax.validation.constraints.Size) {
+                    messageTranslated=messageTranslated.replace("{min}",((javax.validation.constraints.Size) tConstraintViolation.getConstraintDescriptor().getAnnotation()).min()+"");
+                    messageTranslated=messageTranslated.replace("{max}",((javax.validation.constraints.Size) tConstraintViolation.getConstraintDescriptor().getAnnotation()).max()+"");
+                }
+                message+= messageTranslated;
+            }
+
+            throw new MyRuntimeException(message);
+        }
         return dto;
-    }
-
-
-    private void validDTO(DTO dto) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-
-        Lang language = lang();
-
-        Logger.warn("validDTO : " + dto);
-
-        //control this object
-        // validation(dto, lang());
-
-        //looking for other DTO object
-        for (Field field : dto.getClass().getDeclaredFields()) {
-
-            Logger.warn("   test field " + field.getName() + "...=>" + field.getClass());
-
-            //extract
-            Object v = dto.getClass().getMethod("get" + field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1)).invoke(dto);
-
-            //test annotation
-            String errorMessage = "";
-            for (Annotation annotation : field.getDeclaredAnnotations()) {
-                Logger.warn("          annotation:" + annotation.toString() + "(totla:" + field.getDeclaredAnnotations().length + ")");
-                if (annotation instanceof NotNull) {
-
-                    Logger.warn("             not null:" + v);
-                    if (v == null) {
-
-                        //build error message
-                        errorMessage += translationService.getTranslation(((NotNull) annotation).message(), language, field.getName()) + "\n";
-                    }
-                } else if (annotation instanceof Pattern) {
-                    if (v == null) {
-                        //build error message
-                        errorMessage += translationService.getTranslation(((Pattern) annotation).message(), language, field.getName(), ((Pattern) annotation).regexp()) + "\n";
-                    } else {
-                        if (!(v instanceof String)) {
-                            throw new MyRuntimeException(ErrorMessage.DTO_VERIFICATION_PATTERN_STRING_EXPECTED, field.getName(), field.getType());
-                        }
-                        String string = ((String) v);
-
-                        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(((Pattern) annotation).regexp());
-
-                        if (!pattern.matcher(string).find()) {
-
-                            //build error message
-                            errorMessage += translationService.getTranslation(((Pattern) annotation).message(), language, field.getName(), ((Pattern) annotation).regexp()) + "\n";
-                        }
-                    }
-
-                } else if (annotation instanceof Size) {
-
-                    int min = ((Size) annotation).min();
-                    int max = ((Size) annotation).max();
-
-                    Logger.warn("vvv=>>"+v);
-
-                    if (v != null) {
-
-                        if (v instanceof Collection) {
-
-                            Collection string = ((Collection) v);
-
-                            if (string.size() > max || string.size() < min) {
-
-                                //build error message
-                                errorMessage += translationService.getTranslation(((Size) annotation).message(), language, field.getName(), min, max) + "\n";
-                            }
-                        } else if (v instanceof String) {
-                            String string = ((String) v);
-
-                            if (string.length() > max || string.length() < min) {
-
-                                //build error message
-                                errorMessage += translationService.getTranslation(((Size) annotation).message(), language, field.getName(), min, max) + "\n";
-                            }
-                        } else {
-                            throw new MyRuntimeException(ErrorMessage.DTO_VERIFICATION_PATTERN_STRING_EXPECTED, field.getName(), field.getType());
-                        }
-
-                    }
-
-                }
-            }
-
-            if (errorMessage.length() > 0) {
-                throw new MyRuntimeException(errorMessage);
-            }
-
-            //test subElements
-            if (v != null) {
-
-                if (v instanceof DTO) {
-
-                    Logger.warn("       is a DTO ! => validDTO...");
-
-                    validDTO((DTO) v);
-                } else if (v instanceof Collection) {
-
-                    Logger.warn("       is a collection !");
-
-                    for (Object obj : ((Collection<?>) v)) {
-
-                        Logger.warn("           collection obj : " + obj);
-
-                        if (obj instanceof DTO) {
-                            Logger.warn("               is a dto !! call validDTO...");
-
-                            validDTO((DTO) obj);
-                        }
-                    }
-                }
-            }
-        }
     }
 }

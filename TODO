@@ -1,0 +1,5 @@
+validation :
+    - tester champs enfants
+    - controller message d'erreur avec param
+Lang
+    - tjrs en fr ?

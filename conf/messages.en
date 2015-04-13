@@ -128,3 +128,26 @@ VALIDATION_PASSWORD=Please use between 6 and 18 letters, numbers or -_
 VALIDATION_EMAIL=Email expected
 NOT_YOU_COMMENT=This is not your comment {0}
 NOT_YOUR_FILE=This is not your file
+
+
+validation.dto.notNull={field} cannot be null
+validation.dto.size={field} must have between {min} and {max} characters
+validation.dto.email=Email expected
+validation.dto.password=Password must have between 6 and 18 letters or numbers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

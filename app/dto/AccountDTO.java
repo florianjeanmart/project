@@ -1,10 +1,12 @@
 package dto;
 
 import dto.technical.DTO;
-import dto.technical.verification.NotNull;
-import dto.technical.verification.Pattern;
-import dto.technical.verification.Size;
 import util.ErrorMessage;
+import util.constants.ValidationRegex;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * Created by florian on 11/11/14.
@@ -13,19 +15,19 @@ public class AccountDTO extends DTO {
 
     private Long id;
 
-    @NotNull
+    @NotNull(message = "validation.dto.notNull")
     private Boolean male;
 
-    @NotNull
-    @Size(min = 2,max =50)
+    @NotNull(message = "validation.dto.notNull")
+    @Size(min = 2,max =50,message = "validation.dto.size")
     private String firstname;
 
-    @NotNull
-    @Size(min = 2,max =50)
+    @NotNull(message = "validation.dto.notNull")
+    @Size(min = 2,max =50,message = "validation.dto.size")
     private String lastname;
 
-    @NotNull
-    @Pattern(regexp = Pattern.EMAIL,message = ErrorMessage.VALIDATION_EMAIL)
+    @NotNull(message = "validation.dto.notNull")
+    @Pattern(regexp = ValidationRegex.EMAIL,message = "validation.dto.message")
     private String email;
 
     private Boolean isAdmin;

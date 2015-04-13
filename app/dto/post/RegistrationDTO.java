@@ -1,10 +1,11 @@
 package dto.post;
 
 import dto.technical.DTO;
-import dto.technical.verification.NotNull;
-import dto.technical.verification.Pattern;
 import org.hibernate.validator.constraints.Email;
 import util.ErrorMessage;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 
 /**
@@ -15,16 +16,16 @@ public class RegistrationDTO extends DTO {
     @NotNull
     private Boolean male;
 
-    @Pattern(regexp = ".{2,50}",message = ErrorMessage.VALIDATION_SIZE)
+    @Pattern(regexp = ".{2,50}",message = "validation.dto.size")
     private String firstname;
 
-    @Pattern(regexp = ".{2,50}",message = ErrorMessage.VALIDATION_SIZE)
+    @Pattern(regexp = ".{2,50}",message = "validation.dto.size")
     private String lastname;
 
-    @Pattern(regexp = Pattern.EMAIL,message = ErrorMessage.VALIDATION_EMAIL)
+    @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",message = "validation.dto.email")
     private String email;
 
-    @Pattern(regexp = "[a-zA-Z0-9-_]{6,18}",message = ErrorMessage.VALIDATION_PASSWORD)
+    @Pattern(regexp = "[a-zA-Z0-9-_]{6,18}",message = "validation.dto.password")
     private String password;
 
     private String lang;

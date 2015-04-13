@@ -1,17 +1,19 @@
 package dto.post;
 
 import dto.technical.DTO;
-import dto.technical.verification.NotNull;
-import dto.technical.verification.Pattern;
 import util.ErrorMessage;
+import util.constants.ValidationRegex;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  * Created by florian on 4/03/15.
  */
 public class ForgotPasswordDTO extends DTO{
 
-    @NotNull
-    @Pattern(regexp = Pattern.EMAIL,message = ErrorMessage.VALIDATION_EMAIL)
+    @NotNull(message = "validation.dto.notNull")
+    @Pattern(regexp = ValidationRegex.EMAIL,message = "validation.dto.email")
     private String email;
 
     public String getEmail() {

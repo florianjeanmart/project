@@ -26,11 +26,16 @@ public class TranslationServiceImpl implements TranslationService {
     @Override
     public TranslationsDTO getTranslations(Lang lang) {
 
-        Option<Map<String, String>> mapExpected = Play.current().plugin(MessagesPlugin.class).get().api().messages().get(lang.code());
+        java.util.Map<String, String> m = new java.util.HashMap<>();
 
-        //convert
-        java.util.Map<String,String> m = new java.util.HashMap<>();
-        m.putAll(JavaConverters.mapAsJavaMapConverter(mapExpected.get()).asJava());
+        if(lang!=null) {
+            Option<Map<String, String>> mapExpected = Play.current().plugin(MessagesPlugin.class).get().api().messages().get(lang.code());
+
+            if(mapExpected.nonEmpty()) {
+                //convert
+                m.putAll(JavaConverters.mapAsJavaMapConverter(mapExpected.get()).asJava());
+            }
+        }
 
         if(!lang.code().equals("en")) {
 
@@ -44,6 +49,7 @@ public class TranslationServiceImpl implements TranslationService {
                 }
             }
         }
+
         return new TranslationsDTO(m);
     }
 

@@ -1,11 +1,12 @@
 package dto.post;
 
 import dto.technical.DTO;
-import dto.technical.verification.NotNull;
-import dto.technical.verification.Pattern;
-import dto.technical.verification.Size;
 import play.data.validation.Constraints;
 import util.ErrorMessage;
+import util.constants.ValidationRegex;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 
 /**
@@ -13,12 +14,12 @@ import util.ErrorMessage;
  */
 public class LoginDTO extends DTO {
 
-    @NotNull
-    @Pattern(regexp = Pattern.EMAIL,message = ErrorMessage.VALIDATION_EMAIL)
+    @NotNull(message = "validation.dto.notNull")
+    @Pattern(regexp = ValidationRegex.EMAIL,message = "validation.dto.email")
     private String email;
 
-    @NotNull
-    @Pattern(regexp = Pattern.PASSWORD,message = ErrorMessage.VALIDATION_PASSWORD)
+    @NotNull(message = "validation.dto.notNull")
+    @Pattern(regexp = ValidationRegex.PASSWORD,message = "validation.dto.password")
     private String password;
 
     private Boolean keepSessionOpen;
