@@ -2,4 +2,9 @@ validation :
     - tester champs enfants
     - controller message d'erreur avec param
 Lang
-    - tjrs en fr ?
+ok    - tjrs en fr ?
+ok - mettre en place le debugger
+...- spring ?
+...- email : dégraisser.
+- resteasy
+ok - securité

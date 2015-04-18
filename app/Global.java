@@ -1,5 +1,5 @@
-import controllers.technical.security.SecurityRestController;
-import dto.technical.ExceptionDTO;
+import be.flo.project.controller.technical.security.CommonSecurityController;
+import be.flo.project.dto.technical.ExceptionDTO;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -13,9 +13,9 @@ import play.mvc.Http;
 import play.mvc.Results;
 import play.mvc.SimpleResult;
 import scala.concurrent.duration.Duration;
-import services.TranslationService;
-import services.impl.TranslationServiceImpl;
-import util.exception.MyRuntimeException;
+import be.flo.project.service.TranslationService;
+import be.flo.project.service.impl.TranslationServiceImpl;
+import be.flo.project.util.exception.MyRuntimeException;
 
 import java.util.concurrent.TimeUnit;
 
@@ -63,8 +63,8 @@ public class Global extends GlobalSettings {
 
         //load language expected
         Lang language;
-        if (request.getHeader(SecurityRestController.REQUEST_HEADER_LANGUAGE) != null) {
-            language = Lang.forCode(request.getHeader(SecurityRestController.REQUEST_HEADER_LANGUAGE));
+        if (request.getHeader(CommonSecurityController.REQUEST_HEADER_LANGUAGE) != null) {
+            language = Lang.forCode(request.getHeader(CommonSecurityController.REQUEST_HEADER_LANGUAGE));
         }
         else {
             language = Lang.availables().get(0);

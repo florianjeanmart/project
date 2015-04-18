@@ -1,0 +1,45 @@
+2015-04-18 18:45:09,910 - [INFO] - from play in pool-4-thread-1 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-04-18 18:45:12,981 - [WARN] - from play in play-internal-execution-context-1 
+Plugin [be.flo.project.plugin.S3Plugin] is disabled
+
+2015-04-18 18:45:13,428 - [INFO] - from play in play-internal-execution-context-1 
+datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
+
+2015-04-18 18:45:13,533 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost/project
+
+2015-04-18 18:45:15,749 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-04-18 18:45:47,960 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
+MAPPER INITIALIZATION
+
+2015-04-18 18:45:48,290 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
+LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
+
+2015-04-18 18:45:48,303 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
+Account{male=true, firstname='flor', lastname='jean', email='florian.jeanmart@gmail.com', authenticationKey='UbwY+d0aMe62gqeJ8CjFI904ODtRYy0on8VIaMXlSh16RIcZukoATXVNg3Xql91i', language='Lang(en,)', keepSessionOpen=false, password='xE9w9anZcYjkHXWQIbYMl6+SHker+gSBxaR/Sw2LgPXgO8NPTvd+LWeYiyzC+528'}<=>AccountDTO{id=1, male=true, firstname='flor', lastname='jean', email='florian.jeanmart@gmail.com', roles=[ADMIN], lang=LangDTO{language='en', code='en'}, keepSessionOpen=false}
+
+2015-04-18 18:45:48,311 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
+LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
+
+2015-04-18 18:45:48,311 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
+Lang(en,)<=>LangDTO{language='en', code='en'}
+
+2015-04-18 18:46:27,583 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
+MAPPER INITIALIZATION
+
+2015-04-18 18:46:27,612 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
+LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
+
+2015-04-18 18:46:27,614 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
+Account{male=true, firstname='flor', lastname='jean', email='florian.jeanmart@gmail.com', authenticationKey='UbwY+d0aMe62gqeJ8CjFI904ODtRYy0on8VIaMXlSh16RIcZukoATXVNg3Xql91i', language='Lang(en,)', keepSessionOpen=false, password='xE9w9anZcYjkHXWQIbYMl6+SHker+gSBxaR/Sw2LgPXgO8NPTvd+LWeYiyzC+528'}<=>AccountDTO{id=1, male=true, firstname='flor', lastname='jean', email='florian.jeanmart@gmail.com', roles=[ADMIN], lang=LangDTO{language='en', code='en'}, keepSessionOpen=false}
+
+2015-04-18 18:46:27,615 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
+LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
+
+2015-04-18 18:46:27,615 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
+Lang(en,)<=>LangDTO{language='en', code='en'}
+
