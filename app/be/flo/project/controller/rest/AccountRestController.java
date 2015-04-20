@@ -8,8 +8,8 @@ import be.flo.project.dto.ChangePasswordDTO;
 import be.flo.project.model.entities.Account;
 import play.db.jpa.Transactional;
 import play.i18n.Lang;
+import play.mvc.Http;
 import play.mvc.Result;
-import play.mvc.Security;
 import be.flo.project.service.AccountService;
 import be.flo.project.service.impl.AccountServiceImpl;
 import be.flo.project.util.ErrorMessage;
@@ -23,10 +23,15 @@ public class AccountRestController extends AbstractRestController {
     //service
     private AccountService accountService = new AccountServiceImpl();
 
+    @Transactional
+    @SecurityAnnotation(role = RoleEnum.USER)
+    public Result myself(){
+        return ok(getMapper().map(securityController.getCurrentUser(), AccountDTO.class));
+    }
 
 
     @Transactional
-    @SecurityAnnotation(role = RoleEnum.CUSTOMER)
+    @SecurityAnnotation(role = RoleEnum.USER)
     public Result editAccount(long id){
 
         AccountDTO dto = extractDTOFromRequest(AccountDTO.class);
@@ -59,7 +64,7 @@ public class AccountRestController extends AbstractRestController {
     }
 
     @Transactional
-    @SecurityAnnotation(role = RoleEnum.CUSTOMER)
+    @SecurityAnnotation(role = RoleEnum.USER)
     public Result changePassword(long id) {
 
         //contorl it's myself'
@@ -85,7 +90,7 @@ public class AccountRestController extends AbstractRestController {
     }
 
     @Transactional
-    @SecurityAnnotation(role = RoleEnum.CUSTOMER)
+    @SecurityAnnotation(role = RoleEnum.USER)
     public Result changeEmail(long id) {
 
         //control it's myself

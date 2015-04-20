@@ -33,6 +33,17 @@ public class MyRuntimeException  extends RuntimeException{
     }
 
     @Override
+    public String getMessage(){
+        if(super.getMessage()!=null){
+            return super.getMessage();
+        }
+        else if(errorMessage!=null){
+            return errorMessage.name();
+        }
+        return "??";
+    }
+
+    @Override
     public String toString() {
         return "MyRuntimeException{" +super.toString()+","+
                 "errorMessage=" + errorMessage +

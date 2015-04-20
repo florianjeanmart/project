@@ -26,7 +26,8 @@ object ApplicationBuild extends Build {
     "org.apache.commons" % "commons-email" % "1.3.1",
     "commons-io" % "commons-io" % "2.3",
     "com.amazonaws" % "aws-java-sdk" % "1.8.5",
-    "net.sf.dozer" % "dozer" % "5.5.1"
+    "net.sf.dozer" % "dozer" % "5.5.1",
+    "org.jboss.resteasy"%"resteasy-jaxrs"%"2.2.1.GA"
   )
 
   val main = play.Project(name, version, appDependencies)

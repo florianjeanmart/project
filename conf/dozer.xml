@@ -11,6 +11,11 @@
                 <class-b>be.flo.project.dto.LangDTO</class-b>
             </converter>
 
+            <converter type="be.flo.project.converter.RoleConverter">
+                <class-a>be.flo.project.model.entities.Role</class-a>
+                <class-b>be.flo.project.controller.technical.security.role.RoleEnum</class-b>
+            </converter>
+
         </custom-converters>
 
     </configuration>

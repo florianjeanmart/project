@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import play.Logger;
 import play.mvc.Content;
 import be.flo.project.util.ErrorMessage;
 import be.flo.project.util.exception.MyRuntimeException;
@@ -26,6 +27,7 @@ public class DTO implements Content {
         if (data != null) {
             ObjectMapper mapper = new ObjectMapper();
             JsonParser jp = data.traverse();
+            Logger.info("DTO:"+data.asText());
             try {
                 T dto = mapper.readValue(jp, type);
 

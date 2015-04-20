@@ -7,9 +7,11 @@ import be.flo.project.dto.LoginSuccessDTO;
 import be.flo.project.dto.post.LoginDTO;
 import be.flo.project.dto.post.RegistrationDTO;
 import be.flo.project.model.entities.Account;
+import be.flo.project.model.entities.Role;
 import be.flo.project.model.entities.Session;
+import play.Logger;
 import play.db.jpa.Transactional;
-import play.i18n.Lang;
+import play.mvc.Http;
 import play.mvc.Result;
 import be.flo.project.service.AccountService;
 import be.flo.project.service.SessionService;
@@ -40,8 +42,9 @@ public class LoginRestController extends AbstractRestController {
 
         LoginSuccessDTO result = new LoginSuccessDTO();
         result.setMyself(getMapper().map(account, AccountDTO.class));
-        result.setAuthenticationKey(account.getAuthenticationKey());
-
+        if (dto.getKeepSessionOpen()) {
+            result.setAuthenticationKey(account.getAuthenticationKey());
+        }
 
         //session
         sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
@@ -65,7 +68,11 @@ public class LoginRestController extends AbstractRestController {
         //account
 
         Account account = getMapper().map(dto,Account.class);
-        account.getRoles().add(RoleEnum.CUSTOMER);
+        account.setId(null);
+        if(account.getLang() == null){
+            account.setLang(lang());
+        }
+        account.getRoles().add(new Role(account,RoleEnum.USER));
 
 
         if (dto.getLang() != null) {
@@ -86,6 +93,9 @@ public class LoginRestController extends AbstractRestController {
 
         //storage
         securityController.storeAccount(ctx(),account);
+
+
+        Logger.info("sesssssssion:" + ctx().session().get("email"));
 
         return ok(result);
 

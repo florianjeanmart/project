@@ -15,6 +15,7 @@ POST        /rest/registration                @be.flo.project.controller.rest.Lo
 GET         /rest/logout                      @be.flo.project.controller.rest.LoginRestController.logout()
 
 ##account
+GET         /rest/myself                      @be.flo.project.controller.rest.AccountRestController.myself()
 PUT         /rest/account/:id                 @be.flo.project.controller.rest.AccountRestController.editAccount(id:Long)
 PUT         /rest/account/email/:id           @be.flo.project.controller.rest.AccountRestController.changeEmail(id:Long)
 PUT         /rest/account/password/:id        @be.flo.project.controller.rest.AccountRestController.changePassword(id:Long)

@@ -16,5 +16,5 @@ import java.lang.annotation.*;
 @Inherited
 @Documented
 public @interface SecurityAnnotation {
-	RoleEnum role() default RoleEnum.CUSTOMER;
+	RoleEnum role() default RoleEnum.USER;
 }

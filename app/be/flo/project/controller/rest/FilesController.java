@@ -28,7 +28,7 @@ public class FilesController extends AbstractRestController {
      * @return
      */
     @Transactional(readOnly = false)
-    @SecurityAnnotation(role = RoleEnum.CUSTOMER)
+    @SecurityAnnotation(role = RoleEnum.USER)
     public Result upload() {
 
         MultipartFormData body = Controller.request().body().asMultipartFormData();
@@ -67,7 +67,7 @@ public class FilesController extends AbstractRestController {
       download a file by is storedFileId
      */
     @Transactional(readOnly = true)
-    @SecurityAnnotation(role = RoleEnum.CUSTOMER)
+    @SecurityAnnotation(role = RoleEnum.USER)
     public Result download(long storedFileId) {
 
         //get the storedFile

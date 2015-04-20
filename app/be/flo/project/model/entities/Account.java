@@ -6,7 +6,9 @@ import be.flo.project.model.entities.technical.AbstractEntity;
 import play.i18n.Lang;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by florian on 10/11/14.
@@ -62,19 +64,29 @@ public class Account extends AbstractEntity {
     @Column(nullable = false)
     private String password;
 
-    @ElementCollection
-    @Enumerated(value = EnumType.STRING)
-    private List<RoleEnum> roles;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "account",orphanRemoval = true,fetch = FetchType.EAGER)
+    private List<Role> roles = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "account",orphanRemoval = true)
+    private Set<Session> sessions;
 
 
     public Account() {
     }
 
-    public List<RoleEnum> getRoles() {
+    public Set<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(Set<Session> sessions) {
+        this.sessions = sessions;
+    }
+
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<RoleEnum> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 

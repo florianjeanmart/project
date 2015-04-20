@@ -19,6 +19,7 @@ public abstract class AbstractEntity implements Serializable {
 
     public static final String COL_ID = "id";
     public static final String PARAM_ID = COL_ID;
+    public static final String TEST_USER = "TEST_USER";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,7 +62,7 @@ public abstract class AbstractEntity implements Serializable {
 
     private static String getCurrentUser() {
         if (Play.application().isTest()) {
-            return "TEST_USER";
+            return TEST_USER;
         }
         if (Http.Context.current.get() == null) {
             return "TECHNICAL";

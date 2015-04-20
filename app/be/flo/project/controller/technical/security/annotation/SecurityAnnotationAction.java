@@ -1,6 +1,8 @@
 package be.flo.project.controller.technical.security.annotation;
 
 import be.flo.project.controller.technical.security.CommonSecurityController;
+import be.flo.project.controller.technical.security.role.RoleEnum;
+import be.flo.project.model.entities.Role;
 import be.flo.project.service.TranslationService;
 import be.flo.project.service.impl.TranslationServiceImpl;
 import play.libs.F;
@@ -18,10 +20,17 @@ public class SecurityAnnotationAction extends Action<SecurityAnnotation> {
     @Override
     public F.Promise<SimpleResult> call(final Http.Context context) throws Throwable {
 
-        if (securityController.isAuthenticated(context) &&
-                securityController.getCurrentUser().getRoles().contains(configuration.role())) {
-            return delegate.call(context);
+        if (securityController.isAuthenticated(context)) {
+            for (Role role : securityController.getCurrentUser().getRoles()) {
+                if (role.getRoleEnum().equals(configuration.role()) ||
+                        role.getRoleEnum().getChildren().contains(configuration.role())) {
+                    return delegate.call(context);
+
+                }
+            }
+
         }
+
         return F.Promise.promise(new F.Function0<SimpleResult>() {
             @Override
             public SimpleResult apply() throws Throwable {

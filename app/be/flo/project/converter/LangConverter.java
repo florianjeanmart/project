@@ -18,6 +18,9 @@ public class LangConverter extends DozerConverter<Lang, LangDTO> implements Cust
     @Override
     public LangDTO convertTo(Lang lang, LangDTO langDTO) {
 
+        if(lang==null){
+            return null;
+        }
         LangDTO dto = new LangDTO();
 
         dto.setCode(lang.code());
@@ -29,6 +32,9 @@ public class LangConverter extends DozerConverter<Lang, LangDTO> implements Cust
 
     @Override
     public Lang convertFrom(LangDTO langDTO, Lang lang) {
+        if(langDTO==null){
+            return null;
+        }
         return Lang.forCode(langDTO.getCode());
     }
 }

@@ -1,6 +1,6 @@
 package be.flo.project.model.entities;
 
-import be.flo.project.controller.technical.security.SourceEnum;
+import be.flo.project.controller.technical.security.source.SourceEnum;
 import be.flo.project.model.entities.technical.AbstractEntity;
 
 import javax.persistence.*;
