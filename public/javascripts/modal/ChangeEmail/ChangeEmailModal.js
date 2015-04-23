@@ -60,7 +60,7 @@ myApp.controller('ChangeEmailModalCtrl', function ($scope, $http, $flash, $modal
 
             $http({
                 'method': "PUT",
-                'url': "/rest/account/email/"+account.id,
+                'url': "/account/email/"+account.id,
                 'headers': "Content-Type:application/json",
                 'data': dto
             }).success(function (data, status) {

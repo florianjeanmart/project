@@ -1,13 +1,15 @@
 package be.flo.project.controller.technical;
 
 import be.flo.project.controller.technical.security.CommonSecurityController;
+import be.flo.project.util.dozer.DozerServiceImpl;
+import be.flo.project.util.dozer.MyDozerClassLoader;
 import com.fasterxml.jackson.databind.JsonNode;
 import be.flo.project.dto.technical.DTO;
 import org.dozer.config.BeanContainer;
+import org.springframework.beans.factory.annotation.Autowired;
 import play.Logger;
 import play.mvc.Controller;
 import be.flo.project.service.TranslationService;
-import be.flo.project.service.impl.TranslationServiceImpl;
 import be.flo.project.util.ErrorMessage;
 import be.flo.project.util.exception.MyRuntimeException;
 
@@ -28,33 +30,13 @@ import javax.validation.ValidatorFactory;
 public abstract class AbstractController extends Controller {
 
     //controllers
-    protected final CommonSecurityController securityController = new CommonSecurityController();
+    @Autowired
+    protected CommonSecurityController securityController;
     //service
-    protected final TranslationService translationService = new TranslationServiceImpl();
-    //dozer
-    private Mapper mapper;
-
-    public Mapper getMapper() {
-        if (mapper == null) {
-            //initialize mapper
-            Logger.info("MAPPER INITIALIZATION");
-
-            DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
-
-            try {
-
-                BeanContainer.getInstance().setClassLoader(new MyDozerClassLoader());
-                dozerBeanMapper.addMapping(getClass().getResourceAsStream("/dozer.xml"));
-
-                mapper = dozerBeanMapper;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        return mapper;
-    }
+    @Autowired
+    protected TranslationService translationService;
+    @Autowired
+    protected DozerServiceImpl dozerService;
 
     /**
      * this function control the dto (via play.validation annotation) and return it if it's valid, or throw a runtimeException with an error message if not.

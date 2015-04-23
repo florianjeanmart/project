@@ -43,7 +43,7 @@ myApp.controller('DownloadFieldModalCtrl', function ($scope, $http, $flash, $mod
 
             $http({
                 'method': "PUT",
-                'url': "/rest/account/email/"+account.id,
+                'url': "/account/email/"+account.id,
                 'headers': "Content-Type:application/json",
                 'data': dto
             }).success(function (data, status) {

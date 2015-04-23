@@ -30,7 +30,7 @@ public class AccountRestControllerTest extends AbstractControllerTest {
         registration();
 
         //load user
-        Result result = request(GET, "/rest/myself");
+        Result result = request(GET, "/myself");
 
         assertEquals(printError(result), 200, status(result));
 
@@ -46,7 +46,7 @@ public class AccountRestControllerTest extends AbstractControllerTest {
         registration();
 
         //load
-        AccountDTO myself = requestWithDTo(GET, "/rest/myself", AccountDTO.class);
+        AccountDTO myself = requestWithDTo(GET, "/myself", AccountDTO.class);
 
         assertNotNull(myself.getId());
 
@@ -56,7 +56,7 @@ public class AccountRestControllerTest extends AbstractControllerTest {
         myself.setEmail(EMAIL2);
 
         //save
-        myself = requestWithDTo(PUT, "/rest/account/" + myself.getId(), myself, AccountDTO.class);
+        myself = requestWithDTo(PUT, "/account/" + myself.getId(), myself, AccountDTO.class);
 
         //test
         assertEquals(FIRSTNAME2, myself.getFirstname());

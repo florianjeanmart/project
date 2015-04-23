@@ -107,7 +107,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
 
             $http({
                 'method': "PUT",
-                'url': "/rest/account/"+account.id,
+                'url': "/account/"+account.id,
                 'headers': "Content-Type:application/json",
                 'data': dto
             }).success(function (data, status) {

@@ -10,19 +10,19 @@ GET         /assets/*file                     controllers.Assets.at(path="/publi
 #
 
 ## account
-POST        /rest/login                       @be.flo.project.controller.rest.LoginRestController.login()
-POST        /rest/registration                @be.flo.project.controller.rest.LoginRestController.registration()
-GET         /rest/logout                      @be.flo.project.controller.rest.LoginRestController.logout()
+POST        /login                       @be.flo.project.controller.rest.LoginRestController.login()
+POST        /registration                @be.flo.project.controller.rest.LoginRestController.registration()
+GET         /logout                      @be.flo.project.controller.rest.LoginRestController.logout()
 
 ##account
-GET         /rest/myself                      @be.flo.project.controller.rest.AccountRestController.myself()
-PUT         /rest/account/:id                 @be.flo.project.controller.rest.AccountRestController.editAccount(id:Long)
-PUT         /rest/account/email/:id           @be.flo.project.controller.rest.AccountRestController.changeEmail(id:Long)
-PUT         /rest/account/password/:id        @be.flo.project.controller.rest.AccountRestController.changePassword(id:Long)
+GET         /myself                      @be.flo.project.controller.rest.AccountRestController.myself()
+PUT         /account/:id                 @be.flo.project.controller.rest.AccountRestController.editAccount(id:Long)
+PUT         /account/email/:id           @be.flo.project.controller.rest.AccountRestController.changeEmail(id:Long)
+PUT         /account/password/:id        @be.flo.project.controller.rest.AccountRestController.changePassword(id:Long)
 
 #file
-POST        /rest/file/                      @be.flo.project.controller.rest.FilesController.upload()
-GET         /rest/file/:storedFileId         @be.flo.project.controller.rest.FilesController.download(storedFileId: Long)
+POST        /file/                      @be.flo.project.controller.rest.FilesController.upload()
+GET         /file/:storedFileId         @be.flo.project.controller.rest.FilesController.download(storedFileId: Long)
 
 ##welcome
-GET         /                                 @be.flo.project.controller.MainController.mainPage()
+GET         /                           @be.flo.project.controller.MainController.mainPage()

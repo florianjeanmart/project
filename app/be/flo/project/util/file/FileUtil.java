@@ -9,9 +9,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created by gaetan on 7/7/14.
- */
 public class FileUtil {
 
 

@@ -4,11 +4,13 @@ import be.flo.project.model.entities.Account;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 import be.flo.project.service.AccountService;
 import be.flo.project.util.KeyGenerator;
+import org.springframework.stereotype.Repository;
 import play.db.jpa.JPA;
 
 /**
  * Created by florian on 10/11/14.
  */
+@Repository
 public class AccountServiceImpl extends CrudServiceImpl<Account> implements AccountService {
 
     @Override

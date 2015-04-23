@@ -16,6 +16,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import play.Logger;
 import play.api.Play;
 import be.flo.project.service.VelocityGeneratorService;
@@ -27,19 +28,13 @@ import java.io.StringWriter;
 import java.util.Iterator;
 import java.util.Map;
 
-@Component
+@Repository
 public class VelocityGeneratorServiceImpl implements VelocityGeneratorService {
 
 	//TODO set a application.conf variable
 	private String ROOT = "public/vm/";
 	private String ROOT_PROD = "/app/public/vm/";
-/*
-	public Result ok(String templateName, Map value<s) {
 
-		Html html = new Html(new scala.collection.mutable.StringBuilder(generate(templateName, values)));
-		return Results.ok(html);
-	}
-*/
 	public String generate(String templateName, Map values) {
 
 		InputStream in = Play.classloader(Play.current()).getResourceAsStream(ROOT+templateName);

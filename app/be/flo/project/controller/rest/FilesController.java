@@ -10,6 +10,7 @@ import be.flo.project.util.ErrorMessage;
 import be.flo.project.util.KeyGenerator;
 import be.flo.project.util.exception.MyRuntimeException;
 import be.flo.project.util.file.FileUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Http.MultipartFormData;
@@ -20,9 +21,11 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.List;
 
+@org.springframework.stereotype.Controller
 public class FilesController extends AbstractRestController {
 
-    private StoredFileService storedFileService = new StoredFileServiceImpl();
+    @Autowired
+    private StoredFileService storedFileService;
 
     /**
      * @return

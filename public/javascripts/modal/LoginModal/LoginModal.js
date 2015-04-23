@@ -64,7 +64,7 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
 
             $http({
                 'method': "POST",
-                'url': "/rest/login",
+                'url': "/login",
                 'headers': "Content-Type:application/json",
                 'data': dto
             }).success(function (data, status) {

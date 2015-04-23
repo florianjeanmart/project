@@ -7,16 +7,20 @@ import be.flo.project.service.TranslationService;
 import be.flo.project.service.impl.EmailServiceImpl;
 import be.flo.project.service.impl.TranslationServiceImpl;
 import be.flo.project.util.EmailMessage;
+import org.springframework.beans.factory.annotation.Autowired;
 import play.db.jpa.Transactional;
 
 /**
  * Created by florian on 6/12/14.
  */
+@org.springframework.stereotype.Controller
 public class EmailController extends AbstractController {
 
     //service
-    private EmailService emailService = new EmailServiceImpl();
-    private TranslationService translationService = new TranslationServiceImpl();
+    @Autowired
+    private EmailService emailService;
+    @Autowired
+    private TranslationService translationService;
 
     @Transactional
     public void sendApplicationRegistrationEmail(Account account){

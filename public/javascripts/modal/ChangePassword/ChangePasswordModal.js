@@ -72,7 +72,7 @@ myApp.controller('ChangePasswordModalCtrl', function ($scope, $http, $flash, $mo
 
             $http({
                 'method': "PUT",
-                'url': "/rest/account/password/" + account.id,
+                'url': "/account/password/" + account.id,
                 'headers': "Content-Type:application/json",
                 'data': dto
             }).success(function (data, status) {

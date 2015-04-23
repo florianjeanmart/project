@@ -107,7 +107,7 @@ myApp.controller('RegistrationModalCtrl', function ($scope, $http, $flash, $moda
 
             $http({
                 'method': "POST",
-                'url': "/rest/registration",
+                'url': "/registration",
                 'headers': "Content-Type:application/json",
                 'data': dto
             }).success(function (data, status) {

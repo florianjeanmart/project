@@ -1,4 +1,4 @@
-package be.flo.project.controller.technical;
+package be.flo.project.util.dozer;
 
 import org.dozer.util.DozerClassLoader;
 import play.Application;

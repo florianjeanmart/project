@@ -42,7 +42,7 @@ public class LoginRestControllerTest extends AbstractControllerTest{
         dto.setPassword(PASSWORD);
         dto.setKeepSessionOpen(true);
 
-        Result result = request(POST, "/rest/registration", dto);
+        Result result = request(POST, "/registration", dto);
 
         assertEquals(printError(result), 200, status(result));
 
@@ -66,7 +66,7 @@ public class LoginRestControllerTest extends AbstractControllerTest{
     @Test
     public void test2_login(){
 
-        Result result = request(POST, "/rest/login", new LoginDTO(EMAIL,PASSWORD));
+        Result result = request(POST, "/login", new LoginDTO(EMAIL,PASSWORD));
 
         LoginSuccessDTO formDTO = Json.fromJson(Json.parse(new String(contentAsBytes(result))), LoginSuccessDTO.class);
 

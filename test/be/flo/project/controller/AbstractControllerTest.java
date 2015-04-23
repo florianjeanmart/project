@@ -63,7 +63,7 @@ public abstract class AbstractControllerTest {
 
             //try load
             try {
-                Result request = request(POST, "/rest/login", new LoginDTO(EMAIL, PASSWORD));
+                Result request = request(POST, "/login", new LoginDTO(EMAIL, PASSWORD));
             }catch (MyRuntimeException e){
                 RegistrationDTO dto = new RegistrationDTO();
                 dto.setFirstname(FIRSTNAME);
@@ -73,7 +73,7 @@ public abstract class AbstractControllerTest {
                 dto.setPassword(PASSWORD);
                 dto.setKeepSessionOpen(true);
 
-                Result result = request(POST, "/rest/registration", dto);
+                Result result = request(POST, "/registration", dto);
 
                 assertEquals(printError(result), 200, status(result));
             }

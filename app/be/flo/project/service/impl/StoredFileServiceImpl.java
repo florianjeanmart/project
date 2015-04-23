@@ -2,8 +2,10 @@ package be.flo.project.service.impl;
 
 import be.flo.project.model.entities.StoredFile;
 import be.flo.project.service.StoredFileService;
+import org.springframework.stereotype.Repository;
 import play.db.jpa.JPA;
 
+@Repository
 public class StoredFileServiceImpl extends CrudServiceImpl<StoredFile> implements StoredFileService {
 
     @Override

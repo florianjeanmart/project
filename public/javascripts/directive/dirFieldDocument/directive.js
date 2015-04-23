@@ -47,7 +47,7 @@ myApp.directive("dirFieldDocument", function(directiveService, $upload, $flash, 
 
                     scope.download = function(){
                       if(scope.getInfo().field!=null){
-                          var url = "/rest/file/"+scope.getInfo().field.id;
+                          var url = "/file/"+scope.getInfo().field.id;
                           $window.open(url);
                       }
                     };
@@ -61,7 +61,7 @@ myApp.directive("dirFieldDocument", function(directiveService, $upload, $flash, 
 
 
                             scope.upload = $upload.upload({
-                                url: "/rest/file/",
+                                url: "/file/",
                                 data: {
                                     myObj: scope.myModelObj
                                 },
@@ -80,7 +80,7 @@ myApp.directive("dirFieldDocument", function(directiveService, $upload, $flash, 
                                 });
                             /*
                             scope.upload = $upload.upload({
-                                url: "/rest/file/",
+                                url: "/file/",
                                 data: {
                                     myObj: scope.myModelObj
                                 },

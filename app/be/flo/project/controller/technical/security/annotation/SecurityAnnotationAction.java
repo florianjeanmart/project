@@ -5,15 +5,18 @@ import be.flo.project.controller.technical.security.role.RoleEnum;
 import be.flo.project.model.entities.Role;
 import be.flo.project.service.TranslationService;
 import be.flo.project.service.impl.TranslationServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import play.libs.F;
 import play.mvc.Action;
 import play.mvc.Http;
 import play.mvc.SimpleResult;
-
+@Service
 public class SecurityAnnotationAction extends Action<SecurityAnnotation> {
 
     //controllers
-    protected CommonSecurityController securityController = new CommonSecurityController();
+    @Autowired
+    protected CommonSecurityController securityController;
 
     private TranslationService translationService = new TranslationServiceImpl();
 

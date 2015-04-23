@@ -16,6 +16,7 @@ import play.mvc.SimpleResult;
 /**
  * Created by florian on 10/11/14.
  */
+@org.springframework.stereotype.Controller
 public class CommonSecurityController extends Security.Authenticator {
 
     //recover the language into the http request

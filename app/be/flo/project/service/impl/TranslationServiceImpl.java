@@ -3,6 +3,7 @@ package be.flo.project.service.impl;
 import be.flo.project.dto.TranslationsDTO;
 import be.flo.project.model.entities.Translation;
 import be.flo.project.model.entities.TranslationValue;
+import org.springframework.stereotype.Repository;
 import play.api.Play;
 import play.api.i18n.MessagesPlugin;
 import play.i18n.Lang;
@@ -17,6 +18,7 @@ import be.flo.project.util.ErrorMessage;
 /**
  * Created by florian on 11/11/14.
  */
+@Repository
 public class TranslationServiceImpl implements TranslationService {
 
     @Override

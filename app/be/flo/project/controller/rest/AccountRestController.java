@@ -6,6 +6,7 @@ import be.flo.project.dto.AccountDTO;
 import be.flo.project.dto.ChangeEmailDTO;
 import be.flo.project.dto.ChangePasswordDTO;
 import be.flo.project.model.entities.Account;
+import org.springframework.beans.factory.annotation.Autowired;
 import play.db.jpa.Transactional;
 import play.i18n.Lang;
 import play.mvc.Http;
@@ -18,15 +19,17 @@ import be.flo.project.util.exception.MyRuntimeException;
 /**
  * Created by florian on 26/03/15.
  */
+@org.springframework.stereotype.Controller
 public class AccountRestController extends AbstractRestController {
 
     //service
-    private AccountService accountService = new AccountServiceImpl();
+    @Autowired
+    private AccountService accountService;
 
     @Transactional
     @SecurityAnnotation(role = RoleEnum.USER)
     public Result myself(){
-        return ok(getMapper().map(securityController.getCurrentUser(), AccountDTO.class));
+        return ok(dozerService.getMapper().map(securityController.getCurrentUser(), AccountDTO.class));
     }
 
 
@@ -52,7 +55,7 @@ public class AccountRestController extends AbstractRestController {
         if (dto.getLang() != null) {
             Lang lang = Lang.forCode(dto.getLang().getCode());
             if(lang!=null) {
-                account.setLang(getMapper().map(dto.getLang(), Lang.class));
+                account.setLang(dozerService.getMapper().map(dto.getLang(), Lang.class));
                 changeLang(lang.code());
             }
         }
@@ -60,7 +63,7 @@ public class AccountRestController extends AbstractRestController {
         //save
         accountService.saveOrUpdate(account);
 
-        return ok(getMapper().map(account, AccountDTO.class));
+        return ok(dozerService.getMapper().map(account, AccountDTO.class));
     }
 
     @Transactional
@@ -86,7 +89,7 @@ public class AccountRestController extends AbstractRestController {
         //operation
         accountService.saveOrUpdate(account);
 
-        return ok(getMapper().map(account, AccountDTO.class));
+        return ok(dozerService.getMapper().map(account, AccountDTO.class));
     }
 
     @Transactional
@@ -122,6 +125,6 @@ public class AccountRestController extends AbstractRestController {
         securityController.storeAccount(ctx(), account);
 
 
-        return ok(getMapper().map(account, AccountDTO.class));
+        return ok(dozerService.getMapper().map(account, AccountDTO.class));
     }
 }

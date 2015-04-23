@@ -9,6 +9,7 @@ import be.flo.project.dto.post.RegistrationDTO;
 import be.flo.project.model.entities.Account;
 import be.flo.project.model.entities.Role;
 import be.flo.project.model.entities.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import play.Logger;
 import play.db.jpa.Transactional;
 import play.mvc.Http;
@@ -23,11 +24,15 @@ import be.flo.project.util.exception.MyRuntimeException;
 /**
  * Created by florian on 25/03/15.
  */
+@org.springframework.stereotype.Controller
 public class LoginRestController extends AbstractRestController {
 
-    private AccountService accountService = new AccountServiceImpl();
-    private SessionService sessionService = new SessionServiceImpl();
-    private EmailController emailController = new EmailController();
+    @Autowired
+    private AccountService accountService;
+    @Autowired
+    private SessionService sessionService;
+    @Autowired
+    private EmailController emailController;
 
     @Transactional
     public Result login() {
@@ -41,7 +46,7 @@ public class LoginRestController extends AbstractRestController {
         }
 
         LoginSuccessDTO result = new LoginSuccessDTO();
-        result.setMyself(getMapper().map(account, AccountDTO.class));
+        result.setMyself(dozerService.getMapper().map(account, AccountDTO.class));
         if (dto.getKeepSessionOpen()) {
             result.setAuthenticationKey(account.getAuthenticationKey());
         }
@@ -67,7 +72,7 @@ public class LoginRestController extends AbstractRestController {
 
         //account
 
-        Account account = getMapper().map(dto,Account.class);
+        Account account = dozerService.getMapper().map(dto,Account.class);
         account.setId(null);
         if(account.getLang() == null){
             account.setLang(lang());
@@ -88,7 +93,7 @@ public class LoginRestController extends AbstractRestController {
         sessionService.saveOrUpdate(new Session(account,securityController.getSource(ctx())));
 
         LoginSuccessDTO result = new LoginSuccessDTO();
-        result.setMyself(getMapper().map(account, AccountDTO.class));
+        result.setMyself(dozerService.getMapper().map(account, AccountDTO.class));
         result.setAuthenticationKey(account.getAuthenticationKey());
 
         //storage

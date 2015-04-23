@@ -5,6 +5,8 @@ import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.routing.SmallestMailboxRouter;
 import be.flo.project.model.entities.Account;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import play.Configuration;
 import be.flo.project.service.EmailService;
 import be.flo.project.service.VelocityGeneratorService;
@@ -18,10 +20,12 @@ import java.util.Map;
 /**
  * Created by florian on 6/12/14.
  */
+@Repository
 public class EmailServiceImpl implements EmailService {
 
     //services
-    private final VelocityGeneratorService velocityGeneratorService = new VelocityGeneratorServiceImpl();
+    @Autowired
+    private VelocityGeneratorService velocityGeneratorService;
 
     private String projectUrl = Configuration.root().getString("project.url");
     private String projectName = Configuration.root().getString("project.name");

@@ -52,7 +52,7 @@ myApp.controller('ForgotPasswordModalCtrl', function ($scope, $http, $flash, $mo
 
             $http({
                 'method': "PUT",
-                'url': "/rest/password",
+                'url': "/password",
                 'headers': "Content-Type:application/json",
                 'data': dto
             }).success(function (data, status) {
