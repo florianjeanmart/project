@@ -1,9 +1,11 @@
 package be.flo.project.model.entities;
 
 import be.flo.project.controller.technical.security.source.SourceEnum;
+import be.flo.project.model.entities.converter.LocalDateTimePersistenceConverter;
 import be.flo.project.model.entities.technical.AbstractEntity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -15,8 +17,9 @@ public class Session extends AbstractEntity {
     @ManyToOne(optional = false)
     private Account account;
 
-    @Column
-    private Date connectionDate;
+    @Column(columnDefinition = "timestamp")
+    @Convert(converter = LocalDateTimePersistenceConverter.class)
+    private LocalDateTime connectionDate;
 
     @Enumerated(value = EnumType.STRING)
     private SourceEnum source;
@@ -27,7 +30,7 @@ public class Session extends AbstractEntity {
 
     public Session(Account account, SourceEnum source) {
         this.account = account;
-        connectionDate = new Date();
+        connectionDate = LocalDateTime.now();
         this.source = source;
     }
 
@@ -47,11 +50,11 @@ public class Session extends AbstractEntity {
         this.account = account;
     }
 
-    public Date getConnectionDate() {
+    public LocalDateTime getConnectionDate() {
         return connectionDate;
     }
 
-    public void setConnectionDate(Date connectionDate) {
+    public void setConnectionDate(LocalDateTime connectionDate) {
         this.connectionDate = connectionDate;
     }
 

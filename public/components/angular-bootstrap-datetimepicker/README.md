@@ -1,4 +1,4 @@
-# Angular bootstrap date & time picker version: 0.3.8
+# Angular bootstrap date & time picker version: 0.3.12
 ================================
 
 Native AngularJS datetime picker directive styled by Twitter Bootstrap 3
@@ -6,8 +6,11 @@ Native AngularJS datetime picker directive styled by Twitter Bootstrap 3
 [![MIT License][license-image]][license-url]
 [![Build Status](https://travis-ci.org/dalelotts/angular-bootstrap-datetimepicker.png?branch=master)](https://travis-ci.org/dalelotts/angular-bootstrap-datetimepicker)
 [![devDependency Status](https://david-dm.org/dalelotts/angular-bootstrap-datetimepicker/dev-status.png)](https://david-dm.org/dalelotts/angular-bootstrap-datetimepicker#info=devDependencies)
-[![Code Climate](https://codeclimate.com/github/dalelotts/angular-bootstrap-datetimepicker.png)](https://codeclimate.com/github/dalelotts/angular-bootstrap-datetimepicker)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dalelotts/angular-bootstrap-datetimepicker/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![PayPal donate button](http://img.shields.io/paypal/donate.png?color=yellow)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=F3FX5W6S2U4BW&lc=US&item_name=Dale%20Lotts&item_number=angular%2dbootstrap%2ddatetimepicker&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted "Donate one-time to this project using Paypal")
+<a href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fabout.twitter.com%2Fresources%2Fbuttons&amp;text=Check%20out%20this%20%23AngularJS%20directive%20that%20makes%20it%20dead%20simple%20for%20users%20to%20select%20dates%20%26%20times&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fgithub.com%2Fdalelotts%2Fangular-bootstrap-datetimepicker&amp;via=dalelotts" target="_blank">
+  <img src="http://jpillora.com/github-twitter-button/img/tweet.png"></img>
+</a>
+
 
 [Home / demo page](http://dalelotts.github.io/angular-bootstrap-datetimepicker/)
 
@@ -44,14 +47,15 @@ optional:
  * bootstrap's dropdown component (`dropdowns.less`)
 
 #Testing
-We use karma and jshint to ensure the quality of the code. The easiest way to run these checks is to use grunt:
+We use karma and jshint to ensure the quality of the code. The easiest way to run these checks is to use gulp:
 
 ```
-npm install -g grunt-cli
 npm install
+npm test
 ```
 
-The karma task will try to open Chrome as a browser in which to run the tests. Make sure this is available or change the configuration in test\test.config.js
+The karma task will try to open Chrome as a browser in which to run the tests.
+Make sure Chrome is available or change the browsers setting in karma.config.js
 
 #Usage
 We use bower for dependency management. Add
@@ -119,23 +123,24 @@ $scope.beforeRender = function ($view, $dates, $leftDate, $upDate, $rightDate) {
 
 The following parameters are supplied by this directive :
  * '$view' the name of the view to be rendered
- * '$dates' a (possibly empty) array of DateObject's (see source) that the myself can select in the view.
- * '$leftDate' the DateObject selected if the myself clicks the left arrow.
- * '$upDate' the DateObject selected if the myself clicks the text between the arrows.
- * '$rightDate' the DateObject selected if the myself clicks the right arrow.
+ * '$dates' a (possibly empty) array of DateObject's (see source) that the user can select in the view.
+ * '$leftDate' the DateObject selected if the user clicks the left arrow.
+ * '$upDate' the DateObject selected if the user clicks the text between the arrows.
+ * '$rightDate' the DateObject selected if the user clicks the right arrow.
 
 
 ```
 DateObject {
-    dateValue: Number - UTC time value of this date object - same as moment.valueOf() or Date.getTime(). It does NOT contain time zone information so take that into account when comparing to other dates.
+    utcDateValue: Number - UTC time value of this date object. It does NOT contain time zone information so take that into account when comparing to other dates (or use localDateValue function).
+    localDateValue: FUNCTION that returns a Number - local time value of this date object - same as moment.valueOf() or Date.getTime().
     display: String - the way this value will be displayed on the calendar.
     active: true | false | undefined - indicates that date object is part of the model value.
-    selectable: true | false | undefined - indicates that date value is selectable by the myself.
+    selectable: true | false | undefined - indicates that date value is selectable by the user.
     past: true | false | undefined - indicates that date value is prior to the date range of the current view.
     future: true | false | undefined - indicates that date value is after the date range of the current view.
 }
 ```
-Setting the .selectable property of a DateObject to false will prevent the myself from being able to select that date value.
+Setting the .selectable property of a DateObject to false will prevent the user from being able to select that date value.
 
 ### on-set-time
 Attribute on datetimepicker element
@@ -145,7 +150,7 @@ passing in the selected value and previous value.
 ```html
 <datetimepicker data-ng-model="data.date" data-on-set-time="onTimeSet(newDate, oldDate)"></datetimepicker>
 ```
-This function will be called when the myself selects a value on the minView.
+This function will be called when the user selects a value on the minView.
 ```javascript
 $scope.onTimeSet = function (newDate, oldDate) {
     console.log(newDate);
@@ -237,7 +242,7 @@ Display formatting of the date field is controlled by Angular filters.
 ```
 In this example, the drop-down functionality is controlled by Twitter Bootstrap.
 The <code>dropdownSelector</code> tells the datetimepicker which element is bound to the Twitter Bootstrap drop-down so
-the drop-down is toggled closed after the myself selectes a date/time.
+the drop-down is toggled closed after the user selectes a date/time.
 
 ### Drop-down component with associated input box.
 ```html
@@ -255,7 +260,7 @@ the drop-down is toggled closed after the myself selectes a date/time.
 ```
 In this example, the drop-down functionality is controlled by Twitter Bootstrap.
 The <code>dropdownSelector</code> tells the datetimepicker which element is bound to the Twitter Bootstrap drop-down so
-the drop-down is toggled closed after the myself selectes a date/time.
+the drop-down is toggled closed after the user selectes a date/time.
 
 ## I18N
 
@@ -267,35 +272,35 @@ All internationalization is handled by Moment.js, see Moment's documention for d
 
 ![Datetimepicker year view](https://raw.github.com/dalelotts/angular-bootstrap-datetimepicker/master/screenshots/year.png)
 
-This view allows the myself to select the year for the target date.
+This view allows the user to select the year for the target date.
 If the year view is the minView, the date will be set to midnight on the first day of the year
 
 ## Month view
 
 ![Datetimepicker month view](https://raw.github.com/dalelotts/angular-bootstrap-datetimepicker/master/screenshots/month.png)
 
-This view allows the myself to select the month in the selected year.
+This view allows the user to select the month in the selected year.
 If the month view is the minView, the date will be set to midnight on the first day of the month.
 
 ## Day view (Default)
 
 ![Datetimepicker day view](https://raw.github.com/dalelotts/angular-bootstrap-datetimepicker/master/screenshots/day.png)
 
-This view allows the myself to select the the day of the month, in the selected month.
+This view allows the user to select the the day of the month, in the selected month.
 If the day view is the minView, the date will be set to midnight on the day selected.
 
 ## Hour view
 
 ![Datetimepicker hour view](https://raw.github.com/dalelotts/angular-bootstrap-datetimepicker/master/screenshots/hour.png)
 
-This view allows the myself to select the hour of the day, on the selected day.
+This view allows the user to select the hour of the day, on the selected day.
 If the hour view is the minView, the date will be set to the beginning of the hour on the day selected.
 
 ## Minute view
 
 ![Datetimepicker minute view](https://raw.github.com/dalelotts/angular-bootstrap-datetimepicker/master/screenshots/minute.png)
 
-This view allows the myself to select a specific time of day, in the selected hour.
+This view allows the user to select a specific time of day, in the selected hour.
 By default, the time is displayed in 5 minute increments. The <code>minuteStep</code> property controls the increments of time displayed.
 If the minute view is the minView, which is is by default, the date will be set to the beginning of the hour on the day selected.
 
@@ -313,3 +318,4 @@ Support this project and other work by Dale Lotts via [gittip][gittip-dalelotts]
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE
+

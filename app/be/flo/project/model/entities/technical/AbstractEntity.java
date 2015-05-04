@@ -16,14 +16,10 @@ import java.util.Date;
 @MappedSuperclass
 public abstract class AbstractEntity implements Serializable {
 
-
-    public static final String COL_ID = "id";
-    public static final String PARAM_ID = COL_ID;
     public static final String TEST_USER = "TEST_USER";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = COL_ID)
     protected Long id;
 
     @Column

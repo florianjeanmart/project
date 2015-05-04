@@ -82,7 +82,7 @@ myApp.controller('WelcomeCtrl',  function ($scope, $modal,$window,$flash,$http) 
     $scope.logout = function(){
         $http({
             'method': "GET",
-            'url': "rest/logout",
+            'url': "logout",
             'headers': "Content-Type:application/json"
         }).success(function (data, status) {
             $scope.myself=null;

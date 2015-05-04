@@ -4,7 +4,9 @@ import be.flo.project.model.entities.technical.AbstractEntity;
 import be.flo.project.service.CrudService;
 import play.db.jpa.JPA;
 
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaQuery;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -55,5 +57,15 @@ public abstract class CrudServiceImpl<T extends AbstractEntity> implements CrudS
         }
         return resultList.get(0);
 
+    }
+
+    protected T getSingleResultOrNull(CriteriaQuery<T> cq) {
+        T singleResult;
+        try {
+            singleResult = JPA.em().createQuery(cq).getSingleResult();
+        } catch (NoResultException nre) {
+            singleResult = null;
+        }
+        return singleResult;
     }
 }

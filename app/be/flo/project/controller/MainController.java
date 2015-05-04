@@ -24,7 +24,7 @@ public class MainController  extends AbstractController {
         interfaceDataDTO.setLangId(lang().code());
         interfaceDataDTO.setTranslations(translationService.getTranslations(lang()));
         if(securityController.isAuthenticated(ctx())) {
-            AccountDTO accountDTO = dozerService.getMapper().map(securityController.getCurrentUser(), AccountDTO.class);
+            AccountDTO accountDTO = dozerService.map(securityController.getCurrentUser(), AccountDTO.class);
             interfaceDataDTO.setMySelf(accountDTO);
             Logger.info(securityController.getCurrentUser()+"<=>"+accountDTO);
         }
@@ -38,7 +38,7 @@ public class MainController  extends AbstractController {
         //compute list lang
         ListDTO<LangDTO> langDTOListDTO = new ListDTO<>();
         for (Lang lang : Lang.availables()) {
-            LangDTO langDTO=dozerService.getMapper().map(lang, LangDTO.class);
+            LangDTO langDTO=dozerService.map(lang, LangDTO.class);
             Logger.info(lang+"<=>"+langDTO);
             langDTOListDTO.addElement(langDTO);
         }

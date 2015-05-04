@@ -1,7 +1,5 @@
 myApp.controller('HomeCtrl', function ($scope, $modal) {
 
-
-
     //registration open modal
     $scope.downloadModal= function(){
 
@@ -15,5 +13,4 @@ myApp.controller('HomeCtrl', function ($scope, $modal) {
             resolve: resolve
         });
     };
-
 });

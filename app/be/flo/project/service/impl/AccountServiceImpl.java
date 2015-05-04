@@ -7,6 +7,10 @@ import be.flo.project.util.KeyGenerator;
 import org.springframework.stereotype.Repository;
 import play.db.jpa.JPA;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 /**
  * Created by florian on 10/11/14.
  */
@@ -16,46 +20,27 @@ public class AccountServiceImpl extends CrudServiceImpl<Account> implements Acco
     @Override
     public Account findByEmail(String email) {
 
-        return getSingleOrNull(JPA.em().createNamedQuery(Account.FIND_BY_EMAIL,Account.class)
-                .setParameter(Account.PARAM_EMAIL, email));
-    }
-
-    @Override
-    public void saveOrUpdate(Account account) {
-
-        account.setEmail(account.getEmail().toLowerCase());
-
-        //generate the password
-        if (account.getPassword().length() < 50) {
-            account.setPassword(generateEncryptingPassword(account.getPassword()));
-        }
-
-        //crypte the authentication value
-        if (account.getAuthenticationKey() != null && account.getAuthenticationKey().length() < 50) {
-            account.setAuthenticationKey(generateEncryptingPassword(account.getAuthenticationKey()));
-        }
-        //or generate it
-        else if(account.getAuthenticationKey()==null){
-            account.setAuthenticationKey(generateEncryptingPassword(KeyGenerator.generateRandomKey(40)));
-        }
-        super.saveOrUpdate(account);
+        CriteriaBuilder cb = JPA.em().getCriteriaBuilder();
+        CriteriaQuery<Account> cq = cb.createQuery(Account.class);
+        Root<Account> from = cq.from(Account.class);
+        cq.select(from);
+        cq.where(cb.equal(from.get("email"), email));
+        return getSingleResultOrNull(cq);
     }
 
     @Override
     public Account findByAuthenticationKey(String authenticationKey) {
-        return getSingleOrNull(JPA.em().createNamedQuery(Account.FIND_BY_AUTHENTICATION_KEY,Account.class)
-                .setParameter(Account.PARAM_AUTHENTICATION_KEY, authenticationKey));
+        CriteriaBuilder cb = JPA.em().getCriteriaBuilder();
+        CriteriaQuery<Account> cq = cb.createQuery(Account.class);
+        Root<Account> from = cq.from(Account.class);
+        cq.select(from);
+        cq.where(cb.equal(from.get("authenticationKey"), authenticationKey));
+        return getSingleResultOrNull(cq);
     }
 
     @Override
     public boolean controlAuthenticationKey(String authenticationKey, Account account) {
-        return !(!account.isKeepSessionOpen() || account.getAuthenticationKey().length() < 40) && account.getAuthenticationKey() != null && new StrongPasswordEncryptor().checkPassword(authenticationKey, account.getAuthenticationKey());
-    }
-
-    @Override
-    public boolean controlPassword(String password, Account account) {
-        return new StrongPasswordEncryptor().checkPassword(password,
-                account.getPassword());
+        return !(account.getAuthenticationKey().length() < 40) && account.getAuthenticationKey() != null && new StrongPasswordEncryptor().checkPassword(authenticationKey, account.getAuthenticationKey());
     }
 
     @Override
@@ -63,9 +48,6 @@ public class AccountServiceImpl extends CrudServiceImpl<Account> implements Acco
         return findAll().size();
     }
 
-    private String generateEncryptingPassword(final String password) {
 
-        return new StrongPasswordEncryptor().encryptPassword(password);
-    }
 
 }

@@ -8,6 +8,7 @@ import java.net.URL;
 
 /**
  * Created by florian on 16/04/15.
+ * Used to replace the default classLoader of dozer by the classLoader of Play Framework
  */
 public class MyDozerClassLoader implements DozerClassLoader {
 

@@ -446,7 +446,7 @@
   Thanks Elijah Manor (@elijahmanor).
 - Parser now supports multiple unary minus operators after each other.
 - Fixed not accepting empty matrices like `[[], []]`.
-- Some fixes in the end myself documentation.
+- Some fixes in the end user documentation.
 
 
 ## 2013-07-08, version 0.10.0
@@ -456,7 +456,7 @@
   Number `-4` instead of a Complex `-4 + 0i`).
 - Implemented support for injecting custom node handlers in the parser. Can be
   used for example to implement a node handler for plotting a graph.
-- Implemented end myself documentation and a new `help` function.
+- Implemented end user documentation and a new `help` function.
 - Functions `size` and `squeeze` now return a Matrix instead of an Array as
   output on Matrix input.
 - Added a constant tau (2 * pi). Thanks Zak Zibrat (@palimpsests).
@@ -577,7 +577,7 @@
   representation of the unit in inches has 2 as value.
 - Improved: method `math.in(x, unit)` now supports a string as second parameter,
   for example `math.in(math.unit('5.08 cm'), 'inch')`.
-- Split the end myself documentation of the parser functions from the source
+- Split the end user documentation of the parser functions from the source
   files.
 - Removed function help and the built-in documentation from the core library.
 - Fixed constant i being defined as -1i instead of 1i.

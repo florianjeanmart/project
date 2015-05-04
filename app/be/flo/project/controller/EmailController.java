@@ -4,9 +4,7 @@ import be.flo.project.controller.technical.AbstractController;
 import be.flo.project.model.entities.Account;
 import be.flo.project.service.EmailService;
 import be.flo.project.service.TranslationService;
-import be.flo.project.service.impl.EmailServiceImpl;
-import be.flo.project.service.impl.TranslationServiceImpl;
-import be.flo.project.util.EmailMessage;
+import be.flo.project.util.EmailMessageEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import play.db.jpa.Transactional;
 
@@ -25,38 +23,39 @@ public class EmailController extends AbstractController {
     @Transactional
     public void sendApplicationRegistrationEmail(Account account){
 
-        String title = translationService.getTranslation(EmailMessage.REGISTRATION_APP_EMAIL_TITLE,lang());
+        String title = translationService.getTranslation(EmailMessageEnum.REGISTRATION_APP_EMAIL_TITLE,lang());
+//TODO
+//        // 0 => account.name
+//        // 1 => password
+//        String body = translationService.getTranslation(EmailMessage.REGISTRATION_APP_EMAIL_BODY,lang(),
+//                account.getFirstname()+" "+account.getLastname(),
+//                account.getPassword());
 
-        // 0 => account.name
-        // 1 => password
-        String body = translationService.getTranslation(EmailMessage.REGISTRATION_APP_EMAIL_BODY,lang(),
-                account.getFirstname()+" "+account.getLastname(),
-                account.getPassword());
-
-        try {
-            emailService.sendEmail(account, title, body);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+//        try {
+//            emailService.sendEmail(account, title, body);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
     }
 
     @Transactional
     public void sendNewPasswordEmail(Account account) {
 
         String title = translationService.getTranslation(
-                EmailMessage.NEW_PASSWORD_EMAIL_TITLE,
+                EmailMessageEnum.NEW_PASSWORD_EMAIL_TITLE,
                 account.getLang());
 
-        String body = translationService.getTranslation(
-                EmailMessage.NEW_PASSWORD_EMAIL_BODY,
-                account.getLang(),
-                account.getFirstname()+" "+account.getLastname(),
-                account.getPassword());
+        //TODO
+//        String body = translationService.getTranslation(
+//                EmailMessage.NEW_PASSWORD_EMAIL_BODY,
+//                account.getLang(),
+//                account.getFirstname()+" "+account.getLastname(),
+//                account.getPassword());
 
-        try {
-            emailService.sendEmail(account,title,body);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+//        try {
+//            emailService.sendEmail(account,title,body);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
     }
 }

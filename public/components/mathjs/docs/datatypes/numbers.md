@@ -36,7 +36,7 @@ math.add(0.1, 0.2);   // 0.30000000000000004
 ```
 
 In most cases, round-off errors don't matter: they have no significant
-impact on the results. However it looks ugly when displaying output to a myself.
+impact on the results. However it looks ugly when displaying output to a user.
 A solution is to limit the precision just below the actual precision of 16
 digits in the displayed output:
 

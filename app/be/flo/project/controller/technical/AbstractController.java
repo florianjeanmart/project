@@ -1,22 +1,16 @@
 package be.flo.project.controller.technical;
 
 import be.flo.project.controller.technical.security.CommonSecurityController;
-import be.flo.project.util.dozer.DozerServiceImpl;
-import be.flo.project.util.dozer.MyDozerClassLoader;
+import be.flo.project.service.DozerService;
 import com.fasterxml.jackson.databind.JsonNode;
 import be.flo.project.dto.technical.DTO;
-import org.dozer.config.BeanContainer;
 import org.springframework.beans.factory.annotation.Autowired;
-import play.Logger;
 import play.mvc.Controller;
 import be.flo.project.service.TranslationService;
-import be.flo.project.util.ErrorMessage;
+import be.flo.project.util.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
 
 import java.util.Set;
-
-import org.dozer.DozerBeanMapper;
-import org.dozer.Mapper;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -36,7 +30,7 @@ public abstract class AbstractController extends Controller {
     @Autowired
     protected TranslationService translationService;
     @Autowired
-    protected DozerServiceImpl dozerService;
+    protected DozerService dozerService;
 
     /**
      * this function control the dto (via play.validation annotation) and return it if it's valid, or throw a runtimeException with an error message if not.
@@ -48,7 +42,7 @@ public abstract class AbstractController extends Controller {
         //extract dto
         T dto = DTO.getDTO(node, DTOclass);
         if (dto == null) {
-            throw new MyRuntimeException(ErrorMessage.JSON_CONVERSION_ERROR, DTOclass.getName());
+            throw new MyRuntimeException(ErrorMessageEnum.JSON_CONVERSION_ERROR, DTOclass.getName());
         }
 
 

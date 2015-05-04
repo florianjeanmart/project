@@ -199,7 +199,7 @@ parser.eval('h / 2');                   // 250
 parser.set('hello', function (name) {
     return 'hello, ' + name + '!';
 });
-parser.eval('hello("myself")');           // "hello, myself!"
+parser.eval('hello("user")');           // "hello, user!"
 
 // clear defined functions and variables
 parser.clear();

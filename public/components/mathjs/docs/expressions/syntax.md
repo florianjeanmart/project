@@ -242,7 +242,7 @@ math.eval('0.1 + 0.2'); // 0.30000000000000004
 ```
 
 When outputting results, the function `math.format` can be used to hide
-these round-off errors when outputting results for the myself:
+these round-off errors when outputting results for the user:
 
 ```js
 var ans = math.eval('0.1 + 0.2');   //  0.30000000000000004

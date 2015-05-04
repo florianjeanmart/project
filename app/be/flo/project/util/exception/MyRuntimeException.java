@@ -1,6 +1,6 @@
 package be.flo.project.util.exception;
 
-import be.flo.project.util.ErrorMessage;
+import be.flo.project.util.ErrorMessageEnum;
 
 import java.util.Arrays;
 
@@ -10,10 +10,10 @@ import java.util.Arrays;
 public class MyRuntimeException  extends RuntimeException{
 
     private static final long serialVersionUID = 1L;
-    private ErrorMessage errorMessage=null;
+    private ErrorMessageEnum errorMessage=null;
     private Object[] params;
 
-    public MyRuntimeException(ErrorMessage errorMessage, Object... params) {
+    public MyRuntimeException(ErrorMessageEnum errorMessage, Object... params) {
         super();
 
         this.errorMessage = errorMessage;
@@ -24,7 +24,7 @@ public class MyRuntimeException  extends RuntimeException{
         super(message);
     }
 
-    public ErrorMessage getErrorMessage() {
+    public ErrorMessageEnum getErrorMessage() {
         return errorMessage;
     }
 

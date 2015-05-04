@@ -5,28 +5,17 @@ import be.flo.project.model.entities.technical.AbstractEntity;
 import javax.persistence.*;
 
 @Entity
-
-@NamedQueries({
-        @NamedQuery(name = StoredFile.FIND_BY_STORED_NAME, query = "select s from StoredFile  s where s." + StoredFile.COL_NAME + " = :" + StoredFile.PARAM_NAME)
-})
 public class StoredFile extends AbstractEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-    //request
-	public static final String FIND_BY_STORED_NAME = "StoredFile.findByStoredName";
-    //param
-    public static final String PARAM_NAME = "storedName";
-    //column
-    public static final String COL_NAME = "storedName";
-
-    @Column(nullable = false)
+    @Basic(optional = false)
     private String originalName;
 
-    @Column(name = COL_NAME,nullable = false)
+    @Basic(optional = false)
     private String storedName;
 
-    @Column
+    @Basic
     private Integer size;
 
     @ManyToOne(optional = false)
@@ -78,7 +67,7 @@ public class StoredFile extends AbstractEntity {
     @Override
     public String toString() {
         return "StoredFile{" +
-                super.toString()+
+                super.toString() +
                 "originalName='" + originalName + '\'' +
                 ", storedName='" + storedName + '\'' +
                 ", size=" + size +

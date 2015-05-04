@@ -3,6 +3,8 @@ package be.flo.project.model.entities;
 import be.flo.project.controller.technical.security.role.RoleEnum;
 import be.flo.project.model.entities.converter.I18NLangConverter;
 import be.flo.project.model.entities.technical.AbstractEntity;
+import be.flo.project.util.Encrypter;
+import be.flo.project.util.KeyGenerator;
 import play.i18n.Lang;
 
 import javax.persistence.*;
@@ -14,55 +16,27 @@ import java.util.Set;
  * Created by florian on 10/11/14.
  */
 @Entity
-@NamedQueries({
-        @NamedQuery(name = Account.FIND_BY_ID, query = "select a from Account a where a." + AbstractEntity.COL_ID + " = :" + AbstractEntity.PARAM_ID),
-        @NamedQuery(name = Account.FIND_BY_AUTHENTICATION_KEY, query = "select a from Account a where a." + Account.COL_AUTHENTICATION_KEY + " = :" + Account.PARAM_AUTHENTICATION_KEY),
-        @NamedQuery(name = Account.FIND_BY_EMAIL, query = "select a from Account a where a." + Account.COL_EMAIL + " = :" + Account.PARAM_EMAIL),
-})
 public class Account extends AbstractEntity {
 
-    //request
-    public static final String FIND_BY_EMAIL = "Account_FIND_BY_EMAIL";
-    public static final String FIND_BY_ID = "Account_FIND_BY_ID";
-    public static final String FIND_BY_AUTHENTICATION_KEY = "Account_FIND_BY_AUTHENTICATION_KEY";
-
-    //columns
-    public static final String COL_EMAIL = "email";
-    public static final String PARAM_EMAIL = COL_EMAIL;
-    public static final String COL_AUTHENTICATION_KEY = "authenticationKey";
-    public static final String PARAM_AUTHENTICATION_KEY = COL_AUTHENTICATION_KEY;
-
-    @Column(nullable = false)
+    @Basic(optional = false)
     private Boolean male;
 
-    @Column(nullable = false)
+    @Basic(optional = false)
     private String firstname;
 
-    @Column(nullable = false)
+    @Basic(optional = false)
     private String lastname;
 
-    @Column(nullable = false, unique = true, name = COL_EMAIL)
+    @Basic(optional = false)
+    @Column(unique = true)
     private String email;
-
-    /**
-     * used to authentication
-     * For the application and for the cookie into for the web site
-     */
-    @Column(name = COL_AUTHENTICATION_KEY)
-    private String authenticationKey;
 
     @Column(nullable = false,columnDefinition = "character varying(255) NOT NULL DEFAULT 'en'")
     @Convert(converter = I18NLangConverter.class)
     private Lang lang = Lang.forCode("en");
 
-    @Column
-    private boolean keepSessionOpen;
-
-    /**
-     * used for connection and for reactivation for the application
-     */
-    @Column(nullable = false)
-    private String password;
+    @Basic
+    private String authenticationKey;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "account",orphanRemoval = true,fetch = FetchType.EAGER)
     private List<Role> roles = new ArrayList<>();
@@ -70,8 +44,19 @@ public class Account extends AbstractEntity {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "account",orphanRemoval = true)
     private Set<Session> sessions;
 
+    @OneToOne(mappedBy = "account",optional = true)
+    private LoginCredential loginCredential;
+
 
     public Account() {
+    }
+
+    public LoginCredential getLoginCredential() {
+        return loginCredential;
+    }
+
+    public void setLoginCredential(LoginCredential loginCredential) {
+        this.loginCredential = loginCredential;
     }
 
     public Set<Session> getSessions() {
@@ -138,22 +123,6 @@ public class Account extends AbstractEntity {
         this.lang = lang;
     }
 
-    public boolean isKeepSessionOpen() {
-        return keepSessionOpen;
-    }
-
-    public void setKeepSessionOpen(boolean keepSessionOpen) {
-        this.keepSessionOpen = keepSessionOpen;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -183,8 +152,20 @@ public class Account extends AbstractEntity {
                 ", email='" + email + '\'' +
                 ", authenticationKey='" + authenticationKey + '\'' +
                 ", language='" + lang + '\'' +
-                ", keepSessionOpen=" + keepSessionOpen +
-                ", password='" + password + '\'' +
                 '}';
+    }
+
+    @PrePersist
+    @PreUpdate
+    public void encryptKey(){
+
+        //crypte the authentication value
+        if (authenticationKey != null && authenticationKey.length() < 50) {
+            authenticationKey = Encrypter.generateEncryptingPassword(authenticationKey);
+        }
+//        //or generate it
+//        else if(authenticationKey==null){
+//            authenticationKey = Encrypter.generateEncryptingPassword(KeyGenerator.generateRandomKey(40));
+//        }
     }
 }

@@ -195,7 +195,7 @@ All three methods return a `Message` instance.  You can call `message.cancel()` 
 
 ### Actions
 
-You can pass messages a hash of actions the myself can execute on the message.  For example, `run` will add 'Retry' and 'Cancel'
+You can pass messages a hash of actions the user can execute on the message.  For example, `run` will add 'Retry' and 'Cancel'
 buttons to error messages which have retry enabled.
 
 Actions are provided as the `actions` hash to `post` or `run`:
@@ -225,7 +225,7 @@ msg = Messenger().post({
 ### Events
 
 You can add DOM event handlers to the message itself, or any element within it.  For example, you might wish to do
-something when the myself clicks on the message.
+something when the user clicks on the message.
 
 The format of the event key is: "`[type] event [selector]`"
 

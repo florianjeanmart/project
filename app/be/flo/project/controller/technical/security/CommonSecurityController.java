@@ -9,7 +9,7 @@ import play.mvc.Http;
 import play.mvc.Security;
 import be.flo.project.service.AccountService;
 import be.flo.project.service.impl.AccountServiceImpl;
-import be.flo.project.util.ErrorMessage;
+import be.flo.project.util.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
 import play.mvc.SimpleResult;
 
@@ -77,9 +77,9 @@ public class CommonSecurityController extends Security.Authenticator {
             //TODO return ok(be.flo.project.views.html.home.render(getAvaiableLanguage(),interfaceDataDTO));
         }
         if(ctx.args.get(FAILED_AUTHENTICATION_CAUSE) == FAILED_AUTHENTICATION_CAUSE_WRONG_RIGHTS){
-            return unauthorized(new ExceptionDTO(Messages.get(Lang.defaultLang(), ErrorMessage.WRONG_AUTHORIZATION.name())));
+            return unauthorized(new ExceptionDTO(Messages.get(Lang.defaultLang(), ErrorMessageEnum.WRONG_AUTHORIZATION.name())));
         }
-        return unauthorized(new ExceptionDTO(Messages.get(Lang.defaultLang(),ErrorMessage.NOT_CONNECTED.name())));
+        return unauthorized(new ExceptionDTO(Messages.get(Lang.defaultLang(), ErrorMessageEnum.NOT_CONNECTED.name())));
     }
 
     /**
@@ -98,7 +98,7 @@ public class CommonSecurityController extends Security.Authenticator {
             String authentication = Http.Context.current().request().getHeader(REQUEST_HEADER_AUTHENTICATION_KEY);
             return  USER_SERVICE.findByAuthenticationKey(authentication);
         }
-        throw new MyRuntimeException(ErrorMessage.NOT_CONNECTED);
+        throw new MyRuntimeException(ErrorMessageEnum.NOT_CONNECTED);
     }
 
     /**
@@ -137,13 +137,14 @@ public class CommonSecurityController extends Security.Authenticator {
 
     public void logout(Http.Context ctx) {
 
-        if (getCurrentUser() != null && getCurrentUser().isKeepSessionOpen()) {
-
-            Account currentAccount = getCurrentUser();
-            currentAccount.setKeepSessionOpen(false);
-
-            USER_SERVICE.saveOrUpdate(currentAccount);
-        }
+        //TODO
+//        if (getCurrentUser() != null && getCurrentUser().isKeepSessionOpen()) {
+//
+//            Account currentAccount = getCurrentUser();
+//            currentAccount.setKeepSessionOpen(false);
+//
+//            USER_SERVICE.saveOrUpdate(currentAccount);
+//        }
         ctx.session().clear();
     }
 

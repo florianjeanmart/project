@@ -5,8 +5,7 @@ import be.flo.project.controller.technical.security.role.RoleEnum;
 import be.flo.project.dto.FilesUploadedDTO;
 import be.flo.project.model.entities.StoredFile;
 import be.flo.project.service.StoredFileService;
-import be.flo.project.service.impl.StoredFileServiceImpl;
-import be.flo.project.util.ErrorMessage;
+import be.flo.project.util.ErrorMessageEnum;
 import be.flo.project.util.KeyGenerator;
 import be.flo.project.util.exception.MyRuntimeException;
 import be.flo.project.util.file.FileUtil;
@@ -82,7 +81,7 @@ public class FilesController extends AbstractRestController {
 
         //control
         if (!storedFile.getAccount().equals(securityController.getCurrentUser())) {
-            throw new MyRuntimeException(ErrorMessage.NOT_YOUR_FILE, storedFileId+"");
+            throw new MyRuntimeException(ErrorMessageEnum.NOT_YOUR_FILE, storedFileId+"");
         }
 
         //create an inputStream

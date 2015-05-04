@@ -43,7 +43,7 @@ math.import({
 
 // use the imported function and variable
 math.myvalue * 2;               // 84
-math.hello('myself');             // 'hello, myself!'
+math.hello('user');             // 'hello, user!'
 
 // import the npm module numbers
 // (must be installed first with `npm install numbers`)

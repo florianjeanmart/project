@@ -2,6 +2,7 @@ package be.flo.project.dto;
 
 import be.flo.project.dto.technical.DTO;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,16 +11,20 @@ import java.util.Set;
  */
 public class ListDTO<T extends DTO> extends DTO {
 
-    private Set<T> list = new HashSet<>();
+    private Collection<T> list = new HashSet<>();
 
     public ListDTO() {
     }
 
-    public Set<T> getList() {
+    public ListDTO(Collection<T> list) {
+        this.list = list;
+    }
+
+    public Collection<T> getList() {
         return list;
     }
 
-    public void setList(Set<T> list) {
+    public void setList(Collection<T> list) {
         this.list = list;
     }
 

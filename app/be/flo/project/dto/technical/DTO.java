@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import play.Logger;
 import play.mvc.Content;
-import be.flo.project.util.ErrorMessage;
+import be.flo.project.util.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
 
 import java.io.IOException;
@@ -32,17 +32,17 @@ public class DTO implements Content {
                 T dto = mapper.readValue(jp, type);
 
                 if (dto == null) {
-                    throw new MyRuntimeException(ErrorMessage.JSON_CONVERSION_ERROR);
+                    throw new MyRuntimeException(ErrorMessageEnum.JSON_CONVERSION_ERROR);
                 }
 
                 //dto.validate();
                 return dto;
 
             } catch (IOException e) {
-                throw new MyRuntimeException(ErrorMessage.JSON_CONVERSION_ERROR);
+                throw new MyRuntimeException(ErrorMessageEnum.JSON_CONVERSION_ERROR);
             }
         }
-        throw new MyRuntimeException(ErrorMessage.JSON_CONVERSION_ERROR);
+        throw new MyRuntimeException(ErrorMessageEnum.JSON_CONVERSION_ERROR);
     }
 
     public String get__type() {
@@ -51,7 +51,7 @@ public class DTO implements Content {
 
     public void set__type(String __type) {
         if (!get__type().equals(__type)) {
-            throw new MyRuntimeException(ErrorMessage.DTO_NOT_EXPECTED, get__type(), __type);
+            throw new MyRuntimeException(ErrorMessageEnum.DTO_NOT_EXPECTED, get__type(), __type);
         }
     }
 
@@ -61,7 +61,7 @@ public class DTO implements Content {
         try {
             return mapper.writeValueAsString(this);
         } catch (JsonProcessingException e) {
-            throw new MyRuntimeException(ErrorMessage.FATAL_ERROR, e.getMessage());
+            throw new MyRuntimeException(ErrorMessageEnum.FATAL_ERROR, e.getMessage());
         }
     }
 

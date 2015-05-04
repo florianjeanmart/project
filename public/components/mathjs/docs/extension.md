@@ -35,11 +35,11 @@ math.import({
 
 // defined functions can be used in both JavaScript as well as the parser
 math.myvalue * 2;               // 84
-math.hello('myself');             // 'hello, myself!'
+math.hello('user');             // 'hello, user!'
 
 var parser = math.parser();
 parser.eval('myvalue + 10');    // 52
-parser.eval('hello("myself")');   // 'hello, myself!'
+parser.eval('hello("user")');   // 'hello, user!'
 ```
 
 External libraries like

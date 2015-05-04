@@ -2,6 +2,7 @@ package be.flo.project.model.entities;
 
 import be.flo.project.model.entities.technical.AbstractEntity;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -15,10 +16,11 @@ public class TranslationValue extends AbstractEntity {
     @ManyToOne
     private Translation translation;
 
-    @Column(nullable = false)
+    @Basic(optional = false)
     private String languageCode;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
+    @Basic(optional = false)
     private String content;
 
     public TranslationValue() {

@@ -39,7 +39,7 @@ var app = angular.module('app', ["angucomplete"]);
               placeholder="Search members"
               pause="400"
               selectedobject="testObj"
-              url="http://myserver.com/api/myself/find?s="
+              url="http://myserver.com/api/user/find?s="
               datafield="results"
               titlefield="firstName,surname"
               descriptionfield="email"
@@ -52,7 +52,7 @@ var app = angular.module('app', ["angucomplete"]);
 | :------------- |:-------------| :-----:| :-----|
 | id | A unique ID for the field | Yes | members |
 | placeholder | Placeholder text for the search field | No | Search members |
-| pause | The time to wait (in milliseconds) before searching when the myself enters new characters | No | 400 |
+| pause | The time to wait (in milliseconds) before searching when the user enters new characters | No | 400 |
 | selectedObject | Where to store the selected object in your model/controller (like ng-model) | Yes | myObject |
 | url | The remote URL to hit to query for results in JSON. angucomplete will automatically append the search string on the end of this, so it must be a GET request | No | http://myserver.com/api/users/find?searchstr= |
 | datafield | The name of the field in the JSON object returned back that holds the Array of objects to be used for the autocomplete list. | No | results |
