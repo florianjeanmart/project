@@ -24,7 +24,7 @@ public class FacebookCredentialServiceImpl extends CrudServiceImpl<FacebookCrede
     private FacebookRequest facebookRequest;
 
     @Override
-    public FacebookCredential findByUserId(String userId) {
+    public FacebookCredential findByUserId(long userId) {
 
         CriteriaBuilder cb = JPA.em().getCriteriaBuilder();
         CriteriaQuery<FacebookCredential> cq = cb.createQuery(FacebookCredential.class);
@@ -35,11 +35,11 @@ public class FacebookCredentialServiceImpl extends CrudServiceImpl<FacebookCrede
     }
 
     @Override
-    public boolean controlFacebookAccess(FacebookCredential facebookCredential, String accessToken) {
+    public boolean controlFacebookAccess(long userId, String accessToken) {
 
         FacebookTokenAccessControlDTO facebookTokenAccessControlDTO = facebookRequest.debugToken(accessToken);
 
-        if (facebookTokenAccessControlDTO != null && facebookTokenAccessControlDTO.getData().getUser_id().equals(facebookCredential.getUserId())) {
+        if (facebookTokenAccessControlDTO != null && facebookTokenAccessControlDTO.getData().getUser_id().equals(userId)) {
             return true;
         }
         return false;

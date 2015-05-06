@@ -16,19 +16,19 @@ public class AccountDTO extends DTO {
 
     private Long id;
 
-    @NotNull(message = "validation.dto.notNull")
+    @NotNull(message = "--.validation.dto.notNull")
     private Boolean male;
 
-    @NotNull(message = "validation.dto.notNull")
-    @Size(min = 2,max =50,message = "validation.dto.size")
+    @NotNull(message = "--.validation.dto.notNull")
+    @Size(min = 2,max =50,message = "--.validation.dto.size")
     private String firstname;
 
-    @NotNull(message = "validation.dto.notNull")
-    @Size(min = 2,max =50,message = "validation.dto.size")
+    @NotNull(message = "--.validation.dto.notNull")
+    @Size(min = 2,max =50,message = "--.validation.dto.size")
     private String lastname;
 
-    @NotNull(message = "validation.dto.notNull")
-    @Pattern(regexp = ValidationRegex.EMAIL,message = "validation.dto.message")
+    @NotNull(message = "--.validation.dto.notNull")
+    @Pattern(regexp = ValidationRegex.EMAIL,message = "--.validation.dto.email")
     private String email;
 
     private List<RoleEnum> roles;

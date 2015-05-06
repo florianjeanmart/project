@@ -6,9 +6,9 @@ myApp.controller('ForgotPasswordModalCtrl', function ($scope, $http, $flash, $mo
         email: {
             fieldType:"email",
             name:'email',
-            fieldTitle: "changeEmailModal.email",
+            fieldTitle: "--.changeEmailModal.email",
             validationRegex: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            validationMessage: "generic.validation.email",
+            validationMessage: "--.generic.validation.email",
             focus: function(){
                 return true;
             },
@@ -58,7 +58,7 @@ myApp.controller('ForgotPasswordModalCtrl', function ($scope, $http, $flash, $mo
             }).success(function (data, status) {
                 $scope.loading=false;
                 $scope.close();
-                $flash.success($filter('translateText')('forgotPassword.success'));
+                $flash.success($filter('translateText')('--.forgotPassword.success'));
             })
             .error(function (data, status) {
                 $scope.loading=false;

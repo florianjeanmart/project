@@ -11,6 +11,7 @@ GET         /assets/*file                controllers.Assets.at(path="/public", f
 
 ## account
 POST        /login                       @be.flo.project.controller.rest.LoginRestController.login()
+POST        /login/facebook              @be.flo.project.controller.rest.LoginRestController.loginFacebook()
 POST        /registration                @be.flo.project.controller.rest.LoginRestController.registration()
 GET         /logout                      @be.flo.project.controller.rest.LoginRestController.logout()
 

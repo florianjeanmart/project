@@ -5,7 +5,7 @@ myApp.controller('RegistrationModalCtrl', function ($scope, $http, $flash, $moda
     $scope.fields = {
         gender:{
             name:'gender',
-            fieldTitle: "generic.gender",
+            fieldTitle: "--.generic.gender",
             options:[{key:'male',value:'generic.male'},{key:'female',value:'generic.female'}],
             disabled: function () {
                 return $scope.loading;
@@ -13,18 +13,18 @@ myApp.controller('RegistrationModalCtrl', function ($scope, $http, $flash, $moda
         },
         firstname: {
             name:'firstname',
-            fieldTitle: "generic.firstname",
+            fieldTitle: "--.generic.firstname",
             validationRegex: "^.{2,50}$",
-            validationMessage: ['generic.validation.size', '2', '50'],
+            validationMessage: ['--.generic.validation.size', '2', '50'],
             disabled: function () {
                 return $scope.loading;
             }
         },
         lastname: {
             name:'lastname',
-            fieldTitle: "generic.lastname",
+            fieldTitle: "--.generic.lastname",
             validationRegex: "^.{2,50}$",
-            validationMessage: ['generic.validation.size', '2', '50'],
+            validationMessage: ['--.generic.validation.size', '2', '50'],
             disabled: function () {
                 return $scope.loading;
             }
@@ -32,29 +32,29 @@ myApp.controller('RegistrationModalCtrl', function ($scope, $http, $flash, $moda
         login: {
             fieldType:"email",
             name:'email',
-            fieldTitle: "generic.email",
+            fieldTitle: "--.generic.email",
             validationRegex: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            validationMessage: "generic.validation.email",
+            validationMessage: "--.generic.validation.email",
             disabled: function () {
                 return $scope.loading;
             }
         },
         password: {
             name: 'password',
-            fieldTitle: "registration.form.password",
+            fieldTitle: "--.registration.form.password",
             validationRegex: "^[a-zA-Z0-9-_%]{6,18}$",
-            validationMessage: "generic.validation.password",
+            validationMessage: "--.generic.validation.password",
             fieldType: 'password',
-            details:'registration.form.password.help',
+            details:'--.registration.form.password.help',
             disabled: function () {
                 return $scope.loading;
             }
         },
         repeatPassword: {
             name: 'password',
-            fieldTitle: "registration.form.repeatPassword",
+            fieldTitle: "--.registration.form.repeatPassword",
             validationRegex: "^[a-zA-Z0-9-_%]{6,18}$",
-            validationMessage: "generic.validation.password",
+            validationMessage: "--.generic.validation.password",
             fieldType: 'password',
             disabled: function () {
                 return $scope.loading;
@@ -64,7 +64,7 @@ myApp.controller('RegistrationModalCtrl', function ($scope, $http, $flash, $moda
             }
         },
         openSession:{
-            fieldTitle: "registration.form.keepSessionOpen",
+            fieldTitle: "--.registration.form.keepSessionOpen",
             field:false,
             disabled: function () {
                 return $scope.loading;

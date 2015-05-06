@@ -1,7 +1,7 @@
 site.name=MyProject
 
 #generic
-generic.back=Back
+--.generic.back=Back
 generic.category=Category
 generic.close=Close
 generic.date=Date
@@ -31,7 +31,7 @@ generic.creator=Creator
 generic.yourLanguage=Your language
 generic.email=Email
 generic.or=Or
-generic.yourPassword=Your password
+--generic.yourPassword=Your password
 generic.gender=Gender
 generic.male=Male
 generic.female=Female
@@ -53,7 +53,7 @@ welcome.editProfile=Edit my profile
 
 #registration
 registration.form.title=Registration
-registration.form.yourEmail=Your email address
+--.registration.form.yourEmail=Your email address
 registration.form.password=Your password
 registration.form.password.help=Between 6 and 18 letters, numbers or -_
 registration.form.repeatPassword=Repeat your password
@@ -88,7 +88,7 @@ changePasswordModal.title=Change your password
 
 # changeEmailModal
 changeEmailModal.title=Change your email
-changeEmailModal.email=Your new email
+--.changeEmailModal.email=Your new email
 
 # field doc
 field.document.inTreatment=Treatment ...

@@ -23,6 +23,11 @@ public class FacebookCredential extends AbstractEntity {
     public FacebookCredential() {
     }
 
+    public FacebookCredential(Account account, Long userId) {
+        this.account = account;
+        this.userId = userId;
+    }
+
     public Account getAccount() {
         return account;
     }

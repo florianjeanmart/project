@@ -15,16 +15,16 @@ public class RegistrationDTO extends DTO {
     @NotNull
     private Boolean male;
 
-    @Pattern(regexp = ".{2,50}",message = "validation.dto.size")
+    @Pattern(regexp = ".{2,50}",message = "--.validation.dto.size")
     private String firstname;
 
-    @Pattern(regexp = ".{2,50}",message = "validation.dto.size")
+    @Pattern(regexp = ".{2,50}",message = "--.validation.dto.size")
     private String lastname;
 
-    @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",message = "validation.dto.email")
+    @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",message = "--.validation.dto.email")
     private String email;
 
-    @Pattern(regexp = "[a-zA-Z0-9-_]{6,18}",message = "validation.dto.password")
+    @Pattern(regexp = "[a-zA-Z0-9-_]{6,18}",message = "--.validation.dto.password")
     private String password;
 
     private LangDTO lang;

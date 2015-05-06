@@ -17,6 +17,10 @@ initializeCommonRoutes();
 
 myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translationService,$modal,$window,facebookService) {
 
+    //
+    // initialize translations
+    // load from data var and insert into into translationService
+    //
     if ("data" in window && data!=undefined && data!=null) {
         tmhDynamicLocale.set(data.langId);
 

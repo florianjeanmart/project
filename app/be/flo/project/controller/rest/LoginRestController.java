@@ -3,13 +3,16 @@ package be.flo.project.controller.rest;
 import be.flo.project.controller.EmailController;
 import be.flo.project.controller.technical.security.role.RoleEnum;
 import be.flo.project.dto.AccountDTO;
+import be.flo.project.dto.FacebookAuthenticationDTO;
 import be.flo.project.dto.LoginSuccessDTO;
 import be.flo.project.dto.post.LoginDTO;
 import be.flo.project.dto.post.RegistrationDTO;
 import be.flo.project.model.entities.Account;
+import be.flo.project.model.entities.FacebookCredential;
 import be.flo.project.model.entities.Role;
 import be.flo.project.model.entities.Session;
 import be.flo.project.service.AccountService;
+import be.flo.project.service.FacebookCredentialService;
 import be.flo.project.service.SessionService;
 import be.flo.project.util.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
@@ -31,6 +34,76 @@ public class LoginRestController extends AbstractRestController {
     private SessionService sessionService;
     @Autowired
     private EmailController emailController;
+    @Autowired
+    private FacebookCredentialService facebookCredentialService;
+
+    public Result loginFacebook() {
+
+        //extract DTO
+        FacebookAuthenticationDTO dto = extractDTOFromRequest(FacebookAuthenticationDTO.class);
+
+        //authentication
+        if(!facebookCredentialService.controlFacebookAccess(dto.getUserId(),dto.getToken())){
+            throw new MyRuntimeException(ErrorMessageEnum.FACEBOOK_AUTHENTICATION_FAIL);
+        }
+
+        //control
+        FacebookCredential facebookCredential = facebookCredentialService.findByUserId(dto.getUserId());
+        Account account;
+
+        if(facebookCredential!=null){
+
+            account = facebookCredential.getAccount();
+
+            //session
+            sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
+
+            //storage
+            securityController.storeAccount(ctx(), account);
+        }
+        else{
+            //create a new account
+            //account
+            account = dozerService.map(dto, Account.class);
+            account.setId(null);
+            if (account.getLang() == null) {
+                account.setLang(lang());
+            }
+
+            account.getRoles().add(new Role(account, RoleEnum.USER));
+
+            if (dto.getLang() != null) {
+                changeLang(dto.getLang().getCode());
+            }
+
+            facebookCredential = new FacebookCredential(account,dto.getUserId());
+
+
+            //send email
+            emailController.sendApplicationRegistrationEmail(account);
+
+            facebookCredentialService.saveOrUpdate(facebookCredential);
+
+            //session
+            sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
+
+            LoginSuccessDTO result = new LoginSuccessDTO();
+            result.setMyself(dozerService.map(account, AccountDTO.class));
+            result.setAuthenticationKey(account.getAuthenticationKey());
+
+            //storage
+            securityController.storeAccount(ctx(), account);
+        }
+
+        LoginSuccessDTO result = new LoginSuccessDTO();
+        result.setMyself(dozerService.map(account, AccountDTO.class));
+        result.setAuthenticationKey(account.getAuthenticationKey());
+
+        //storage
+        securityController.storeAccount(ctx(), account);
+
+        return ok(result);
+    }
 
     /**
      * try to connect the user to an account with the password / email

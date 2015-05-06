@@ -1,31 +1,31 @@
-myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstance,login,facebookService) {
+myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstance, login, facebookService) {
 
     $scope.loading = false;
 
     $scope.fields = {
         login: {
-            fieldType:"email",
-            name:'email',
-            fieldTitle: "registration.form.yourEmail",
+            fieldType: "email",
+            name: 'email',
+            fieldTitle: "--.registration.form.yourEmail",
             validationRegex: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            validationMessage: "generic.validation.email",
+            validationMessage: "--.generic.validation.email",
             disabled: function () {
                 return $scope.loading;
             }
         },
         password: {
             name: 'password',
-            fieldTitle: "generic.yourPassword",
+            fieldTitle: "--.generic.yourPassword",
             validationRegex: "^[a-zA-Z0-9-_%]{6,18}$",
-            validationMessage: "generic.validation.password",
+            validationMessage: "--.generic.validation.password",
             fieldType: 'password',
             disabled: function () {
                 return $scope.loading;
             }
         },
-        openSession:{
-            fieldTitle: "registration.form.keepSessionOpen",
-            field:false,
+        openSession: {
+            fieldTitle: "--.registration.form.keepSessionOpen",
+            field: false,
             disabled: function () {
                 return $scope.loading;
             }
@@ -45,7 +45,7 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
             console.log(obj);
             if ($scope.fields.hasOwnProperty(key) && (obj.isValid == null || obj.isValid === false)) {
                 obj.firstAttempt = false;
-                validation= false;
+                validation = false;
             }
         }
         return validation;
@@ -57,7 +57,7 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
             var dto = {
                 email: $scope.fields.login.field,
                 password: $scope.fields.password.field,
-                keepSessionOpen:$scope.fields.openSession.field
+                keepSessionOpen: $scope.fields.openSession.field
             }
 
             $scope.loading = true;
@@ -79,19 +79,43 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
         }
     }
 
-    $scope.fb_login = function(){
-        console.log('cooooonection !');
-        FB.login(function(response) {
-
+    //
+    // facebook connection
+    //
+    $scope.fb_login = function () {
+        $scope.loading = true;
+        FB.login(function (response) {
             if (response.authResponse) {
-                console.log('Welcome!  Fetching your information.... ');
-                //console.log(response); // dump complete info
-                access_token = response.authResponse.accessToken; //get access token
-                user_id = response.authResponse.userID; //get FB UID
+                var access_token = response.authResponse.accessToken; //get access token
+                var user_id = response.authResponse.userID; //get FB UID
 
-                FB.api('/me', function(response) {
-                    user_email = response.email; //get user email
-                    // you can store this data into your database
+                FB.api('/me', function (response) {
+                    var user_email = response.email; //get user email
+                    console.log("user_email:" + user_email);
+
+                    //send request
+
+                    var dto = {
+                        userId: user_id,
+                        token: access_token,
+                        email: user_email
+                    };
+
+                    $http({
+                        'method': "POST",
+                        'url': "/login",
+                        'headers': "Content-Type:application/json",
+                        'data': dto
+                    }).success(function (data, status) {
+                        $scope.loading = false;
+                        $scope.close();
+                        login(data.myself);
+                    })
+                        .error(function (data, status) {
+                            $scope.loading = false;
+                            $flash.error(data.message);
+                        });
+
                 });
 
             } else {

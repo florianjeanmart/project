@@ -11,8 +11,8 @@ import javax.validation.constraints.Pattern;
  */
 public class ForgotPasswordDTO extends DTO{
 
-    @NotNull(message = "validation.dto.notNull")
-    @Pattern(regexp = ValidationRegex.EMAIL,message = "validation.dto.email")
+    @NotNull(message = "--.validation.dto.notNull")
+    @Pattern(regexp = ValidationRegex.EMAIL,message = "--.validation.dto.email")
     private String email;
 
     public String getEmail() {

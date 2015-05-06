@@ -5,8 +5,8 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
     $scope.fields = {
         gender:{
             name:'gender',
-            fieldTitle: "generic.gender",
-            options:[{key:'male',value:'generic.male'},{key:'female',value:'generic.female'}],
+            fieldTitle: "--.generic.gender",
+            options:[{key:'male',value:'--.generic.male'},{key:'female',value:'--.generic.female'}],
             disabled: function () {
                 return $scope.loading;
             },
@@ -15,7 +15,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
         },
         language:{
             name:'language',
-            fieldTitle: "generic.yourLanguage",
+            fieldTitle: "--.generic.yourLanguage",
             options:languages,
             disabled: function () {
                 return $scope.loading;
@@ -25,9 +25,9 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
         },
         firstname: {
             name:'firstname',
-            fieldTitle: "generic.firstname",
+            fieldTitle: "--.generic.firstname",
             validationRegex: "^.{2,50}$",
-            validationMessage: ['generic.validation.size', '2', '50'],
+            validationMessage: ['--.generic.validation.size', '2', '50'],
             disabled: function () {
                 return $scope.loading;
             },
@@ -35,16 +35,16 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
         },
         lastname: {
             name:'lastname',
-            fieldTitle: "generic.lastname",
+            fieldTitle: "--.generic.lastname",
             validationRegex: "^.{2,50}$",
-            validationMessage: ['generic.validation.size', '2', '50'],
+            validationMessage: ['--.generic.validation.size', '2', '50'],
             disabled: function () {
                 return $scope.loading;
             },
             field:angular.copy(account.lastname)
         },
         openSession:{
-            fieldTitle: "registration.form.keepSessionOpen",
+            fieldTitle: "--.registration.form.keepSessionOpen",
             disabled: function () {
                 return $scope.loading;
             },
@@ -53,7 +53,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
         login: {
             fieldType:"email",
             name:'email',
-            fieldTitle: "generic.email",
+            fieldTitle: "--.generic.email",
             disabled: function () {
                 return true;
             },
@@ -62,7 +62,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
         },
         password: {
             name: 'password',
-            fieldTitle: "registration.form.password",
+            fieldTitle: "--.registration.form.password",
             fieldType: 'password',
             disabled: function () {
                 return true;

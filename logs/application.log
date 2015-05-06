@@ -1,315 +1,123 @@
-2015-05-05 01:03:46,637 - [INFO] - from play in pool-4-thread-4 
+2015-05-06 18:30:20,813 - [INFO] - from play in pool-4-thread-5 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-05-05 01:03:51,741 - [WARN] - from play in play-internal-execution-context-1 
+2015-05-06 18:30:28,841 - [WARN] - from play in play-internal-execution-context-1 
 Plugin [be.flo.project.plugin.S3Plugin] is disabled
 
-2015-05-05 01:03:52,102 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-06 18:30:29,175 - [INFO] - from play in play-internal-execution-context-1 
 datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
 
-2015-05-05 01:03:52,195 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-06 18:30:29,291 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:postgresql://localhost/project
 
-2015-05-05 01:03:54,503 - [INFO] - from application in play-internal-execution-context-1 
+2015-05-06 18:30:31,989 - [INFO] - from application in play-internal-execution-context-1 
 MAPPER INITIALIZATION
 
-2015-05-05 01:03:55,013 - [INFO] - from application in play-internal-execution-context-1 
-Spring Startup @Tue May 05 01:03:54 CEST 2015
+2015-05-06 18:30:32,436 - [INFO] - from application in play-internal-execution-context-1 
+Spring Startup @Wed May 06 18:30:31 CEST 2015
 
-2015-05-05 01:03:55,018 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-06 18:30:32,440 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-05-05 01:03:55,296 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
+2015-05-06 18:30:32,738 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
+Spring getControllerInstance called @Wed May 06 18:30:31 CEST 2015
 
-2015-05-05 01:03:55,297 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
+2015-05-06 18:30:32,738 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
+Spring getControllerInstance called @Wed May 06 18:30:31 CEST 2015
+
+2015-05-06 18:30:32,739 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
 getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
 
-2015-05-05 01:03:55,408 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
+2015-05-06 18:30:32,739 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
+getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
 
-2015-05-05 01:03:55,409 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
+2015-05-06 18:30:32,848 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+Spring getControllerInstance called @Wed May 06 18:30:31 CEST 2015
 
-2015-05-05 01:03:55,562 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
+2015-05-06 18:30:32,848 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
+Spring getControllerInstance called @Wed May 06 18:30:31 CEST 2015
+
+2015-05-06 18:30:32,848 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@36a86731
+
+2015-05-06 18:30:32,848 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
+getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@36a86731
+
+2015-05-06 18:30:33,020 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
 null<=>null
 
-2015-05-05 01:03:55,636 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
+2015-05-06 18:30:33,020 - [INFO] - from application in play-akka.actor.default-dispatcher-4 
+null<=>null
+
+2015-05-06 18:30:33,133 - [INFO] - from application in play-akka.actor.default-dispatcher-4 
 LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
 
-2015-05-05 01:03:55,636 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
+2015-05-06 18:30:33,133 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
+
+2015-05-06 18:30:33,133 - [INFO] - from application in play-akka.actor.default-dispatcher-4 
 Lang(en,)<=>LangDTO{language='en', code='en'}
 
-2015-05-05 01:06:00,576 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:06:00,576 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:06:00,576 - [DEBUG] - from application in play-akka.actor.default-dispatcher-10 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:06:00,576 - [DEBUG] - from application in play-akka.actor.default-dispatcher-10 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:06:00,582 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
-null<=>null
-
-2015-05-05 01:06:00,582 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:06:00,583 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
+2015-05-06 18:30:33,133 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
 Lang(en,)<=>LangDTO{language='en', code='en'}
 
-2015-05-05 01:10:21,551 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
+2015-05-07 00:34:49,789 - [WARN] - from play in play-internal-execution-context-3 
+Plugin [be.flo.project.plugin.S3Plugin] is disabled
 
-2015-05-05 01:10:21,552 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
+2015-05-07 00:34:49,826 - [INFO] - from play in play-internal-execution-context-3 
+datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
+
+2015-05-07 00:34:49,861 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:postgresql://localhost/project
+
+2015-05-07 00:34:50,467 - [INFO] - from application in play-internal-execution-context-3 
+MAPPER INITIALIZATION
+
+2015-05-07 00:34:50,588 - [INFO] - from application in play-internal-execution-context-3 
+Spring Startup @Thu May 07 00:34:50 CEST 2015
+
+2015-05-07 00:34:50,588 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2015-05-07 00:34:50,594 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+Spring getControllerInstance called @Thu May 07 00:34:50 CEST 2015
+
+2015-05-07 00:34:50,597 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
 getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
 
-2015-05-05 01:10:21,552 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
+2015-05-07 00:34:50,607 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+Spring getControllerInstance called @Thu May 07 00:34:50 CEST 2015
 
-2015-05-05 01:10:21,552 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
+2015-05-07 00:34:50,607 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@2321b81
 
-2015-05-05 01:10:21,557 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+2015-05-07 00:34:50,619 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
 null<=>null
 
-2015-05-05 01:10:21,559 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+2015-05-07 00:34:50,626 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
 LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
 
-2015-05-05 01:10:21,559 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+2015-05-07 00:34:50,626 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
 Lang(en,)<=>LangDTO{language='en', code='en'}
 
-2015-05-05 01:10:36,269 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
+2015-05-07 00:35:52,976 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
+Spring getControllerInstance called @Thu May 07 00:34:50 CEST 2015
 
-2015-05-05 01:10:36,269 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
+2015-05-07 00:35:52,980 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
 getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
 
-2015-05-05 01:10:36,270 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
+2015-05-07 00:35:52,980 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
+Spring getControllerInstance called @Thu May 07 00:34:50 CEST 2015
 
-2015-05-05 01:10:36,270 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
+2015-05-07 00:35:52,980 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
+getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@2321b81
 
-2015-05-05 01:10:36,274 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+2015-05-07 00:35:52,983 - [INFO] - from application in play-akka.actor.default-dispatcher-13 
 null<=>null
 
-2015-05-05 01:10:36,274 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+2015-05-07 00:35:52,983 - [INFO] - from application in play-akka.actor.default-dispatcher-13 
 LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
 
-2015-05-05 01:10:36,274 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-05 01:10:51,566 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:10:51,566 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:10:51,567 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:10:51,567 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:10:51,570 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
-null<=>null
-
-2015-05-05 01:10:51,571 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:10:51,571 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-05 01:11:55,804 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:11:55,804 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:11:55,805 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:11:55,805 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:11:55,809 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-null<=>null
-
-2015-05-05 01:11:55,809 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:11:55,810 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-05 01:11:56,267 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:11:56,267 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:11:56,267 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:11:56,267 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:11:56,270 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-null<=>null
-
-2015-05-05 01:11:56,271 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:11:56,271 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-05 01:11:58,711 - [DEBUG] - from application in play-akka.actor.default-dispatcher-32 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:11:58,711 - [DEBUG] - from application in play-akka.actor.default-dispatcher-32 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:11:58,712 - [DEBUG] - from application in play-akka.actor.default-dispatcher-32 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:11:58,712 - [DEBUG] - from application in play-akka.actor.default-dispatcher-32 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:11:58,715 - [INFO] - from application in play-akka.actor.default-dispatcher-32 
-null<=>null
-
-2015-05-05 01:11:58,715 - [INFO] - from application in play-akka.actor.default-dispatcher-32 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:11:58,715 - [INFO] - from application in play-akka.actor.default-dispatcher-32 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-05 01:12:02,100 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:12:02,101 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:12:02,101 - [DEBUG] - from application in play-akka.actor.default-dispatcher-33 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:12:02,101 - [DEBUG] - from application in play-akka.actor.default-dispatcher-33 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:12:02,104 - [INFO] - from application in play-akka.actor.default-dispatcher-33 
-null<=>null
-
-2015-05-05 01:12:02,105 - [INFO] - from application in play-akka.actor.default-dispatcher-33 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:12:02,105 - [INFO] - from application in play-akka.actor.default-dispatcher-33 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-05 01:12:32,523 - [DEBUG] - from application in play-akka.actor.default-dispatcher-29 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:12:32,523 - [DEBUG] - from application in play-akka.actor.default-dispatcher-29 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:12:32,523 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:12:32,523 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:12:32,525 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
-null<=>null
-
-2015-05-05 01:12:32,525 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:12:32,525 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-05 01:12:57,199 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:12:57,200 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:12:57,200 - [DEBUG] - from application in play-akka.actor.default-dispatcher-37 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:12:57,200 - [DEBUG] - from application in play-akka.actor.default-dispatcher-37 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:12:57,203 - [INFO] - from application in play-akka.actor.default-dispatcher-37 
-null<=>null
-
-2015-05-05 01:12:57,203 - [INFO] - from application in play-akka.actor.default-dispatcher-37 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:12:57,203 - [INFO] - from application in play-akka.actor.default-dispatcher-37 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-05 01:13:49,407 - [DEBUG] - from application in play-akka.actor.default-dispatcher-37 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:13:49,407 - [DEBUG] - from application in play-akka.actor.default-dispatcher-37 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:13:49,407 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:13:49,407 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:13:49,410 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
-null<=>null
-
-2015-05-05 01:13:49,411 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:13:49,411 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-05 01:14:05,353 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:14:05,353 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:14:05,354 - [DEBUG] - from application in play-akka.actor.default-dispatcher-48 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:14:05,354 - [DEBUG] - from application in play-akka.actor.default-dispatcher-48 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:14:05,357 - [INFO] - from application in play-akka.actor.default-dispatcher-48 
-null<=>null
-
-2015-05-05 01:14:05,357 - [INFO] - from application in play-akka.actor.default-dispatcher-48 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:14:05,357 - [INFO] - from application in play-akka.actor.default-dispatcher-48 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-05 01:14:18,929 - [DEBUG] - from application in play-akka.actor.default-dispatcher-44 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:14:18,930 - [DEBUG] - from application in play-akka.actor.default-dispatcher-44 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-05 01:14:18,930 - [DEBUG] - from application in play-akka.actor.default-dispatcher-44 
-Spring getControllerInstance called @Tue May 05 01:03:54 CEST 2015
-
-2015-05-05 01:14:18,930 - [DEBUG] - from application in play-akka.actor.default-dispatcher-44 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@18d584db
-
-2015-05-05 01:14:18,934 - [INFO] - from application in play-akka.actor.default-dispatcher-44 
-null<=>null
-
-2015-05-05 01:14:18,934 - [INFO] - from application in play-akka.actor.default-dispatcher-44 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-05 01:14:18,934 - [INFO] - from application in play-akka.actor.default-dispatcher-44 
+2015-05-07 00:35:52,983 - [INFO] - from application in play-akka.actor.default-dispatcher-13 
 Lang(en,)<=>LangDTO{language='en', code='en'}
 

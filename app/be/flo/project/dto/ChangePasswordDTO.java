@@ -10,10 +10,10 @@ import javax.validation.constraints.Pattern;
  */
 public class ChangePasswordDTO extends DTO {
 
-    @Pattern(regexp = ValidationRegex.PASSWORD,message = "validation.dto.password")
+    @Pattern(regexp = ValidationRegex.PASSWORD,message = "--.validation.dto.password")
     private String oldPassword;
 
-    @Pattern(regexp = ValidationRegex.PASSWORD,message = "validation.dto.password")
+    @Pattern(regexp = ValidationRegex.PASSWORD,message = "--.validation.dto.password")
     private String newPassword;
 
     public ChangePasswordDTO() {
