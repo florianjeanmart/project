@@ -16,12 +16,12 @@ import java.util.Map;
 @Component
 public class FacebookRequest {
 
-    private String accessKey = Configuration.root().getString("facebook.app.token");
+    private String inputToken = Configuration.root().getString("facebook.app.token");
 
     @Autowired
     private HttpRequest httpRequest;
 
-    public FacebookTokenAccessControlDTO debugToken(String inputToken) {
+    public FacebookTokenAccessControlDTO debugToken(String accessKey) {
 
         Map<String, String> map = new HashMap<>();
         map.put("input_token", inputToken);
