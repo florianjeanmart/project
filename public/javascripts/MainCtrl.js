@@ -27,14 +27,14 @@ myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translat
         translationService.set(data.translations);
     }
 
-    ////test is the user is currently connected
-    //console.log('start ini');
-    //FB.init({
-    //    appId: '1432915530336007',
-    //    cookie: true,
-    //    xfbml: true,
-    //    version: 'v2.3'
-    //});
+    //test is the user is currently connected
+    console.log('start ini');
+    FB.init({
+        appId: '1432915530336007',
+        cookie: true,
+        xfbml: true,
+        version: 'v2.3'
+    });
     //$window.fbAsyncInit = function () {
     //    console.log('start ini 2');
     //    FB.init({
