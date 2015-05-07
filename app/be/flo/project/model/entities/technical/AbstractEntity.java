@@ -2,15 +2,12 @@ package be.flo.project.model.entities.technical;
 
 import be.flo.project.model.entities.converter.LocalDateTimePersistenceConverter;
 import org.apache.commons.lang3.StringUtils;
-import org.joda.time.DateTime;
 import play.Play;
-import play.api.mvc.Session;
 import play.mvc.Http;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * Created by florian on 10/11/14.
@@ -24,15 +21,17 @@ public abstract class AbstractEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @Basic
+    @Version
+    protected Long version;
+
+    @Column(columnDefinition = "timestamp")
     @Convert(converter = LocalDateTimePersistenceConverter.class)
     protected LocalDateTime creationDate;
 
     @Basic
     protected String creationUser;
 
-    @Basic
-    @Version
+    @Column(columnDefinition = "timestamp")
     @Convert(converter = LocalDateTimePersistenceConverter.class)
     protected LocalDateTime lastUpdate;
 
@@ -66,13 +65,29 @@ public abstract class AbstractEntity implements Serializable {
         if (Play.application().isTest()) {
             return TEST_USER;
         }
-        
+
         if (Http.Context.current.get() == null) {
             return "TECHNICAL";
         }
 
         Http.Session session = Http.Context.current().session();
         return session.get("identifier");
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
+    public String getCreationUser() {
+        return creationUser;
+    }
+
+    public String getLastUpdateUser() {
+        return lastUpdateUser;
     }
 
     public LocalDateTime getCreationDate() {

@@ -1,604 +1,196 @@
-2015-05-07 07:47:02,510 - [INFO] - from play in pool-4-thread-2 
+2015-05-07 11:19:35,563 - [INFO] - from play in pool-4-thread-1 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-05-07 07:47:08,688 - [WARN] - from play in play-internal-execution-context-1 
+2015-05-07 11:19:44,161 - [WARN] - from play in play-internal-execution-context-1 
 Plugin [be.flo.project.plugin.S3Plugin] is disabled
 
-2015-05-07 07:47:09,152 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-07 11:19:44,651 - [INFO] - from play in play-internal-execution-context-1 
 datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
 
-2015-05-07 07:47:09,288 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-07 11:19:44,791 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:postgresql://localhost/project
 
-2015-05-07 07:47:12,601 - [INFO] - from application in play-internal-execution-context-1 
-MAPPER INITIALIZATION
-
-2015-05-07 07:47:13,400 - [INFO] - from application in play-internal-execution-context-1 
-Spring Startup @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 07:47:13,407 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-05-07 07:47:13,599 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 07:47:13,599 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 07:47:13,601 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 07:47:13,601 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 07:47:13,714 - [DEBUG] - from application in play-akka.actor.default-dispatcher-9 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 07:47:13,714 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 07:47:13,714 - [DEBUG] - from application in play-akka.actor.default-dispatcher-9 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 07:47:13,714 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 07:47:13,817 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 07:47:13,818 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 07:47:13,817 - [INFO] - from application in play-akka.actor.default-dispatcher-5 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 07:47:13,819 - [INFO] - from application in play-akka.actor.default-dispatcher-5 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 07:47:17,703 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 07:47:17,704 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 07:47:17,705 - [DEBUG] - from application in play-akka.actor.default-dispatcher-9 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 07:47:17,705 - [DEBUG] - from application in play-akka.actor.default-dispatcher-9 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 07:47:17,707 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 07:47:17,707 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:10:57,066 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:10:57,066 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:10:57,067 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:10:57,067 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 08:10:57,068 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:10:57,068 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:11:06,799 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:11:06,799 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:11:06,800 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:11:06,800 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 08:11:06,802 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:11:06,802 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:12:47,546 - [DEBUG] - from application in play-akka.actor.default-dispatcher-19 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:12:47,546 - [DEBUG] - from application in play-akka.actor.default-dispatcher-19 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:12:47,547 - [DEBUG] - from application in play-akka.actor.default-dispatcher-19 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:12:47,547 - [DEBUG] - from application in play-akka.actor.default-dispatcher-19 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 08:12:47,548 - [INFO] - from application in play-akka.actor.default-dispatcher-19 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:12:47,549 - [INFO] - from application in play-akka.actor.default-dispatcher-19 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:12:59,772 - [DEBUG] - from application in play-akka.actor.default-dispatcher-23 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:12:59,772 - [DEBUG] - from application in play-akka.actor.default-dispatcher-23 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:12:59,772 - [DEBUG] - from application in play-akka.actor.default-dispatcher-27 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:12:59,772 - [DEBUG] - from application in play-akka.actor.default-dispatcher-27 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 08:12:59,775 - [INFO] - from application in play-akka.actor.default-dispatcher-27 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:12:59,779 - [INFO] - from application in play-akka.actor.default-dispatcher-27 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:13:13,061 - [DEBUG] - from application in play-akka.actor.default-dispatcher-27 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:13:13,061 - [DEBUG] - from application in play-akka.actor.default-dispatcher-27 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:13:13,062 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:13:13,063 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 08:13:13,066 - [INFO] - from application in play-akka.actor.default-dispatcher-28 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:13:13,066 - [INFO] - from application in play-akka.actor.default-dispatcher-28 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:13:13,856 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:13:13,856 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:13:13,857 - [DEBUG] - from application in play-akka.actor.default-dispatcher-30 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:13:13,857 - [DEBUG] - from application in play-akka.actor.default-dispatcher-30 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 08:13:13,860 - [INFO] - from application in play-akka.actor.default-dispatcher-30 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:13:13,860 - [INFO] - from application in play-akka.actor.default-dispatcher-30 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:13:14,099 - [DEBUG] - from application in play-akka.actor.default-dispatcher-30 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:13:14,100 - [DEBUG] - from application in play-akka.actor.default-dispatcher-30 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:13:14,100 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:13:14,101 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 08:13:14,103 - [INFO] - from application in play-akka.actor.default-dispatcher-28 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:13:14,103 - [INFO] - from application in play-akka.actor.default-dispatcher-28 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:13:14,856 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:13:14,856 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:13:14,857 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:13:14,857 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 08:13:14,860 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:13:14,860 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:13:17,528 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:13:17,529 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:13:17,529 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-Spring getControllerInstance called @Thu May 07 07:47:12 CEST 2015
-
-2015-05-07 08:13:17,530 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@5ea31871
-
-2015-05-07 08:13:17,531 - [INFO] - from application in play-akka.actor.default-dispatcher-28 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:13:17,532 - [INFO] - from application in play-akka.actor.default-dispatcher-28 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:48:08,595 - [WARN] - from play in play-internal-execution-context-1 
+2015-05-07 11:19:46,388 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6m47kbdpk - Internal server error, for (GET) [/] ->
+
+play.api.UnexpectedException: Unexpected exception[PersistenceException: [PersistenceUnit: defaultPersistenceUnit] Unable to build Hibernate SessionFactory]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:148) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: defaultPersistenceUnit] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:1225) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.access$600(EntityManagerFactoryBuilderImpl.java:119) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:853) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:843) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:397) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:842) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:75) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.ejb.HibernatePersistence.createEntityManagerFactory(HibernatePersistence.java:54) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55) ~[hibernate-jpa-2.1-api-1.0.0.Final.jar:1.0.0.Final]
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39) ~[hibernate-jpa-2.1-api-1.0.0.Final.jar:1.0.0.Final]
+	at play.db.jpa.JPAPlugin.onStart(JPAPlugin.java:35) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.Play$.start(Play.scala:87) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10-2.2.4.jar:2.2.4]
+	... 14 common frames omitted
+Caused by: org.hibernate.MappingException: Could not instantiate persister org.hibernate.persister.entity.SingleTableEntityPersister
+	at org.hibernate.persister.internal.PersisterFactoryImpl.create(PersisterFactoryImpl.java:174) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.persister.internal.PersisterFactoryImpl.createEntityPersister(PersisterFactoryImpl.java:135) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:401) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:850) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	... 31 common frames omitted
+Caused by: java.lang.ClassCastException: org.hibernate.type.descriptor.converter.AttributeConverterTypeAdapter cannot be cast to org.hibernate.type.VersionType
+	at org.hibernate.tuple.PropertyFactory.buildVersionProperty(PropertyFactory.java:181) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.tuple.entity.EntityMetamodel.<init>(EntityMetamodel.java:218) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.<init>(AbstractEntityPersister.java:520) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.persister.entity.SingleTableEntityPersister.<init>(SingleTableEntityPersister.java:148) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_40]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_40]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_40]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422) ~[na:1.8.0_40]
+	at org.hibernate.persister.internal.PersisterFactoryImpl.create(PersisterFactoryImpl.java:163) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	... 35 common frames omitted
+
+2015-05-07 11:21:51,958 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6m47kbdpk - Internal server error, for (GET) [/] ->
+
+play.api.UnexpectedException: Unexpected exception[PersistenceException: [PersistenceUnit: defaultPersistenceUnit] Unable to build Hibernate SessionFactory]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:148) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: defaultPersistenceUnit] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:1225) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.access$600(EntityManagerFactoryBuilderImpl.java:119) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:853) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:843) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:397) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:842) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:75) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.ejb.HibernatePersistence.createEntityManagerFactory(HibernatePersistence.java:54) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55) ~[hibernate-jpa-2.1-api-1.0.0.Final.jar:1.0.0.Final]
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39) ~[hibernate-jpa-2.1-api-1.0.0.Final.jar:1.0.0.Final]
+	at play.db.jpa.JPAPlugin.onStart(JPAPlugin.java:35) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.Play$.start(Play.scala:87) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10-2.2.4.jar:2.2.4]
+	... 14 common frames omitted
+Caused by: org.hibernate.MappingException: Could not instantiate persister org.hibernate.persister.entity.SingleTableEntityPersister
+	at org.hibernate.persister.internal.PersisterFactoryImpl.create(PersisterFactoryImpl.java:174) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.persister.internal.PersisterFactoryImpl.createEntityPersister(PersisterFactoryImpl.java:135) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:401) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:850) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
+	... 31 common frames omitted
+Caused by: java.lang.ClassCastException: org.hibernate.type.descriptor.converter.AttributeConverterTypeAdapter cannot be cast to org.hibernate.type.VersionType
+	at org.hibernate.tuple.PropertyFactory.buildVersionProperty(PropertyFactory.java:181) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.tuple.entity.EntityMetamodel.<init>(EntityMetamodel.java:218) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.<init>(AbstractEntityPersister.java:520) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at org.hibernate.persister.entity.SingleTableEntityPersister.<init>(SingleTableEntityPersister.java:148) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_40]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_40]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_40]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422) ~[na:1.8.0_40]
+	at org.hibernate.persister.internal.PersisterFactoryImpl.create(PersisterFactoryImpl.java:163) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
+	... 35 common frames omitted
+
+2015-05-07 11:22:35,085 - [WARN] - from play in play-internal-execution-context-1 
 Plugin [be.flo.project.plugin.S3Plugin] is disabled
 
-2015-05-07 08:48:08,633 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-07 11:22:35,146 - [INFO] - from play in play-internal-execution-context-1 
 datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
 
-2015-05-07 08:48:08,663 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-07 11:22:35,221 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:postgresql://localhost/project
 
-2015-05-07 08:48:09,478 - [INFO] - from application in play-internal-execution-context-1 
+2015-05-07 11:22:36,791 - [INFO] - from application in play-internal-execution-context-1 
 MAPPER INITIALIZATION
 
-2015-05-07 08:48:09,678 - [INFO] - from application in play-internal-execution-context-1 
-Spring Startup @Thu May 07 08:48:09 CEST 2015
+2015-05-07 11:22:37,060 - [INFO] - from application in play-internal-execution-context-1 
+Spring Startup @Thu May 07 11:22:36 CEST 2015
 
-2015-05-07 08:48:09,679 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-07 11:22:37,066 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-05-07 08:48:09,685 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-Spring getControllerInstance called @Thu May 07 08:48:09 CEST 2015
+2015-05-07 11:22:37,347 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
+Spring getControllerInstance called @Thu May 07 11:22:36 CEST 2015
 
-2015-05-07 08:48:09,686 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
+2015-05-07 11:22:37,347 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
 getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
 
-2015-05-07 08:48:09,705 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-Spring getControllerInstance called @Thu May 07 08:48:09 CEST 2015
+2015-05-07 11:22:37,504 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+Spring getControllerInstance called @Thu May 07 11:22:36 CEST 2015
 
-2015-05-07 08:48:09,706 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@4167b5b9
+2015-05-07 11:22:37,505 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@279a0e82
 
-2015-05-07 08:48:09,718 - [INFO] - from application in play-akka.actor.default-dispatcher-28 
+2015-05-07 11:22:37,746 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
+null<=>null
+
+2015-05-07 11:22:37,834 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
 LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
 
-2015-05-07 08:48:09,728 - [INFO] - from application in play-akka.actor.default-dispatcher-28 
+2015-05-07 11:22:37,834 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
 Lang(en,)<=>LangDTO{language='en', code='en'}
 
-2015-05-07 08:48:25,569 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-Spring getControllerInstance called @Thu May 07 08:48:09 CEST 2015
+2015-05-07 11:31:42,465 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+Spring getControllerInstance called @Thu May 07 11:22:36 CEST 2015
 
-2015-05-07 08:48:25,570 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
+2015-05-07 11:31:42,466 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
 getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
 
-2015-05-07 08:48:25,571 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-Spring getControllerInstance called @Thu May 07 08:48:09 CEST 2015
+2015-05-07 11:31:42,467 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+Spring getControllerInstance called @Thu May 07 11:22:36 CEST 2015
 
-2015-05-07 08:48:25,571 - [DEBUG] - from application in play-akka.actor.default-dispatcher-28 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@4167b5b9
+2015-05-07 11:31:42,467 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@279a0e82
 
-2015-05-07 08:48:25,572 - [INFO] - from application in play-akka.actor.default-dispatcher-28 
+2015-05-07 11:31:42,472 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+null<=>null
+
+2015-05-07 11:31:42,473 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
 LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
 
-2015-05-07 08:48:25,572 - [INFO] - from application in play-akka.actor.default-dispatcher-28 
+2015-05-07 11:31:42,474 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
 Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:48:56,469 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-Spring getControllerInstance called @Thu May 07 08:48:09 CEST 2015
-
-2015-05-07 08:48:56,469 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:48:56,469 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-Spring getControllerInstance called @Thu May 07 08:48:09 CEST 2015
-
-2015-05-07 08:48:56,469 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@4167b5b9
-
-2015-05-07 08:48:56,471 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:48:56,471 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:49:32,742 - [DEBUG] - from application in play-akka.actor.default-dispatcher-43 
-Spring getControllerInstance called @Thu May 07 08:48:09 CEST 2015
-
-2015-05-07 08:49:32,742 - [DEBUG] - from application in play-akka.actor.default-dispatcher-43 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:49:32,744 - [DEBUG] - from application in play-akka.actor.default-dispatcher-42 
-Spring getControllerInstance called @Thu May 07 08:48:09 CEST 2015
-
-2015-05-07 08:49:32,745 - [DEBUG] - from application in play-akka.actor.default-dispatcher-42 
-getControllerInstance <clazz> class be.flo.project.controller.rest.LoginRestController getBean : be.flo.project.controller.rest.LoginRestController@3a80dc6
-
-2015-05-07 08:49:32,761 - [INFO] - from application in play-akka.actor.default-dispatcher-42 
-DTO:
-
-2015-05-07 08:49:33,151 - [ERROR] - from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in play-akka.actor.default-dispatcher-42 
-ERROR: null value in column "password" violates not-null constraint
-  Détail : Failing row contains (96, 2015-05-07 08:49:33.097, null, 2015-05-07 08:49:33.097, null, null, florian.jeanmart@gmail.cog, florian, f, f, null, en, jeanmart, t, null).
-
-2015-05-07 08:49:33,159 - [ERROR] - from play in play-internal-execution-context-1 
-Cannot invoke the action, eventually got an error: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
-
-2015-05-07 08:49:33,191 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6m470iim7 - Internal server error, for (POST) [/registration] ->
-
-play.api.Application$$anon$1: Execution exception[[PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.4.jar:2.2.4]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.4.jar:2.2.4]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
-	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.4.jar:2.2.4]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.4.jar:2.2.4]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
-Caused by: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1763) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1677) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1683) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1187) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at be.flo.project.service.impl.CrudServiceImpl.saveOrUpdate(CrudServiceImpl.java:29) ~[na:na]
-	at be.flo.project.controller.rest.LoginRestController.registration(LoginRestController.java:186) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$8.apply(routes_routing.scala:117) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$8.apply(routes_routing.scala:117) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.4.jar:2.2.4]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.4.jar:2.2.4]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.4.jar:2.2.4]
-	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[play_2.10-2.2.4.jar:2.2.4]
-	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:20) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
-	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:18) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
-	at play.db.jpa.JPA.withTransactionAsync(JPA.java:177) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
-	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:15) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.4.jar:2.2.4]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.4.jar:2.2.4]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.4.jar:2.2.4]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.4.jar:2.2.4]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.4.jar:2.2.4]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	... 4 common frames omitted
-Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
-	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:129) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:126) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:112) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:190) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.id.IdentityGenerator$GetGeneratedKeysDelegate.executeAndExtract(IdentityGenerator.java:96) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:58) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3032) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3558) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:98) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:490) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:195) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:179) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:214) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:324) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:288) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:194) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:125) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.jpa.event.internal.core.JpaPersistEventListener.saveWithGeneratedId(JpaPersistEventListener.java:84) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:206) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:149) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:75) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:811) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:784) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:789) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1181) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	... 26 common frames omitted
-Caused by: org.postgresql.util.PSQLException: ERROR: null value in column "password" violates not-null constraint
-  Détail : Failing row contains (96, 2015-05-07 08:49:33.097, null, 2015-05-07 08:49:33.097, null, null, florian.jeanmart@gmail.cog, florian, f, f, null, en, jeanmart, t, null).
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2161) ~[postgresql-9.3-1101-jdbc41.jar:na]
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1890) ~[postgresql-9.3-1101-jdbc41.jar:na]
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255) ~[postgresql-9.3-1101-jdbc41.jar:na]
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:559) ~[postgresql-9.3-1101-jdbc41.jar:na]
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:417) ~[postgresql-9.3-1101-jdbc41.jar:na]
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:363) ~[postgresql-9.3-1101-jdbc41.jar:na]
-	at com.jolbox.bonecp.PreparedStatementHandle.executeUpdate(PreparedStatementHandle.java:205) ~[bonecp-0.8.0.RELEASE.jar:na]
-	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:187) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	... 47 common frames omitted
-
-2015-05-07 08:51:44,739 - [WARN] - from play in play-internal-execution-context-1 
-Plugin [be.flo.project.plugin.S3Plugin] is disabled
-
-2015-05-07 08:51:44,780 - [INFO] - from play in play-internal-execution-context-1 
-datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
-
-2015-05-07 08:51:44,826 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:postgresql://localhost/project
-
-2015-05-07 08:51:45,545 - [INFO] - from application in play-internal-execution-context-1 
-MAPPER INITIALIZATION
-
-2015-05-07 08:51:45,674 - [INFO] - from application in play-internal-execution-context-1 
-Spring Startup @Thu May 07 08:51:45 CEST 2015
-
-2015-05-07 08:51:45,675 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-05-07 08:51:45,682 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-Spring getControllerInstance called @Thu May 07 08:51:45 CEST 2015
-
-2015-05-07 08:51:45,684 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:51:45,686 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-Spring getControllerInstance called @Thu May 07 08:51:45 CEST 2015
-
-2015-05-07 08:51:45,687 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@786215a2
-
-2015-05-07 08:51:45,694 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:51:45,694 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
-Lang(en,)<=>LangDTO{language='en', code='en'}
-
-2015-05-07 08:52:08,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-50 
-Spring getControllerInstance called @Thu May 07 08:51:45 CEST 2015
-
-2015-05-07 08:52:08,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-50 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:52:08,171 - [DEBUG] - from application in play-akka.actor.default-dispatcher-50 
-Spring getControllerInstance called @Thu May 07 08:51:45 CEST 2015
-
-2015-05-07 08:52:08,172 - [DEBUG] - from application in play-akka.actor.default-dispatcher-50 
-getControllerInstance <clazz> class be.flo.project.controller.rest.LoginRestController getBean : be.flo.project.controller.rest.LoginRestController@45f81ac4
-
-2015-05-07 08:52:08,178 - [INFO] - from application in play-akka.actor.default-dispatcher-50 
-DTO:
-
-2015-05-07 08:52:08,443 - [INFO] - from application in play-akka.actor.default-dispatcher-50 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
-
-2015-05-07 08:52:08,473 - [ERROR] - from play in play-internal-execution-context-1 
-Cannot invoke the action, eventually got an error: javax.persistence.RollbackException: Error while committing the transaction
-
-2015-05-07 08:52:08,476 - [ERROR] - from akka.dispatch.Dispatcher in play-akka.actor.default-dispatcher-52 
-EntityManager is closed
-java.lang.IllegalStateException: EntityManager is closed
-	at org.hibernate.jpa.internal.EntityManagerImpl.checkOpen(EntityManagerImpl.java:105) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.jpa.internal.EntityManagerImpl.checkOpen(EntityManagerImpl.java:96) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.jpa.internal.EntityManagerImpl.close(EntityManagerImpl.java:148) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at play.db.jpa.JPA$3.invoke(JPA.java:206) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
-	at play.db.jpa.JPA$3.invoke(JPA.java:200) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
-	at play.core.j.FPromiseHelper$$anonfun$onFailure$1.applyOrElse(FPromiseHelper.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
-	at play.core.j.FPromiseHelper$$anonfun$onFailure$1.applyOrElse(FPromiseHelper.scala:88) ~[play_2.10-2.2.4.jar:2.2.4]
-	at scala.concurrent.Future$$anonfun$onFailure$1.apply(Future.scala:136) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$onFailure$1.apply(Future.scala:134) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[scala-library-2.10.3.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.4.jar:2.2.4]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) [akka-actor_2.10-2.2.0.jar:2.2.0]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
-
-2015-05-07 08:52:08,478 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6m4711ef8 - Internal server error, for (POST) [/registration] ->
-
-play.api.Application$$anon$1: Execution exception[[RollbackException: Error while committing the transaction]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.4.jar:2.2.4]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.4.jar:2.2.4]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
-	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.4.jar:2.2.4]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.4.jar:2.2.4]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
-Caused by: javax.persistence.RollbackException: Error while committing the transaction
-	at org.hibernate.jpa.internal.TransactionImpl.commit(TransactionImpl.java:94) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at play.db.jpa.JPA$2.apply(JPA.java:190) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
-	at play.core.j.FPromiseHelper$$anonfun$map$1.apply(FPromiseHelper.scala:79) ~[play_2.10-2.2.4.jar:2.2.4]
-	at scala.util.Success$$anonfun$map$1.apply(Try.scala:206) ~[scala-library-2.10.3.jar:na]
-	at scala.util.Try$.apply(Try.scala:161) ~[scala-library-2.10.3.jar:na]
-	at scala.util.Success.map(Try.scala:206) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.4.jar:2.2.4]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	... 4 common frames omitted
-Caused by: java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : be.flo.project.model.entities.Account.loginCredential -> be.flo.project.model.entities.LoginCredential
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1760) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1677) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.jpa.internal.TransactionImpl.commit(TransactionImpl.java:82) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	... 15 common frames omitted
-Caused by: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : be.flo.project.model.entities.Account.loginCredential -> be.flo.project.model.entities.LoginCredential
-	at org.hibernate.engine.spi.CascadingActions$8.noCascade(CascadingActions.java:398) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:129) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.AbstractFlushingEventListener.cascadeOnFlush(AbstractFlushingEventListener.java:167) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.AbstractFlushingEventListener.prepareEntityFlushes(AbstractFlushingEventListener.java:158) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEverythingToExecutions(AbstractFlushingEventListener.java:91) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:55) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1222) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:425) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.beforeTransactionCommit(JdbcTransaction.java:101) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.commit(AbstractTransactionImpl.java:177) ~[hibernate-core-4.3.5.Final.jar:4.3.5.Final]
-	at org.hibernate.jpa.internal.TransactionImpl.commit(TransactionImpl.java:77) ~[hibernate-entitymanager-4.3.5.Final.jar:4.3.5.Final]
-	... 15 common frames omitted
-
-2015-05-07 08:53:47,101 - [WARN] - from play in play-internal-execution-context-1 
-Plugin [be.flo.project.plugin.S3Plugin] is disabled
-
-2015-05-07 08:53:47,132 - [INFO] - from play in play-internal-execution-context-1 
-datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
-
-2015-05-07 08:53:47,164 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:postgresql://localhost/project
-
-2015-05-07 08:53:47,806 - [INFO] - from application in play-internal-execution-context-1 
-MAPPER INITIALIZATION
-
-2015-05-07 08:53:47,916 - [INFO] - from application in play-internal-execution-context-1 
-Spring Startup @Thu May 07 08:53:47 CEST 2015
-
-2015-05-07 08:53:47,917 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-05-07 08:53:47,923 - [DEBUG] - from application in play-akka.actor.default-dispatcher-53 
-Spring getControllerInstance called @Thu May 07 08:53:47 CEST 2015
-
-2015-05-07 08:53:47,924 - [DEBUG] - from application in play-akka.actor.default-dispatcher-53 
-getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
-
-2015-05-07 08:53:47,926 - [DEBUG] - from application in play-akka.actor.default-dispatcher-53 
-Spring getControllerInstance called @Thu May 07 08:53:47 CEST 2015
-
-2015-05-07 08:53:47,927 - [DEBUG] - from application in play-akka.actor.default-dispatcher-53 
-getControllerInstance <clazz> class be.flo.project.controller.rest.LoginRestController getBean : be.flo.project.controller.rest.LoginRestController@55f13d30
-
-2015-05-07 08:53:47,929 - [INFO] - from application in play-akka.actor.default-dispatcher-53 
-DTO:
-
-2015-05-07 08:53:48,205 - [INFO] - from application in play-akka.actor.default-dispatcher-53 
-LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
 
