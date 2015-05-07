@@ -7,12 +7,10 @@ import be.flo.project.dto.FacebookAuthenticationDTO;
 import be.flo.project.dto.LoginSuccessDTO;
 import be.flo.project.dto.post.LoginDTO;
 import be.flo.project.dto.post.RegistrationDTO;
-import be.flo.project.model.entities.Account;
-import be.flo.project.model.entities.FacebookCredential;
-import be.flo.project.model.entities.Role;
-import be.flo.project.model.entities.Session;
+import be.flo.project.model.entities.*;
 import be.flo.project.service.AccountService;
 import be.flo.project.service.FacebookCredentialService;
+import be.flo.project.service.LoginCredentialService;
 import be.flo.project.service.SessionService;
 import be.flo.project.util.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
@@ -36,7 +34,10 @@ public class LoginRestController extends AbstractRestController {
     private EmailController emailController;
     @Autowired
     private FacebookCredentialService facebookCredentialService;
+    @Autowired
+    private LoginCredentialService loginCredentialService;
 
+    @Transactional
     public Result loginFacebook() {
 
         //extract DTO
@@ -64,7 +65,11 @@ public class LoginRestController extends AbstractRestController {
         else{
             //create a new account
             //account
-            account = dozerService.map(dto, Account.class);
+            account = new Account();
+            account.setEmail(dto.getEmail());
+            account.setFirstname(dto.getFirstname());
+            account.setLastname(dto.getLastname());
+            account.setMale(dto.getGender()=="male");
             account.setId(null);
             if (account.getLang() == null) {
                 account.setLang(lang());
@@ -121,11 +126,11 @@ public class LoginRestController extends AbstractRestController {
 
         //control account
         Account account = accountService.findByEmail(dto.getEmail());
-//TODO
-//        if (account == null || !accountService.controlPassword(dto.getPassword(), account)) {
-//            //if there is no account for this email or the password doesn't the right, throw an exception
-//            throw new MyRuntimeException(ErrorMessage.LOGIN_WRONG_PASSWORD_LOGIN);
-//        }
+
+        if (account == null || account.getLoginCredential()==null || !loginCredentialService.controlPassword(dto.getPassword(), account.getLoginCredential())) {
+            //if there is no account for this email or the password doesn't the right, throw an exception
+            throw new MyRuntimeException(ErrorMessageEnum.LOGIN_WRONG_PASSWORD_LOGIN);
+        }
 
         //session
         sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
@@ -170,6 +175,10 @@ public class LoginRestController extends AbstractRestController {
         if (dto.getLang() != null) {
             changeLang(dto.getLang().getCode());
         }
+
+        //login credential
+        LoginCredential loginCredential = new LoginCredential(account,dto.getKeepSessionOpen(),dto.getPassword());
+        account.setLoginCredential(loginCredential);
 
         //send email
         emailController.sendApplicationRegistrationEmail(account);

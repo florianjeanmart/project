@@ -124,7 +124,7 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
 
             }
         }, {
-            scope: 'publish_stream,email'
+            scope: 'public_profile, email'
         });
     };
 

@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 public class LoginCredential  extends AbstractEntity {
 
-    @OneToOne(optional = false)
+    @OneToOne(optional = false,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Account account;
 
     @Column
@@ -31,6 +31,12 @@ public class LoginCredential  extends AbstractEntity {
     }
 
     public LoginCredential() {
+    }
+
+    public LoginCredential(Account account, boolean keepSessionOpen, String password) {
+        this.account = account;
+        this.keepSessionOpen = keepSessionOpen;
+        this.password = password;
     }
 
     public Account getAccount() {

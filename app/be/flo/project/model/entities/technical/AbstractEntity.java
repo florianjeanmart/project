@@ -1,5 +1,6 @@
 package be.flo.project.model.entities.technical;
 
+import be.flo.project.model.entities.converter.LocalDateTimePersistenceConverter;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import play.Play;
@@ -8,6 +9,7 @@ import play.mvc.Http;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -22,15 +24,19 @@ public abstract class AbstractEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @Column
-    protected Date creationDate;
+    @Basic
+    @Convert(converter = LocalDateTimePersistenceConverter.class)
+    protected LocalDateTime creationDate;
 
+    @Basic
     protected String creationUser;
 
-    @Column
+    @Basic
     @Version
-    protected Date lastUpdate;
+    @Convert(converter = LocalDateTimePersistenceConverter.class)
+    protected LocalDateTime lastUpdate;
 
+    @Basic
     protected String lastUpdateUser;
 
     @PrePersist
@@ -39,9 +45,9 @@ public abstract class AbstractEntity implements Serializable {
         if (StringUtils.isBlank(currentUser)) {
             currentUser = "TECHNICAL";
         }
-        creationDate = new Date();
+        creationDate = LocalDateTime.now();
         creationUser = getCurrentUser();
-        lastUpdate = new Date();
+        lastUpdate = LocalDateTime.now();
         lastUpdateUser = getCurrentUser();
     }
 
@@ -51,7 +57,7 @@ public abstract class AbstractEntity implements Serializable {
             prePersist();
         }
         else{
-            lastUpdate = new Date();
+            lastUpdate = LocalDateTime.now();
             lastUpdateUser = getCurrentUser();
         }
     }
@@ -68,19 +74,19 @@ public abstract class AbstractEntity implements Serializable {
         return session.get("identifier");
     }
 
-    public Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
 
-    public Date getLastUpdate() {
+    public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
+    public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 

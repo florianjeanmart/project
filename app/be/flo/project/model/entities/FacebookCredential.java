@@ -2,10 +2,7 @@ package be.flo.project.model.entities;
 
 import be.flo.project.model.entities.technical.AbstractEntity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * Created by florian on 3/05/15.
@@ -13,7 +10,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class FacebookCredential extends AbstractEntity {
 
-    @OneToOne(optional = false)
+    @OneToOne(optional = false,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Account account;
 
     @Basic(optional = false)

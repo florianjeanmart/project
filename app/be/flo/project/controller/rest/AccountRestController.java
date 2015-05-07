@@ -26,7 +26,7 @@ public class AccountRestController extends AbstractRestController {
     private AccountService accountService;
 
     @Transactional
-//    @SecurityAnnotation(role = RoleEnum.USER)
+    @SecurityAnnotation(role = RoleEnum.USER)
     public Result mySession() {
         Set<Session> sessions = securityController.getCurrentUser().getSessions();
         Collection<SessionDTO> map = dozerService.map(sessions, SessionDTO.class);

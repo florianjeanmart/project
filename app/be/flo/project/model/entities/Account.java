@@ -44,7 +44,7 @@ public class Account extends AbstractEntity {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "account",orphanRemoval = true)
     private Set<Session> sessions;
 
-    @OneToOne(mappedBy = "account",optional = true)
+    @OneToOne(mappedBy = "account",optional = true,cascade = CascadeType.ALL)
     private LoginCredential loginCredential;
 
 
@@ -163,9 +163,9 @@ public class Account extends AbstractEntity {
         if (authenticationKey != null && authenticationKey.length() < 50) {
             authenticationKey = Encrypter.generateEncryptingPassword(authenticationKey);
         }
-//        //or generate it
-//        else if(authenticationKey==null){
-//            authenticationKey = Encrypter.generateEncryptingPassword(KeyGenerator.generateRandomKey(40));
-//        }
+        //or generate it
+        else if(authenticationKey==null){
+            authenticationKey = Encrypter.generateEncryptingPassword(KeyGenerator.generateRandomKey(40));
+        }
     }
 }
