@@ -101,9 +101,12 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
                         email: user_email
                     };
 
+                    console.log('dto:');
+                    console.log(dto);
+
                     $http({
                         'method': "POST",
-                        'url': "/login",
+                        'url': "/login/facebook",
                         'headers': "Content-Type:application/json",
                         'data': dto
                     }).success(function (data, status) {
