@@ -54,15 +54,11 @@ public class HttpRequest {
             throw new HttpRequestException("connection error");
         }
 
-
         if(params == null){
 			params = new HashMap<>();
 		}
 
-		//todo auth for quandl params.put(AUTH_PARAM,AUTH);
-
 		String paramString = buildOption(params);
-
 
 		try {
 
@@ -113,11 +109,11 @@ public class HttpRequest {
 			}
 			rd.close();
 
-			Logger.info("Request finish ! ");
+			Logger.info("Request finish ! : "+response.toString());
 
 			ObjectMapper mapper = new ObjectMapper();
-			JsonFactory factory = mapper.getJsonFactory(); // since 2.1 use mapper.getFactory() instead
-			JsonParser jp = factory.createJsonParser(response.toString());
+			JsonFactory factory = mapper.getFactory();
+			JsonParser jp = factory.createParser(response.toString());
 			return mapper.readTree(jp);
 
 		} catch (MalformedURLException e) {

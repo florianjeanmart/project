@@ -35,6 +35,4 @@ public class FacebookRequest {
             throw new MyRuntimeException(ErrorMessageEnum.FATAL_ERROR);
         }
     }
-
-
 }
