@@ -91,8 +91,10 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
                 var access_token = response.authResponse.accessToken; //get access token
                 var user_id = response.authResponse.userID; //get FB UID
 
-                FB.api('/me', function (response) {
-                    var user_email = response.email; //get user email
+                FB.api('/me', function (responseMe) {
+                    console.log("me");
+                    console.log(responseMe);
+                    var user_email = responseMe.email; //get user email
                     console.log("user_email:" + user_email);
 
                     //send request
@@ -101,8 +103,8 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
                         userId: user_id,
                         token: access_token,
                         email: user_email,
-                        //firstname:,
-                        //lastname:
+                        firstname:responseMe.first_name,
+                        lastname:responseMe.last_name
                     };
 
                     console.log('dto:');
