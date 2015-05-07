@@ -66,6 +66,7 @@ public abstract class AbstractEntity implements Serializable {
         if (Play.application().isTest()) {
             return TEST_USER;
         }
+        
         if (Http.Context.current.get() == null) {
             return "TECHNICAL";
         }
