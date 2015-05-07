@@ -29,20 +29,26 @@ myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translat
 
     //test is the user is currently connected
     console.log('start ini');
-    $window.fbAsyncInit = function () {
-        console.log('start ini 2');
-        FB.init({
-            appId: '1432915530336007',
-            cookie: true,
-            xfbml: true,
-            version: 'v2.3'
-        });
-        FB.getLoginStatus(function (response) {
-            statusChangeCallback(response);
-            console.log("FB.getLoginStatus");
-            console.log(response);
-        });
-    };
+    FB.init({
+        appId: '1432915530336007',
+        cookie: true,
+        xfbml: true,
+        version: 'v2.3'
+    });
+    //$window.fbAsyncInit = function () {
+    //    console.log('start ini 2');
+    //    FB.init({
+    //        appId: '1432915530336007',
+    //        cookie: true,
+    //        xfbml: true,
+    //        version: 'v2.3'
+    //    });
+    //    FB.getLoginStatus(function (response) {
+    //        statusChangeCallback(response);
+    //        console.log("FB.getLoginStatus");
+    //        console.log(response);
+    //    });
+    //};
 
     $scope.helpDisplayed=false;
 
