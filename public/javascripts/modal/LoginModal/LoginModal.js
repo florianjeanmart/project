@@ -86,6 +86,8 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
         $scope.loading = true;
         FB.login(function (response) {
             if (response.authResponse) {
+                console.log("response");
+                console.log(response);
                 var access_token = response.authResponse.accessToken; //get access token
                 var user_id = response.authResponse.userID; //get FB UID
 
@@ -98,7 +100,9 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
                     var dto = {
                         userId: user_id,
                         token: access_token,
-                        email: user_email
+                        email: user_email,
+                        //firstname:,
+                        //lastname:
                     };
 
                     console.log('dto:');
