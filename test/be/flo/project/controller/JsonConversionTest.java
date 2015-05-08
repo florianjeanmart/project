@@ -11,6 +11,7 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import play.Logger;
 
 import java.io.IOException;
 
@@ -22,6 +23,7 @@ public class JsonConversionTest extends AbstractControllerTest{
 
     @Test
     public void test1() {
+
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonFactory factory = mapper.getFactory();

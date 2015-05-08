@@ -48,7 +48,7 @@ public class FacebookRequest {
 
         try {
             String response= httpRequest.sendRequest(HttpRequest.RequestMethod.GET, "https://graph.facebook.com/oauth/access_token", map);
-            String token = response.split("\\|")[0].replace(" ","");
+            String token = response.split("\\|")[1].replace(" ","");
             Logger.info("token  : "+token);
             return token;
         } catch (HttpRequestException e) {

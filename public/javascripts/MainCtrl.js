@@ -1,8 +1,7 @@
 
-angular.module("tmh.dynamicLocale").config(function (tmhDynamicLocaleProvider) {
-    tmhDynamicLocaleProvider.localeLocationPattern('/assets/components/angular-i18n/angular-locale_{{locale}}.js');
-});
-
+//
+// initialization external modules
+//
 var myApp = angular.module('app', [
     'ngAnimate',
     'ui.bootstrap',
@@ -13,8 +12,14 @@ var myApp = angular.module('app', [
     'ngRoute',
     'ngTable']);
 
+//
+// initialize routes
+//
 initializeCommonRoutes();
 
+//
+// main ctrl
+//
 myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translationService,$modal,$window,facebookService) {
 
     //
@@ -22,34 +27,23 @@ myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translat
     // load from data var and insert into into translationService
     //
     if ("data" in window && data!=undefined && data!=null) {
-        tmhDynamicLocale.set(data.langId);
-
         translationService.set(data.translations);
     }
 
-    //test is the user is currently connected
+    //
+    //facebook initialization
+    //
     console.log('start ini');
     FB.init({
         appId: '1432915530336007',
         cookie: true,
         xfbml: true,
         version: 'v2.3'
-    });
-    //$window.fbAsyncInit = function () {
-    //    console.log('start ini 2');
-    //    FB.init({
-    //        appId: '1432915530336007',
-    //        cookie: true,
-    //        xfbml: true,
-    //        version: 'v2.3'
-    //    });
-    //    FB.getLoginStatus(function (response) {
-    //        statusChangeCallback(response);
-    //        console.log("FB.getLoginStatus");
-    //        console.log(response);
-    //    });
-    //};
+    })
 
+    //
+    // help functionalities
+    //
     $scope.helpDisplayed=false;
 
     $scope.displayHelp = function(){
