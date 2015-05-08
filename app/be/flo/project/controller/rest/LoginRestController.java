@@ -5,6 +5,7 @@ import be.flo.project.controller.technical.security.role.RoleEnum;
 import be.flo.project.dto.AccountDTO;
 import be.flo.project.dto.FacebookAuthenticationDTO;
 import be.flo.project.dto.LoginSuccessDTO;
+import be.flo.project.dto.externalDTO.FacebookTokenAccessControlDTO;
 import be.flo.project.dto.post.LoginDTO;
 import be.flo.project.dto.post.RegistrationDTO;
 import be.flo.project.model.entities.*;
@@ -16,6 +17,7 @@ import be.flo.project.util.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import play.db.jpa.Transactional;
+import play.i18n.Lang;
 import play.mvc.Result;
 
 /**
@@ -44,7 +46,8 @@ public class LoginRestController extends AbstractRestController {
         FacebookAuthenticationDTO dto = extractDTOFromRequest(FacebookAuthenticationDTO.class);
 
         //authentication
-        if(!facebookCredentialService.controlFacebookAccess(dto.getUserId(),dto.getToken())){
+        FacebookTokenAccessControlDTO facebookTokenAccessControlDTO = facebookCredentialService.controlFacebookAccess(dto.getToken());
+        if (!facebookTokenAccessControlDTO.isVerified() || !facebookTokenAccessControlDTO.getId().equals(dto.getUserId())) {
             throw new MyRuntimeException(ErrorMessageEnum.FACEBOOK_AUTHENTICATION_FAIL);
         }
 
@@ -52,7 +55,7 @@ public class LoginRestController extends AbstractRestController {
         FacebookCredential facebookCredential = facebookCredentialService.findByUserId(dto.getUserId());
         Account account;
 
-        if(facebookCredential!=null){
+        if (facebookCredential != null) {
 
             account = facebookCredential.getAccount();
 
@@ -61,37 +64,48 @@ public class LoginRestController extends AbstractRestController {
 
             //storage
             securityController.storeAccount(ctx(), account);
-        }
-        else{
+        } else {
             //create a new account
             //account
             account = new Account();
-            account.setEmail(dto.getEmail());
-            account.setFirstname(dto.getFirstname());
-            account.setLastname(dto.getLastname());
-            account.setMale(dto.getGender()=="male");
             account.setId(null);
-            if (account.getLang() == null) {
-                account.setLang(lang());
+            account.setEmail(facebookTokenAccessControlDTO.getEmail());
+            account.setFirstname(facebookTokenAccessControlDTO.getFirst_name());
+            account.setLastname(facebookTokenAccessControlDTO.getLast_name());
+            account.setMale(facebookTokenAccessControlDTO.getGender().equals("male"));
+
+            //lang
+            //priority to the facebook language
+            for (Lang lang : Lang.availables()) {
+                if (facebookTokenAccessControlDTO.getLocale().equals(lang.code())) {
+                    account.setLang(lang);
+                    break;
+                }
+            }
+            //choose the current interface lang
+            if (account.getLang() != null) {
+                changeLang(dto.getLang().getCode());
+                account.setLang(dozerService.map(dto.getLang(), Lang.class));
+
             }
 
+            //roles
             account.getRoles().add(new Role(account, RoleEnum.USER));
 
-            if (dto.getLang() != null) {
-                changeLang(dto.getLang().getCode());
-            }
-
-            facebookCredential = new FacebookCredential(account,dto.getUserId());
+            //create facebook credential
+            facebookCredential = new FacebookCredential(account, dto.getUserId());
 
 
             //send email
             emailController.sendApplicationRegistrationEmail(account);
 
+            //save credential + account
             facebookCredentialService.saveOrUpdate(facebookCredential);
 
-            //session
+            //create a new session
             sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
 
+            //build success dto
             LoginSuccessDTO result = new LoginSuccessDTO();
             result.setMyself(dozerService.map(account, AccountDTO.class));
             result.setAuthenticationKey(account.getAuthenticationKey());
@@ -127,7 +141,7 @@ public class LoginRestController extends AbstractRestController {
         //control account
         Account account = accountService.findByEmail(dto.getEmail());
 
-        if (account == null || account.getLoginCredential()==null || !loginCredentialService.controlPassword(dto.getPassword(), account.getLoginCredential())) {
+        if (account == null || account.getLoginCredential() == null || !loginCredentialService.controlPassword(dto.getPassword(), account.getLoginCredential())) {
             //if there is no account for this email or the password doesn't the right, throw an exception
             throw new MyRuntimeException(ErrorMessageEnum.LOGIN_WRONG_PASSWORD_LOGIN);
         }
@@ -177,7 +191,7 @@ public class LoginRestController extends AbstractRestController {
         }
 
         //login credential
-        LoginCredential loginCredential = new LoginCredential(account,dto.getKeepSessionOpen(),dto.getPassword());
+        LoginCredential loginCredential = new LoginCredential(account, dto.getKeepSessionOpen(), dto.getPassword());
         account.setLoginCredential(loginCredential);
 
         //send email

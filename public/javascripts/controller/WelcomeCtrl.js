@@ -5,11 +5,6 @@ myApp.controller('WelcomeCtrl',  function ($scope, $modal,$window,$flash,$http) 
     $scope.languages = languages;
     $scope.languagesList = [];
 
-    console.log("$scope.myself");
-    console.log($scope.myself);
-    console.log("$scope.languages");
-    console.log($scope.languages);
-
     for(var key in $scope.languages){
         if($scope.languages.hasOwnProperty(key)){
             $scope.languagesList.push({
@@ -91,24 +86,6 @@ myApp.controller('WelcomeCtrl',  function ($scope, $modal,$window,$flash,$http) 
                 $flash.error(data.message);
             });
     };
-
-
-    //load - store translation
-    $scope.languages = languages;
-
-    $scope.languagesList = [];
-
-    $scope.lang = lang.split('-')[0];
-    $scope.langIni = angular.copy($scope.lang);
-
-    for(var key in $scope.languages){
-        if($scope.languages.hasOwnProperty(key)){
-            $scope.languagesList.push({
-                key:$scope.languages[key].code,
-                value:$scope.languages[key].language
-            });
-        }
-    }
 
     $scope.$watch('lang',function(){
         if($scope.lang != $scope.langIni){

@@ -20,7 +20,7 @@ initializeCommonRoutes();
 //
 // main ctrl
 //
-myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translationService,$modal,$window,facebookService) {
+myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translationService,$modal,$window,facebookService,$locale) {
 
     //
     // initialize translations
@@ -33,13 +33,28 @@ myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translat
     //
     //facebook initialization
     //
-    console.log('start ini');
-    FB.init({
-        appId: '1432915530336007',
-        cookie: true,
-        xfbml: true,
-        version: 'v2.3'
-    })
+    $window.fbAsyncInit = function () {
+        console.log('start ini 2');
+        FB.init({
+            appId: '1432915530336007',
+            cookie: true,
+            xfbml: true,
+            version: 'v2.3'
+        });
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+            console.log("FB.getLoginStatus");
+            console.log(response);
+            //connection user with facebook connector
+            //TODO add condition
+            facebookService.login(access_token,user_id,function(){
+
+                },
+                function(){
+
+                });
+        });
+    };
 
     //
     // help functionalities

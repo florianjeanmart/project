@@ -35,14 +35,9 @@ public class FacebookCredentialServiceImpl extends CrudServiceImpl<FacebookCrede
     }
 
     @Override
-    public boolean controlFacebookAccess(long userId, String accessToken) {
+    public FacebookTokenAccessControlDTO controlFacebookAccess(String accessToken) {
 
-        FacebookTokenAccessControlDTO facebookTokenAccessControlDTO = facebookRequest.debugToken(accessToken);
-
-        if (facebookTokenAccessControlDTO != null && facebookTokenAccessControlDTO.getId().equals(userId)) {
-            return true;
-        }
-        return false;
+        return facebookRequest.debugToken(accessToken);
     }
 
 }

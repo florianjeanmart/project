@@ -4,7 +4,13 @@ validation :
 Lang
 ok    - tjrs en fr ?
 ok - mettre en place le debugger
-...- spring ?
+ok- spring ?
 ...- email : dégraisser.
 ...- resteasy
 ok - securité
+
+----------------- connection -------------------------
+=> recover the interface language to insert it into registrationDTO / facebookLoginDTO
+=> display the new language after registration (for facebook)
+=> facebook : auto connect with the facebook account of the user
+

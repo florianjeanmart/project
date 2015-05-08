@@ -1,24 +1,32 @@
-myApp.service("facebookService", function ($sce, $window) {
+myApp.service("facebookService", function ($sce, $window,modelService,$locale) {
 
-    //test is the user is currently connected
-    $window.fbAsyncInit = function () {
-        FB.init({
-            appId: '1432915530336007',
-            cookie: true,
-            xfbml: true,
-            version: 'v2.3'
+    this.login = function (access_token, user_id,successCallback,failCallback) {
+
+        //send request
+        var dto = {
+            userId: user_id,
+            token: access_token
+        };
+
+        $http({
+            'method': "POST",
+            'url': "/login/facebook",
+            'headers': "Content-Type:application/json",
+            'data': dto
+        }).success(function (data, status) {
+            //store connected user
+            modelService.store(modelService.MY_SELF,data.myself);
+            //test lang
+            var lang = $locale.id.split("-")[0];
+            if(data.myself.lang.code != lang){
+                //TODO set locale
+            }
+            successCallback();
+        })
+        .error(function (data, status) {
+            failCallback();
         });
     };
-
-    this.getStatus = function (callback) {
-        //test is the user is currently connected
-        FB.getLoginStatus(function (response) {
-            statusChangeCallback(response);
-            console.log("FB.getLoginStatus");
-            console.log(response);
-            callback(response);
-        });
-    }
 
 
 });

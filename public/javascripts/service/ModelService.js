@@ -1,5 +1,7 @@
 myApp.service("modelService", function($rootScope) {
 
+    this.MY_SELF="MY_SELF";
+
     var svc;
     svc = this;
     svc.container = {};

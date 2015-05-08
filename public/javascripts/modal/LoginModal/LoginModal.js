@@ -86,46 +86,41 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
         $scope.loading = true;
         FB.login(function (response) {
             if (response.authResponse) {
-                console.log("response");
-                console.log(response);
+
+
                 var access_token = response.authResponse.accessToken; //get access token
                 var user_id = response.authResponse.userID; //get FB UID
 
-                FB.api('/me', function (responseMe) {
-                    console.log("me");
-                    console.log(responseMe);
-                    var user_email = responseMe.email; //get user email
-                    console.log("user_email:" + user_email);
+                facebookService.login(access_token,user_id,function(){
 
-                    //send request
-
-                    var dto = {
-                        userId: user_id,
-                        token: access_token,
-                        email: user_email,
-                        firstname:responseMe.first_name,
-                        lastname:responseMe.last_name
-                    };
-
-                    console.log('dto:');
-                    console.log(dto);
-
-                    $http({
-                        'method': "POST",
-                        'url': "/login/facebook",
-                        'headers': "Content-Type:application/json",
-                        'data': dto
-                    }).success(function (data, status) {
-                        $scope.loading = false;
-                        $scope.close();
-                        login(data.myself);
-                    })
-                        .error(function (data, status) {
-                            $scope.loading = false;
-                            $flash.error(data.message);
-                        });
+                },
+                function(){
 
                 });
+
+                ////send request
+                //var dto = {
+                //    userId: user_id,
+                //    token: access_token
+                //};
+                //
+                //console.log('dto:');
+                //console.log(dto);
+                //
+                //$http({
+                //    'method': "POST",
+                //    'url': "/login/facebook",
+                //    'headers': "Content-Type:application/json",
+                //    'data': dto
+                //}).success(function (data, status) {
+                //    $scope.loading = false;
+                //    $scope.close();
+                //    login(data.myself);
+                //})
+                //    .error(function (data, status) {
+                //        $scope.loading = false;
+                //        $flash.error(data.message);
+                //    });
 
             } else {
                 //user hit cancel button
