@@ -39,7 +39,7 @@ public class FacebookCredentialServiceImpl extends CrudServiceImpl<FacebookCrede
 
         FacebookTokenAccessControlDTO facebookTokenAccessControlDTO = facebookRequest.debugToken(accessToken);
 
-        if (facebookTokenAccessControlDTO != null && facebookTokenAccessControlDTO.getData().getUser_id().equals(userId)) {
+        if (facebookTokenAccessControlDTO != null && facebookTokenAccessControlDTO.getId().equals(userId)) {
             return true;
         }
         return false;
