@@ -26,12 +26,10 @@ public class FacebookRequest {
     public FacebookTokenAccessControlDTO debugToken(String accessKey) {
 
         Map<String, String> map = new HashMap<>();
-        map.put("input_token", facebookAuthentication());
         map.put("access_token", accessKey);
 
-
         try {
-            return httpRequest.sendRequest(HttpRequest.RequestMethod.GET, "https://graph.facebook.com/debug_token", map, FacebookTokenAccessControlDTO.class);
+            return httpRequest.sendRequest(HttpRequest.RequestMethod.GET, "https://graph.facebook.com/me", map, FacebookTokenAccessControlDTO.class);
         } catch (HttpRequestException e) {
             e.printStackTrace();
             throw new MyRuntimeException(ErrorMessageEnum.FATAL_ERROR);
