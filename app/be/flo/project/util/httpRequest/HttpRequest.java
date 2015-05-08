@@ -1,8 +1,10 @@
 package be.flo.project.util.httpRequest;
 
 import be.flo.project.dto.technical.DTO;
+import be.flo.project.util.exception.MyRuntimeException;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
@@ -22,28 +24,36 @@ import java.util.Map;
 public class HttpRequest {
 
 
-	public enum RequestMethod {
-		GET, POST;
-	}
+    public enum RequestMethod {
+        GET, POST;
+    }
 
-	public <T extends DTO> T sendRequest(RequestMethod requestMethod, String site, Map<String, String> params, Class<T> returnExcepted) throws HttpRequestException {
+    public <T extends DTO> T sendRequest(RequestMethod requestMethod, String site, Map<String, String> params, Class<T> returnExcepted) throws HttpRequestException {
 
-		JsonNode actualObj = sendRequest(requestMethod,site,params);
+        try {
+            String response = sendRequest(requestMethod, site, params);
 
-		return DTO.getDTO(actualObj, returnExcepted);
-	}
+            ObjectMapper mapper = new ObjectMapper();
+            JsonFactory factory = mapper.getFactory();
+            JsonParser jp = factory.createParser(response);
+            JsonNode actualObj = mapper.readTree(jp);
 
-	public JsonNode sendRequest(RequestMethod requestMethod, String site, Map<String, String> params) throws HttpRequestException {
+            return DTO.getDTO(actualObj, returnExcepted);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new MyRuntimeException(e.getMessage());
+        }
+    }
 
+    public String sendRequest(RequestMethod requestMethod, String site, Map<String, String> params) throws HttpRequestException {
 
 
         //test connection
-        try{
+        try {
             URL urlTest = new URL("http://www.google.be");
             HttpURLConnection connection = (HttpURLConnection) urlTest.openConnection();
             InputStream is = connection.getInputStream();
-        }
-        catch(java.net.UnknownHostException e){
+        } catch (java.net.UnknownHostException e) {
             e.printStackTrace();
             throw new HttpRequestException("no connection");
         } catch (MalformedURLException e) {
@@ -54,92 +64,90 @@ public class HttpRequest {
             throw new HttpRequestException("connection error");
         }
 
-        if(params == null){
-			params = new HashMap<>();
-		}
+        if (params == null) {
+            params = new HashMap<>();
+        }
 
-		String paramString = buildOption(params);
+        String paramString = buildOption(params);
 
-		try {
+        try {
 
-			if(!site.contains("http")){
-				site="http://"+site;
-			}
+            if (!site.contains("http")) {
+                site = "http://" + site;
+            }
 
-			if (requestMethod.equals(RequestMethod.GET)) {
-				site = site + "?" + buildOption(params);
-			}
+            if (requestMethod.equals(RequestMethod.GET)) {
+                site = site + "?" + buildOption(params);
+            }
 
-			URL url = new URL(site);
+            URL url = new URL(site);
 
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestMethod(requestMethod.toString());
-			connection.setRequestProperty("Content-Type",
-					"application/x-www-form-urlencoded");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod(requestMethod.toString());
+            connection.setRequestProperty("Content-Type",
+                    "application/x-www-form-urlencoded");
 
-			if (requestMethod.equals(RequestMethod.POST)) {
-				connection.setRequestProperty("Content-Length", "" +
-						Integer.toString(paramString.getBytes().length));
-			}
-			connection.setRequestProperty("Content-Language", "en-US");
+            if (requestMethod.equals(RequestMethod.POST)) {
+                connection.setRequestProperty("Content-Length", "" +
+                        Integer.toString(paramString.getBytes().length));
+            }
+            connection.setRequestProperty("Content-Language", "en-US");
 
-			connection.setUseCaches(false);
-			connection.setDoInput(true);
-			connection.setDoOutput(true);
+            connection.setUseCaches(false);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
 
-			//Send request
-			if (requestMethod.equals(RequestMethod.POST)) {
-				DataOutputStream wr = new DataOutputStream(
-						connection.getOutputStream());
-				wr.writeBytes(paramString);
-				wr.flush();
-				wr.close();
-			}
+            //Send request
+            if (requestMethod.equals(RequestMethod.POST)) {
+                DataOutputStream wr = new DataOutputStream(
+                        connection.getOutputStream());
+                wr.writeBytes(paramString);
+                wr.flush();
+                wr.close();
+            }
 
-			Logger.info("Send request... ("+url+")");
+            Logger.info("Send request... (" + url + ")");
 
-			//Get Response
-			InputStream is = connection.getInputStream();
-			BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-			String line;
-			StringBuffer response = new StringBuffer();
-			while ((line = rd.readLine()) != null) {
-				response.append(line);
-				response.append('\r');
-			}
-			rd.close();
+            //Get Response
+            InputStream is = connection.getInputStream();
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+            String line;
+            StringBuffer response = new StringBuffer();
+            while ((line = rd.readLine()) != null) {
+                response.append(line);
+                response.append('\r');
+            }
+            rd.close();
 
-			Logger.info("Request finish ! : "+response.toString());
+            Logger.info("Request finish ! : " + response.toString());
 
-			ObjectMapper mapper = new ObjectMapper();
-			JsonFactory factory = mapper.getFactory();
-			JsonParser jp = factory.createParser(response.toString());
-			return mapper.readTree(jp);
-
-		} catch (MalformedURLException e) {
-			throw new HttpRequestException(e, "URL malformed");
-		} catch (IOException e) {
-			throw new HttpRequestException(e, "URL error");
-		}
+            return response.toString();
 
 
-	}
+        } catch (MalformedURLException e) {
+            throw new HttpRequestException(e, "URL malformed");
+        } catch (IOException e) {
+            throw new HttpRequestException(e, "URL error");
+        }
 
-	private String buildOption(Map<String, String> params) {
-		if(params==null){
-			return "";
-		}
 
-		String content = "";
-		boolean first = false;
-		for (Map.Entry<String, String> entry : params.entrySet()) {
-			if (first) {
-				first = false;
-			} else {
-				content += "&";
-			}
-			content += entry.getKey() + "=" + entry.getValue();
-		}
-		return content;
-	}
+    }
+
+    private String buildOption(Map<String, String> params) {
+        if (params == null) {
+            return "";
+        }
+
+        String content = "";
+        boolean first = false;
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            if (first) {
+                first = false;
+            } else {
+                content += "&";
+            }
+            content += entry.getKey() + "=" + entry.getValue();
+        }
+        return content;
+    }
 }

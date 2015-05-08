@@ -464,3 +464,99 @@ LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
 2015-05-07 17:03:17,158 - [INFO] - from application in play-akka.actor.default-dispatcher-77 
 Lang(en,)<=>LangDTO{language='en', code='en'}
 
+2015-05-07 18:24:31,885 - [WARN] - from play in main 
+Plugin [be.flo.project.plugin.S3Plugin] is disabled
+
+2015-05-07 18:24:32,332 - [INFO] - from play in main 
+datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
+
+2015-05-07 18:24:35,915 - [INFO] - from application in main 
+MAPPER INITIALIZATION
+
+2015-05-07 18:24:36,595 - [INFO] - from application in main 
+Spring Startup @Thu May 07 18:24:35 CEST 2015
+
+2015-05-07 18:24:36,632 - [INFO] - from application in main 
+DTO:
+
+2015-05-07 18:24:36,750 - [WARN] - from play in main 
+Plugin [be.flo.project.plugin.S3Plugin] is disabled
+
+2015-05-07 18:24:36,810 - [INFO] - from play in main 
+datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
+
+2015-05-07 18:24:37,752 - [INFO] - from application in main 
+MAPPER INITIALIZATION
+
+2015-05-07 18:24:37,832 - [INFO] - from application in main 
+Spring Startup @Thu May 07 18:24:37 CEST 2015
+
+2015-05-07 18:24:37,863 - [WARN] - from play in main 
+Plugin [be.flo.project.plugin.S3Plugin] is disabled
+
+2015-05-07 18:24:37,904 - [INFO] - from play in main 
+datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
+
+2015-05-07 18:24:38,793 - [INFO] - from application in main 
+MAPPER INITIALIZATION
+
+2015-05-07 18:24:38,871 - [INFO] - from application in main 
+Spring Startup @Thu May 07 18:24:38 CEST 2015
+
+2015-05-07 18:24:38,991 - [INFO] - from application in main 
+Cleaning test data (found 8 managed entity types)...
+
+2015-05-07 18:24:39,221 - [INFO] - from application in main 
+Failed to clean all test data => retrying... (current tries number = 1)
+
+2015-05-07 18:24:39,226 - [INFO] - from application in main 
+Succeed to clean all test data (after 2 trie(s))
+
+2015-05-07 18:25:12,329 - [WARN] - from play in main 
+Plugin [be.flo.project.plugin.S3Plugin] is disabled
+
+2015-05-07 18:25:12,766 - [INFO] - from play in main 
+datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
+
+2015-05-07 18:25:16,353 - [INFO] - from application in main 
+MAPPER INITIALIZATION
+
+2015-05-07 18:25:16,986 - [INFO] - from application in main 
+Spring Startup @Thu May 07 18:25:15 CEST 2015
+
+2015-05-07 18:25:17,029 - [INFO] - from application in main 
+DTO:
+
+2015-05-07 18:25:17,169 - [WARN] - from play in main 
+Plugin [be.flo.project.plugin.S3Plugin] is disabled
+
+2015-05-07 18:25:17,220 - [INFO] - from play in main 
+datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
+
+2015-05-07 18:25:18,145 - [INFO] - from application in main 
+MAPPER INITIALIZATION
+
+2015-05-07 18:25:18,265 - [INFO] - from application in main 
+Spring Startup @Thu May 07 18:25:17 CEST 2015
+
+2015-05-07 18:25:18,306 - [WARN] - from play in main 
+Plugin [be.flo.project.plugin.S3Plugin] is disabled
+
+2015-05-07 18:25:18,353 - [INFO] - from play in main 
+datasource [postgres://play:play@localhost/project] bound to JNDI as DefaultDS
+
+2015-05-07 18:25:19,237 - [INFO] - from application in main 
+MAPPER INITIALIZATION
+
+2015-05-07 18:25:19,313 - [INFO] - from application in main 
+Spring Startup @Thu May 07 18:25:19 CEST 2015
+
+2015-05-07 18:25:19,422 - [INFO] - from application in main 
+Cleaning test data (found 8 managed entity types)...
+
+2015-05-07 18:25:19,642 - [INFO] - from application in main 
+Failed to clean all test data => retrying... (current tries number = 1)
+
+2015-05-07 18:25:19,647 - [INFO] - from application in main 
+Succeed to clean all test data (after 2 trie(s))
+
