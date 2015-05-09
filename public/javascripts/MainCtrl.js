@@ -40,7 +40,7 @@ myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translat
     //
     //facebook initialization
     //
-    $window.fbAsyncInit = function () {
+    window.fbAsyncInit = function () {
         console.log('start ini 2');
         FB.init({
             appId: '1432915530336007',

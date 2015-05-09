@@ -4,6 +4,24 @@
 
 @template(languages,data) {
 
+    <script>
+    $(document).ready(function() {
+        console.log('r');
+    $.ajaxSetup({ cache: true });
+    $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+    FB.init({
+    appId: '1432915530336007',
+    version: 'v2.3' // or v2.0, v2.1, v2.0
+    });
+//    $('#loginbutton,#feedbutton').removeAttr('disabled');
+    FB.getLoginStatus(function(response){
+        console.log(response);
+
+    });
+    });
+    });
+    </script>
+
     <div ng-controller="HomeCtrl">
 
         <div ng-view></div>
