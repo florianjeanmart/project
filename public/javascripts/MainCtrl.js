@@ -40,14 +40,29 @@ myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translat
     //
     //facebook initialization
     //
-    $scope.$watch(function() {
-        // This is for convenience, to notify if Facebook is loaded and ready to go.
-        return Facebook.isReady();
-    }, function(newVal) {
-        // You might want to use this to disable/show/hide buttons and else
-        console.log('ready !! ');
-        facebookService.getLoginStatus();
-    });
+    $window.fbAsyncInit = function () {
+        console.log('start ini 2');
+        FB.init({
+            appId: '1432915530336007',
+            cookie: true,
+            xfbml: true,
+            version: 'v2.3'
+        });
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+            console.log("FB.getLoginStatus");
+            console.log(response);
+            //connection user with facebook connector
+        });
+    };
+    //$scope.$watch(function() {
+    //    // This is for convenience, to notify if Facebook is loaded and ready to go.
+    //    return Facebook.isReady();
+    //}, function(newVal) {
+    //    // You might want to use this to disable/show/hide buttons and else
+    //    console.log('ready !! ');
+    //    facebookService.getLoginStatus();
+    //});
 
     //
     // help functionalities
