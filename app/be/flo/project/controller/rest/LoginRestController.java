@@ -150,6 +150,11 @@ public class LoginRestController extends AbstractRestController {
             throw new MyRuntimeException(ErrorMessageEnum.LOGIN_WRONG_PASSWORD_LOGIN);
         }
 
+        if(!dto.getKeepSessionOpen().equals(account.getLoginCredential().isKeepSessionOpen())) {
+            account.getLoginCredential().setKeepSessionOpen(dto.getKeepSessionOpen());
+            accountService.saveOrUpdate(account);
+        }
+
         //session
         sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
 

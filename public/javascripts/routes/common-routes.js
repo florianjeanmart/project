@@ -10,8 +10,8 @@ var initializeCommonRoutes = function() {
     myApp
         .config(function($routeProvider) {
         $routeProvider.when('/', {
-            templateUrl: '/assets/javascripts/view/welcome.html',
-            controller: 'Welcome2Ctrl'
+            templateUrl: '/assets/javascripts/view/home.html',
+            controller: 'HomeCtrl'
         }).otherwise({
             redirectTo: '/'
         });

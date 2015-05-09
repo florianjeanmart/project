@@ -69,10 +69,12 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
                 'data': dto
             }).success(function (data, status) {
                 modelService.set(modelService.MY_SELF, data.myself);
-                $flash.success(translationService.set("--.login.flash.success"));
+                $flash.success(translationService.get("--.login.flash.success"));
                 $scope.loading = false;
                 $scope.close();
                 modelService.set(modelService.MY_SELF, data.myself);
+                //logout facebook in case
+                facebookService.logout();
             })
                 .error(function (data, status) {
                     $scope.loading = false;

@@ -10,7 +10,7 @@ ok- spring ?
 ok - securité
 
 ----------------- connection -------------------------
-=> recover the interface language to insert it into registrationDTO / facebookLoginDTO
-=> display the new language after registration (for facebook)
-=> facebook : auto connect with the facebook account of the user
+ok=> recover the interface language to insert it into registrationDTO / facebookLoginDTO
+ok=> display the new language after registration (for facebook)
+ok=> facebook : auto connect with the facebook account of the user
 

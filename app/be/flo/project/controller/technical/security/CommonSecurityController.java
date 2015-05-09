@@ -3,6 +3,7 @@ package be.flo.project.controller.technical.security;
 import be.flo.project.controller.technical.security.source.SourceEnum;
 import be.flo.project.dto.technical.ExceptionDTO;
 import be.flo.project.model.entities.Account;
+import org.springframework.beans.factory.annotation.Autowired;
 import play.api.i18n.Lang;
 import play.i18n.Messages;
 import play.mvc.Http;
@@ -35,7 +36,8 @@ public class CommonSecurityController extends Security.Authenticator {
     public static final String FAILED_AUTHENTICATION_CAUSE_WRONG_RIGHTS = "WRONG_RIGHT";
 
     //service
-    private static final AccountService USER_SERVICE = new AccountServiceImpl();
+    @Autowired
+    private final AccountService USER_SERVICE = new AccountServiceImpl();
 
     /**
      * two ways : by the session or by the authentication key into the http request
@@ -137,14 +139,14 @@ public class CommonSecurityController extends Security.Authenticator {
 
     public void logout(Http.Context ctx) {
 
-        //TODO
-//        if (getCurrentUser() != null && getCurrentUser().isKeepSessionOpen()) {
-//
-//            Account currentAccount = getCurrentUser();
-//            currentAccount.setKeepSessionOpen(false);
-//
-//            USER_SERVICE.saveOrUpdate(currentAccount);
-//        }
+        if (getCurrentUser() != null && getCurrentUser().getLoginCredential()!=null && getCurrentUser().getLoginCredential().isKeepSessionOpen()) {
+
+            Account currentAccount = getCurrentUser();
+            currentAccount.getLoginCredential().setKeepSessionOpen(false);
+
+            USER_SERVICE.saveOrUpdate(currentAccount);
+            ctx.response().discardCookie(COOKIE_KEEP_SESSION_OPEN);
+        }
         ctx.session().clear();
     }
 
@@ -155,6 +157,13 @@ public class CommonSecurityController extends Security.Authenticator {
         Http.Context.current().session().put(SESSION_IDENTIFIER_STORE, account.getEmail());
 
         context.changeLang(account.getLang().code());
+
+        if (account.getLoginCredential()!=null &&
+                account.getLoginCredential().isKeepSessionOpen()) {
+            context.response().setCookie(COOKIE_KEEP_SESSION_OPEN, getCookieKey(),2592000);
+        } else {
+            context.response().discardCookie(COOKIE_KEEP_SESSION_OPEN);
+        }
     }
 
     public String getCookieKey() {

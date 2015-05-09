@@ -35,8 +35,6 @@ public class AccountDTO extends DTO {
 
     private LangDTO lang;
 
-    private Boolean keepSessionOpen;
-
     public AccountDTO() {
     }
 
@@ -96,14 +94,6 @@ public class AccountDTO extends DTO {
         this.lang = lang;
     }
 
-    public Boolean getKeepSessionOpen() {
-        return keepSessionOpen;
-    }
-
-    public void setKeepSessionOpen(Boolean keepSessionOpen) {
-        this.keepSessionOpen = keepSessionOpen;
-    }
-
     @Override
     public String toString() {
         return "AccountDTO{" +
@@ -114,7 +104,6 @@ public class AccountDTO extends DTO {
                 ", email='" + email + '\'' +
                 ", roles=" + roles +
                 ", lang=" + lang +
-                ", keepSessionOpen=" + keepSessionOpen +
                 '}';
     }
 }

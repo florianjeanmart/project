@@ -1,8 +1,8 @@
-myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modalInstance,$modal,languages) {
+myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modalInstance,$modal,languageService,modelService) {
 
     $scope.loading = false;
 
-    account = angular.copy(modelService.get(modelService.MY_SELF));
+    var account = angular.copy(modelService.get(modelService.MY_SELF));
 
     $scope.fields = {
         gender:{
@@ -18,11 +18,11 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
         language:{
             name:'language',
             fieldTitle: "--.generic.yourLanguage",
-            options:languages,
+            options:languageService.languagesStructured,
             disabled: function () {
                 return $scope.loading;
             },
-            field:account.language
+            field:account.lang.code
 
         },
         firstname: {
@@ -44,13 +44,6 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
                 return $scope.loading;
             },
             field:account.lastname
-        },
-        openSession:{
-            fieldTitle: "--.registration.form.keepSessionOpen",
-            disabled: function () {
-                return $scope.loading;
-            },
-            field:account.keepSessionOpen
         },
         login: {
             fieldType:"email",
@@ -84,7 +77,6 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
 
         for (var key in $scope.fields) {
             var obj = $scope.fields[key];
-            console.log(obj);
             if ($scope.fields.hasOwnProperty(key) && (obj.isValid == null || obj.isValid === false)) {
                 obj.firstAttempt = false;
                 validation= false;
@@ -96,22 +88,23 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
     $scope.save = function () {
 
         if ($scope.allFieldValid()) {
-            //var dto = {
-            //    male:($scope.fields.gender.field=='male'),
-            //    firstname:$scope.fields.firstname.field,
-            //    lastname:$scope.fields.lastname.field,
-            //    email:$scope.fields.login.field,
-            //    keepSessionOpen:$scope.fields.openSession.field,
-            //    languageCode:$scope.fields.language.field
-            //}
+            var dto = {
+                male:($scope.fields.gender.field=='male'),
+                firstname:$scope.fields.firstname.field,
+                lastname:$scope.fields.lastname.field,
+                email:$scope.fields.login.field,
+                languageCode:$scope.fields.language.field
+            }
 
             $scope.loading = true;
+
+            console.log(dto);
 
             $http({
                 'method': "PUT",
                 'url': "/account/"+account.id,
                 'headers': "Content-Type:application/json",
-                'data': account
+                'data': dto
             }).success(function (data, status) {
                 $scope.loading = false;
                 $scope.close();

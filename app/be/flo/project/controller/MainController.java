@@ -40,7 +40,7 @@ public class MainController  extends AbstractController {
         }
 
 
-        return ok(be.flo.project.views.html.home.render(getAvaiableLanguage(),interfaceDataDTO));
+        return ok(be.flo.project.views.html.template.render(getAvaiableLanguage(),interfaceDataDTO));
     }
 
     private ListDTO<LangDTO> getAvaiableLanguage(){

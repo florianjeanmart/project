@@ -1,4 +1,4 @@
-@(languages:be.flo.project.dto.ListDTO[be.flo.project.dto.LangDTO],data:be.flo.project.dto.InterfaceDataDTO)(content: Html)
+@(languages:be.flo.project.dto.ListDTO[be.flo.project.dto.LangDTO],data:be.flo.project.dto.InterfaceDataDTO)
 
 @import com.fasterxml.jackson.databind.ObjectMapper
 
@@ -119,8 +119,8 @@
                             </nav>
                         </div>
 
-                        <!-- content -->
-                        @content
+                            <!-- content -->
+                        <div ng-view></div>
                     </div>
                 </div>
             </div>
