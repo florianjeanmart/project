@@ -1,4 +1,4 @@
-myApp.service("facebookService", function () {
+myApp.service("facebookService", function ($http) {
 
     //
     // initialization
@@ -14,7 +14,7 @@ myApp.service("facebookService", function () {
     // login
     //
     this.login = function (successCallback, failCallback) {
-        // From now on you can use the Facebook service just as Facebook api says
+        // From now on you can use the  service just as Facebook api says
         FB.login(function (response) {
             console.log('FB.login');
             console.log(response);
@@ -31,6 +31,7 @@ myApp.service("facebookService", function () {
     // get login : test if the user is currently connected
     //
     this.getLoginStatus = function () {
+
         FB.getLoginStatus(function (response) {
             console.log('FB.getLoginStatus');
             console.log(response);

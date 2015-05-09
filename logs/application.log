@@ -2173,3 +2173,322 @@ LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
 2015-05-09 13:24:33,774 - [INFO] - from application in play-akka.actor.default-dispatcher-209 
 Lang(en,)<=>LangDTO{language='en', code='en'}
 
+2015-05-09 13:40:46,516 - [DEBUG] - from application in play-akka.actor.default-dispatcher-214 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:40:46,516 - [DEBUG] - from application in play-akka.actor.default-dispatcher-214 
+getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
+
+2015-05-09 13:40:46,516 - [DEBUG] - from application in play-akka.actor.default-dispatcher-214 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:40:46,516 - [DEBUG] - from application in play-akka.actor.default-dispatcher-214 
+getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@4d61d217
+
+2015-05-09 13:40:46,519 - [INFO] - from application in play-akka.actor.default-dispatcher-214 
+null<=>null
+
+2015-05-09 13:40:46,519 - [INFO] - from application in play-akka.actor.default-dispatcher-214 
+LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
+
+2015-05-09 13:40:46,519 - [INFO] - from application in play-akka.actor.default-dispatcher-214 
+Lang(en,)<=>LangDTO{language='en', code='en'}
+
+2015-05-09 13:41:07,689 - [DEBUG] - from application in play-akka.actor.default-dispatcher-216 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:41:07,689 - [DEBUG] - from application in play-akka.actor.default-dispatcher-216 
+getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
+
+2015-05-09 13:41:07,690 - [DEBUG] - from application in play-akka.actor.default-dispatcher-216 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:41:07,690 - [DEBUG] - from application in play-akka.actor.default-dispatcher-216 
+getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@4d61d217
+
+2015-05-09 13:41:07,692 - [INFO] - from application in play-akka.actor.default-dispatcher-216 
+null<=>null
+
+2015-05-09 13:41:07,692 - [INFO] - from application in play-akka.actor.default-dispatcher-216 
+LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
+
+2015-05-09 13:41:07,692 - [INFO] - from application in play-akka.actor.default-dispatcher-216 
+Lang(en,)<=>LangDTO{language='en', code='en'}
+
+2015-05-09 13:41:08,289 - [DEBUG] - from application in play-akka.actor.default-dispatcher-226 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:41:08,289 - [DEBUG] - from application in play-akka.actor.default-dispatcher-226 
+getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
+
+2015-05-09 13:41:08,290 - [DEBUG] - from application in play-akka.actor.default-dispatcher-225 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:41:08,290 - [DEBUG] - from application in play-akka.actor.default-dispatcher-225 
+getControllerInstance <clazz> class be.flo.project.controller.rest.LoginRestController getBean : be.flo.project.controller.rest.LoginRestController@67175aeb
+
+2015-05-09 13:41:08,302 - [INFO] - from application in play-akka.actor.default-dispatcher-225 
+DTO:
+
+2015-05-09 13:41:08,361 - [ERROR] - from play in play-internal-execution-context-9 
+Cannot invoke the action, eventually got an error: MyRuntimeException{be.flo.project.util.exception.MyRuntimeException: JSON_CONVERSION_ERROR,errorMessage=JSON_CONVERSION_ERROR, params=[]}
+
+2015-05-09 13:41:08,415 - [ERROR] - from application in play-internal-execution-context-9 
+
+
+! @6m4n13igp - Internal server error, for (POST) [/login/facebook] ->
+
+play.api.Application$$anon$1: Execution exception[[MyRuntimeException: JSON_CONVERSION_ERROR]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.4.jar:2.2.4]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
+	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
+Caused by: be.flo.project.util.exception.MyRuntimeException: JSON_CONVERSION_ERROR
+	at be.flo.project.dto.technical.DTO.getDTO(DTO.java:42) ~[na:na]
+	at be.flo.project.controller.technical.AbstractController.extractDTOFromRequest(AbstractController.java:43) ~[na:na]
+	at be.flo.project.controller.rest.LoginRestController.loginFacebook(LoginRestController.java:46) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$5.apply(routes_routing.scala:109) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$5.apply(routes_routing.scala:109) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:20) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:18) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:177) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:15) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.4.jar:2.2.4]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	... 4 common frames omitted
+
+2015-05-09 13:41:25,093 - [DEBUG] - from application in play-akka.actor.default-dispatcher-216 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:41:25,093 - [DEBUG] - from application in play-akka.actor.default-dispatcher-216 
+getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
+
+2015-05-09 13:41:25,093 - [DEBUG] - from application in play-akka.actor.default-dispatcher-216 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:41:25,093 - [DEBUG] - from application in play-akka.actor.default-dispatcher-216 
+getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@4d61d217
+
+2015-05-09 13:41:25,095 - [INFO] - from application in play-akka.actor.default-dispatcher-216 
+null<=>null
+
+2015-05-09 13:41:25,096 - [INFO] - from application in play-akka.actor.default-dispatcher-216 
+LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
+
+2015-05-09 13:41:25,096 - [INFO] - from application in play-akka.actor.default-dispatcher-216 
+Lang(en,)<=>LangDTO{language='en', code='en'}
+
+2015-05-09 13:41:25,594 - [DEBUG] - from application in play-akka.actor.default-dispatcher-228 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:41:25,594 - [DEBUG] - from application in play-akka.actor.default-dispatcher-228 
+getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
+
+2015-05-09 13:41:25,595 - [DEBUG] - from application in play-akka.actor.default-dispatcher-227 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:41:25,595 - [DEBUG] - from application in play-akka.actor.default-dispatcher-227 
+getControllerInstance <clazz> class be.flo.project.controller.rest.LoginRestController getBean : be.flo.project.controller.rest.LoginRestController@67175aeb
+
+2015-05-09 13:41:25,597 - [INFO] - from application in play-akka.actor.default-dispatcher-227 
+DTO:
+
+2015-05-09 13:41:25,611 - [ERROR] - from play in play-akka.actor.default-dispatcher-228 
+Cannot invoke the action, eventually got an error: MyRuntimeException{be.flo.project.util.exception.MyRuntimeException: JSON_CONVERSION_ERROR,errorMessage=JSON_CONVERSION_ERROR, params=[]}
+
+2015-05-09 13:41:25,617 - [ERROR] - from application in play-akka.actor.default-dispatcher-228 
+
+
+! @6m4n14i3a - Internal server error, for (POST) [/login/facebook] ->
+
+play.api.Application$$anon$1: Execution exception[[MyRuntimeException: JSON_CONVERSION_ERROR]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.4.jar:2.2.4]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
+	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$2.execute(Execution.scala:70) [play-iteratees_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.link(Promise.scala:304) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:289) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$2.execute(Execution.scala:70) [play-iteratees_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.10.3.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) [akka-actor_2.10-2.2.0.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) [akka-actor_2.10-2.2.0.jar:2.2.0]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
+Caused by: be.flo.project.util.exception.MyRuntimeException: JSON_CONVERSION_ERROR
+	at be.flo.project.dto.technical.DTO.getDTO(DTO.java:42) ~[classes/:na]
+	at be.flo.project.controller.technical.AbstractController.extractDTOFromRequest(AbstractController.java:43) ~[classes/:na]
+	at be.flo.project.controller.rest.LoginRestController.loginFacebook(LoginRestController.java:46) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$5.apply(routes_routing.scala:109) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$5.apply(routes_routing.scala:109) ~[classes/:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:20) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:18) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:177) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:15) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.4.jar:2.2.4]
+	... 6 common frames omitted
+
+2015-05-09 13:42:03,912 - [DEBUG] - from application in play-akka.actor.default-dispatcher-229 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:42:03,912 - [DEBUG] - from application in play-akka.actor.default-dispatcher-229 
+getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
+
+2015-05-09 13:42:03,912 - [DEBUG] - from application in play-akka.actor.default-dispatcher-224 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:42:03,912 - [DEBUG] - from application in play-akka.actor.default-dispatcher-224 
+getControllerInstance <clazz> class be.flo.project.controller.MainController getBean : be.flo.project.controller.MainController@4d61d217
+
+2015-05-09 13:42:03,914 - [INFO] - from application in play-akka.actor.default-dispatcher-224 
+null<=>null
+
+2015-05-09 13:42:03,914 - [INFO] - from application in play-akka.actor.default-dispatcher-224 
+LangConverter :Lang(en,)/LangDTO{language='en', code='en'}
+
+2015-05-09 13:42:03,914 - [INFO] - from application in play-akka.actor.default-dispatcher-224 
+Lang(en,)<=>LangDTO{language='en', code='en'}
+
+2015-05-09 13:42:04,450 - [DEBUG] - from application in play-akka.actor.default-dispatcher-234 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:42:04,450 - [DEBUG] - from application in play-akka.actor.default-dispatcher-234 
+getControllerInstance <clazz>class play.db.jpa.TransactionalAction returning null to Play instance controller
+
+2015-05-09 13:42:04,450 - [DEBUG] - from application in play-akka.actor.default-dispatcher-234 
+Spring getControllerInstance called @Sat May 09 13:24:33 CEST 2015
+
+2015-05-09 13:42:04,450 - [DEBUG] - from application in play-akka.actor.default-dispatcher-234 
+getControllerInstance <clazz> class be.flo.project.controller.rest.LoginRestController getBean : be.flo.project.controller.rest.LoginRestController@67175aeb
+
+2015-05-09 13:42:04,450 - [INFO] - from application in play-akka.actor.default-dispatcher-234 
+DTO:
+
+2015-05-09 13:42:04,865 - [INFO] - from application in play-akka.actor.default-dispatcher-234 
+Send request... (https://graph.facebook.com/me?&access_token=ee)
+
+2015-05-09 13:42:05,181 - [ERROR] - from play in play-internal-execution-context-9 
+Cannot invoke the action, eventually got an error: MyRuntimeException{be.flo.project.util.exception.MyRuntimeException: FATAL_ERROR,errorMessage=FATAL_ERROR, params=[]}
+
+2015-05-09 13:42:05,183 - [ERROR] - from application in play-internal-execution-context-9 
+
+
+! @6m4n16oh5 - Internal server error, for (POST) [/login/facebook] ->
+
+play.api.Application$$anon$1: Execution exception[[MyRuntimeException: FATAL_ERROR]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.4.jar:2.2.4]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
+	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.4.jar:2.2.4]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
+Caused by: be.flo.project.util.exception.MyRuntimeException: FATAL_ERROR
+	at be.flo.project.util.httpRequest.FacebookRequest.debugToken(FacebookRequest.java:35) ~[na:na]
+	at be.flo.project.service.impl.FacebookCredentialServiceImpl.controlFacebookAccess(FacebookCredentialServiceImpl.java:40) ~[na:na]
+	at be.flo.project.controller.rest.LoginRestController.loginFacebook(LoginRestController.java:49) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$5.apply(routes_routing.scala:109) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$5.apply(routes_routing.scala:109) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:20) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:18) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:177) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:15) ~[play-java-jpa_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.4.jar:2.2.4]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.4.jar:2.2.4]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.4.jar:2.2.4]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	... 4 common frames omitted
+
