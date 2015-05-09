@@ -1,5 +1,8 @@
 myApp.service("facebookService", function () {
 
+    //
+    // initialization
+    //
     FB.init({
         appId: '1432915530336007',
         cookie: true,
@@ -7,6 +10,9 @@ myApp.service("facebookService", function () {
         version: 'v2.3'
     });
 
+    //
+    // login
+    //
     this.login = function (successCallback, failCallback) {
         // From now on you can use the Facebook service just as Facebook api says
         FB.login(function (response) {
@@ -21,8 +27,10 @@ myApp.service("facebookService", function () {
         });
     };
 
+    //
+    // get login : test if the user is currently connected
+    //
     this.getLoginStatus = function () {
-        console.log('FB.getLoginStatus start');
         FB.getLoginStatus(function (response) {
             console.log('FB.getLoginStatus');
             console.log(response);
@@ -42,11 +50,15 @@ myApp.service("facebookService", function () {
 
     this.loginToServer = function (access_token, user_id, successCallback, failCallback) {
 
+        console.log("loginToServer");
+
         //send request
         var dto = {
             userId: user_id,
             token: access_token
         };
+
+        console.log(dto);
 
         $http({
             'method': "POST",
@@ -54,6 +66,7 @@ myApp.service("facebookService", function () {
             'headers': "Content-Type:application/json",
             'data': dto
         }).success(function (data, status) {
+            console.log("success");
             //store connected user
             modelService.store(modelService.MY_SELF, data.myself);
             //test lang
@@ -62,10 +75,10 @@ myApp.service("facebookService", function () {
 
             }
 
-
             successCallback();
         })
             .error(function (data, status) {
+                console.log("error");
                 failCallback();
             });
     };
