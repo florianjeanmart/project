@@ -84,18 +84,18 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
     //
     $scope.fb_login = function () {
         $scope.loading = true;
-        FB.login(function (response) {
+        facebookService.login(function (response) {
             if (response.authResponse) {
 
 
                 var access_token = response.authResponse.accessToken; //get access token
                 var user_id = response.authResponse.userID; //get FB UID
 
-                facebookService.login(access_token,user_id,function(){
-
+                facebookService.loginToServer(access_token,user_id,function(){
+                        console.log('success');
                 },
                 function(){
-
+                    console.log('faild');
                 });
 
                 ////send request

@@ -7,20 +7,20 @@ $(document).ready(function() {
     });
 
 
-    $(".swipe-area").swipe({
-        swipeStatus:function(event, phase, direction, distance, duration, fingers)
-        {
-
-            if (phase=="move" && direction =="right") {
-                $(".global-container").addClass("open-sidebar");
-                return false;
-            }
-            if (phase=="move" && direction =="left") {
-                $(".global-container").removeClass("open-sidebar");
-                return false;
-            }
-        }
-    });
+    //$(".swipe-area").swipe({
+    //    swipeStatus:function(event, phase, direction, distance, duration, fingers)
+    //    {
+    //
+    //        if (phase=="move" && direction =="right") {
+    //            $(".global-container").addClass("open-sidebar");
+    //            return false;
+    //        }
+    //        if (phase=="move" && direction =="left") {
+    //            $(".global-container").removeClass("open-sidebar");
+    //            return false;
+    //        }
+    //    }
+    //});
 
     //initialization
     $(".large-menu").css("width", $(".main-container").width());
