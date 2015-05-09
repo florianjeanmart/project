@@ -84,9 +84,13 @@ public class LoginRestController extends AbstractRestController {
             }
             //choose the current interface lang
             if (account.getLang() != null) {
-                changeLang(dto.getLang().getCode());
-                account.setLang(dozerService.map(dto.getLang(), Lang.class));
-
+                if(dto.getLang()!=null) {
+                    changeLang(dto.getLang().getCode());
+                    account.setLang(dozerService.map(dto.getLang(), Lang.class));
+                }
+                if (account.getLang() != null) {
+                    account.setLang(lang());
+                }
             }
 
             //roles

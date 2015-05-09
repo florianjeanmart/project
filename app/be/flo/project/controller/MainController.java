@@ -5,6 +5,8 @@ import be.flo.project.dto.AccountDTO;
 import be.flo.project.dto.InterfaceDataDTO;
 import be.flo.project.dto.LangDTO;
 import be.flo.project.dto.ListDTO;
+import be.flo.project.util.AppStatusEnum;
+import play.Configuration;
 import play.Logger;
 import play.db.jpa.Transactional;
 import play.i18n.Lang;
@@ -16,13 +18,21 @@ import play.mvc.Result;
 @org.springframework.stereotype.Controller
 public class MainController  extends AbstractController {
 
+
+    String accessKey = Configuration.root().getString("app.status");
+
     @Transactional
     public Result mainPage() {
+
+
+        AppStatusEnum appStatus = AppStatusEnum.getByString(accessKey);
+
 
         //try with param
         InterfaceDataDTO interfaceDataDTO  = new InterfaceDataDTO();
         interfaceDataDTO.setLangId(lang().code());
         interfaceDataDTO.setTranslations(translationService.getTranslations(lang()));
+        interfaceDataDTO.setAppStatus(appStatus.getS());
         if(securityController.isAuthenticated(ctx())) {
             AccountDTO accountDTO = dozerService.map(securityController.getCurrentUser(), AccountDTO.class);
             interfaceDataDTO.setMySelf(accountDTO);

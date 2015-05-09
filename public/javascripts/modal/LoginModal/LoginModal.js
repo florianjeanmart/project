@@ -1,4 +1,4 @@
-myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstance, login, facebookService) {
+myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstance, facebookService, translationService, modelService) {
 
     $scope.loading = false;
 
@@ -68,9 +68,11 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
                 'headers': "Content-Type:application/json",
                 'data': dto
             }).success(function (data, status) {
+                modelService.set(modelService.MY_SELF, data.myself);
+                $flash.success(translationService.set("--.login.flash.success"));
                 $scope.loading = false;
                 $scope.close();
-                login(data.myself);
+                modelService.set(modelService.MY_SELF, data.myself);
             })
                 .error(function (data, status) {
                     $scope.loading = false;
@@ -84,53 +86,17 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
     //
     $scope.fb_login = function () {
         $scope.loading = true;
-        facebookService.login(function (response) {
-            if (response.authResponse) {
+        facebookService.login(function (data) {
+                modelService.set(modelService.MY_SELF, data.myself);
+                $scope.loading = false;
+                $flash.success(translationService.get("--.login.flash.success"));
+                $scope.close();
 
-
-                var access_token = response.authResponse.accessToken; //get access token
-                var user_id = response.authResponse.userID; //get FB UID
-
-                facebookService.loginToServer(access_token,user_id,function(){
-                        console.log('success');
-                },
-                function(){
-                    console.log('faild');
-                });
-
-                ////send request
-                //var dto = {
-                //    userId: user_id,
-                //    token: access_token
-                //};
-                //
-                //console.log('dto:');
-                //console.log(dto);
-                //
-                //$http({
-                //    'method': "POST",
-                //    'url': "/login/facebook",
-                //    'headers': "Content-Type:application/json",
-                //    'data': dto
-                //}).success(function (data, status) {
-                //    $scope.loading = false;
-                //    $scope.close();
-                //    login(data.myself);
-                //})
-                //    .error(function (data, status) {
-                //        $scope.loading = false;
-                //        $flash.error(data.message);
-                //    });
-
-            } else {
-                //user hit cancel button
-                console.log('User cancelled login or did not fully authorize.');
-
-            }
-        }, {
-            scope: 'public_profile, email'
-        });
+            },
+            function (message) {
+                $scope.loading = false;
+                $flash.error(message);
+            });
     };
-
 
 });

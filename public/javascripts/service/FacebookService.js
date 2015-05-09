@@ -1,14 +1,30 @@
-myApp.service("facebookService", function ($http) {
+myApp.service("facebookService", function ($http,modelService,$locale,languageService) {
 
     //
     // initialization
     //
-    FB.init({
-        appId: '1432915530336007',
-        cookie: true,
-        xfbml: true,
-        version: 'v2.3'
-    });
+    this.ini = function(){
+        var appId;
+        console.log("modelService.get(modelService.APP_STATUS) : "+modelService.get(modelService.APP_STATUS));
+        if(modelService.get(modelService.APP_STATUS) == 'local'){
+            appId='1446672245627002';
+        }
+        else{
+            appId='1432915530336007';
+        }
+        FB.init({
+            appId: appId,
+            cookie: true,
+            xfbml: true,
+            version: 'v2.3'
+        });
+    }
+
+    var isConnected=false;
+
+    this.isConnected = function(){
+        return isConnected;
+    };
 
     //
     // login
@@ -16,45 +32,60 @@ myApp.service("facebookService", function ($http) {
     this.login = function (successCallback, failCallback) {
         // From now on you can use the  service just as Facebook api says
         FB.login(function (response) {
-            console.log('FB.login');
             console.log(response);
 
-            var access_token = response.authResponse.accessToken;
-            var user_id = response.authResponse.userID;
+            if (response.status === 'connected') {
 
-            //TODO manage error
-            this.loginToServer(access_token, user_id, successCallback, failCallback);
+                loginToServer(response.authResponse, successCallback, failCallback);
+            }
+            else{
+                failCallback();
+            }
+        }, {
+            scope: 'public_profile, email'
         });
     };
 
     //
     // get login : test if the user is currently connected
+    //if the user is connected, connect to the server
     //
     this.getLoginStatus = function () {
 
         FB.getLoginStatus(function (response) {
-            console.log('FB.getLoginStatus');
-            console.log(response);
             if (response.status === 'connected') {
-                console.log('connected !! ');
-                var access_token = response.authResponse.accessToken;
-                var user_id = response.authResponse.userID;
-                console.log(access_token+' '+user_id);
-                loginToServer(access_token, user_id, function () {
-                        console.log('success');
-                    },
-                    function () {
-                        console.log('faild');
-                    });
-            } else {
-                console.log('faild');
-            }
+
+                //the user is now connected by facebook
+                isConnected = true;
+
+                loginToServer(response.authResponse, function (data) {
+                            //success
+                            //store connected user
+                            modelService.set(modelService.MY_SELF, data.myself);
+
+                            //test lang
+                            languageService.changeLanguage(data.myself.lang.code);
+
+                            console.log("connected by facebook");
+                        },
+                        function () {
+                            //connection failed
+                        });
+                } else {
+                    //connection failed
+                }
         });
     };
 
-    this.loginToServer = function (access_token, user_id, successCallback, failCallback) {
+    this.logout = function(){
+        FB.logout(function(response) {
+        });
+    }
 
-        console.log("loginToServer");
+    loginToServer = function (authResponse, successCallback, failCallback) {
+
+        var access_token = authResponse.accessToken;
+        var user_id = authResponse.userID;
 
         //send request
         var dto = {
@@ -62,28 +93,17 @@ myApp.service("facebookService", function ($http) {
             token: access_token
         };
 
-        console.log(dto);
-
         $http({
             'method': "POST",
             'url': "/login/facebook",
             'headers': "Content-Type:application/json",
             'data': dto
         }).success(function (data, status) {
-            console.log("success");
-            //store connected user
-            modelService.store(modelService.MY_SELF, data.myself);
-            //test lang
-            var lang = $locale.id.split("-")[0];
-            if (data.myself.lang.code != lang) {
 
-            }
-
-            successCallback();
+            successCallback(data);
         })
             .error(function (data, status) {
-                console.log("error");
-                failCallback();
+                failCallback(date.message);
             });
     };
 

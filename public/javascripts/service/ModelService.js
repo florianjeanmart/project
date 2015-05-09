@@ -1,16 +1,19 @@
 myApp.service("modelService", function($rootScope) {
 
-    this.MY_SELF="MY_SELF";
+    this.MY_SELF="MYSELF";
+    this.APP_STATUS="APP_STATUS";
 
-    var svc;
-    svc = this;
-    svc.container = {};
+    this.model = {};
 
-    this.store = function(key,content) {
-        svc.container[key]= content;
+    this.set = function(key,content) {
+        this.model[key]= content;
     };
 
     this.get = function(key){
-        return svc.container[key];
-    }
+        return this.model[key];
+    };
+
+    this.remove = function(key){
+        delete this.model[key];
+    };
 });

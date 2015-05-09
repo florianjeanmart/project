@@ -20,7 +20,7 @@ initializeCommonRoutes();
 //
 // main ctrl
 //
-myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translationService,$modal,$window,facebookService) {
+myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translationService,$modal,$window,facebookService,modelService,languageService) {
 
     //
     // initialize translations
@@ -30,10 +30,19 @@ myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translat
         translationService.set(data.translations);
     }
 
+    //import data
+    //store the current user into the model
+    modelService.set(modelService.MY_SELF, data.mySelf);
+    modelService.set(modelService.APP_STATUS, data.appStatus);
+    languageService.setLanguages(lang,languages);
+
     //
     //facebook initialization
     //
-    facebookService.getLoginStatus();
+    facebookService.ini();
+    if(modelService.get(modelService.MY_SELF)==null){
+        facebookService.getLoginStatus();
+    }
 
     //
     // help functionalities

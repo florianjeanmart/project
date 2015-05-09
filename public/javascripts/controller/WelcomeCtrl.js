@@ -1,45 +1,26 @@
-myApp.controller('WelcomeCtrl',  function ($scope, $modal,$window,$flash,$http) {
+myApp.controller('WelcomeCtrl', function ($scope, $modal, $window, $flash, $http, facebookService, modelService,languageService) {
 
-    //import data
-    $scope.myself = data.mySelf;
-    $scope.languages = languages;
-    $scope.languagesList = [];
 
-    for(var key in $scope.languages){
-        if($scope.languages.hasOwnProperty(key)){
-            $scope.languagesList.push({
-                key:$scope.languages[key].code,
-                value:$scope.languages[key].language
-            });
-        }
-    }
+    //use the model
+    $scope.model = modelService.model;
+    $scope.myself = modelService.get(modelService.MY_SELF);
 
 
     //login open modal
-    $scope.login= function(){
-
-        var resolve = {
-            login:function(){
-                return function(myself){
-                    $scope.myself = myself;
-                }
-            }
-        };
-
+    $scope.login = function () {
         $modal.open({
             templateUrl: "/assets/javascripts/modal/LoginModal/view.html",
             controller: "LoginModalCtrl",
-            size:"l",
-            resolve: resolve
+            size: "l"
         });
     };
 
     //registration open modal
-    $scope.registration= function(){
+    $scope.registration = function () {
 
         var resolve = {
-            login:function(){
-                return function(myself){
+            login: function () {
+                return function (myself) {
                     $scope.myself = myself;
                 }
             }
@@ -48,58 +29,43 @@ myApp.controller('WelcomeCtrl',  function ($scope, $modal,$window,$flash,$http) 
         $modal.open({
             templateUrl: "/assets/javascripts/modal/RegistrationModal/view.html",
             controller: "RegistrationModalCtrl",
-            size:"l",
+            size: "l",
             resolve: resolve
         });
     };
 
     //edit profile
-    $scope.editProfile = function(){
-        var resolve = {
-            account: function () {
-                return $scope.myself;
-            },
-            languages : function(){
-                return $scope.languagesList;
-            }
-
-        };
-
+    $scope.editProfile = function () {
         $modal.open({
             templateUrl: "/assets/javascripts/modal/EditProfileModal/view.html",
             controller: "EditProfileModalCtrl",
-            size:"l",
-            resolve: resolve
+            size: "l"
         });
     };
 
     //log out
-    $scope.logout = function(){
+    $scope.logout = function () {
         $http({
             'method': "GET",
             'url': "logout",
             'headers': "Content-Type:application/json"
         }).success(function (data, status) {
-            $scope.myself=null;
+            modelService.remove(modelService.MY_SELF);
         })
             .error(function (data, status) {
                 $flash.error(data.message);
             });
+        if (facebookService.isConnected()) {
+            facebookService.logout();
+        }
     };
 
-    $scope.$watch('lang',function(){
-        if($scope.lang != $scope.langIni){
-
-            $http({
-                'method': "GET",
-                'url': "/changeLanguage/"+$scope.lang,
-                'headers': "Content-Type:application/json"
-            }).success(function (data, status) {
-                $window.location.reload();
-            })
-            .error(function (data, status) {
-                $flash.error(data.message);
-            });
+    //
+    // change lang
+    //
+    $scope.$watch('lang', function () {
+        if(!angular.isUndefined($scope.lang)) {
+            languageService.changeLanguage($scope.lang);
         }
     });
 

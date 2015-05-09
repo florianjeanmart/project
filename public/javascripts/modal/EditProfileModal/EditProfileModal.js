@@ -1,6 +1,8 @@
-myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modalInstance,$modal,account,languages) {
+myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modalInstance,$modal,languages) {
 
     $scope.loading = false;
+
+    account = angular.copy(modelService.get(modelService.MY_SELF));
 
     $scope.fields = {
         gender:{
@@ -20,7 +22,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
             disabled: function () {
                 return $scope.loading;
             },
-            field:angular.copy(account.language)
+            field:account.language
 
         },
         firstname: {
@@ -31,7 +33,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
             disabled: function () {
                 return $scope.loading;
             },
-            field:angular.copy(account.firstname)
+            field:account.firstname
         },
         lastname: {
             name:'lastname',
@@ -41,14 +43,14 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
             disabled: function () {
                 return $scope.loading;
             },
-            field:angular.copy(account.lastname)
+            field:account.lastname
         },
         openSession:{
             fieldTitle: "--.registration.form.keepSessionOpen",
             disabled: function () {
                 return $scope.loading;
             },
-            field:angular.copy(account.keepSessionOpen)
+            field:account.keepSessionOpen
         },
         login: {
             fieldType:"email",
@@ -57,7 +59,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
             disabled: function () {
                 return true;
             },
-            field:angular.copy(account.email),
+            field:account.email,
             isValid:true
         },
         password: {
@@ -94,14 +96,14 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
     $scope.save = function () {
 
         if ($scope.allFieldValid()) {
-            var dto = {
-                male:($scope.fields.gender.field=='male'),
-                firstname:$scope.fields.firstname.field,
-                lastname:$scope.fields.lastname.field,
-                email:$scope.fields.login.field,
-                keepSessionOpen:$scope.fields.openSession.field,
-                languageCode:$scope.fields.language.field
-            }
+            //var dto = {
+            //    male:($scope.fields.gender.field=='male'),
+            //    firstname:$scope.fields.firstname.field,
+            //    lastname:$scope.fields.lastname.field,
+            //    email:$scope.fields.login.field,
+            //    keepSessionOpen:$scope.fields.openSession.field,
+            //    languageCode:$scope.fields.language.field
+            //}
 
             $scope.loading = true;
 
@@ -109,16 +111,16 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
                 'method': "PUT",
                 'url': "/account/"+account.id,
                 'headers': "Content-Type:application/json",
-                'data': dto
+                'data': account
             }).success(function (data, status) {
                 $scope.loading = false;
                 $scope.close();
-                //TODO setEmail(data.email);
+                modelService.set(modelService.MY_SELF,data);
             })
-                .error(function (data, status) {
-                    $scope.loading = false;
-                    $flash.error(data.message);
-                });
+            .error(function (data, status) {
+                $scope.loading = false;
+                $flash.error(data.message);
+            });
         }
     }
 

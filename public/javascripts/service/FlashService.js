@@ -6,54 +6,36 @@ myApp.service("$flash", function($filter) {
     }
 
     this.success = function(messages) {
-        for(var key in messages.split("\n")){
-            var message = messages.split("\n")[key];
-
-            Messenger().post({
-                message: message,
-                type: 'success',
-                showCloseButton: true
-            });
-        }
-
+        print(messages,'success');
         return;
     };
     this.info = function(messages) {
-        for(var key in messages.split("\n")){
-            var message = messages.split("\n")[key];
-
-            Messenger().post({
-                message: message,
-                type: 'info',
-                showCloseButton: true
-            });
-        }
+        print(messages,'info');
+        return
     };
     this.error = function(messages) {
-        for(var key in messages.split("\n")){
-            var message = messages.split("\n")[key];
-
-            Messenger().post({
-                message: message,
-                type: 'error',
-                showCloseButton: true
-            });
-        }
-
+        print(messages,'error');
         return;
 
     };
     this.warning = function(messages) {
-        for(var key in messages.split("\n")){
-            var message = messages.split("\n")[key];
-
-            Messenger().post({
-                message: message,
-                type: 'warning',
-                showCloseButton: true
-            });
-        }
-
+        print(messages,'warning');
         return;
     };
+
+    print = function(messages,type){
+
+        if(!(angular.isUndefined(messages) || messages === null )) {
+            for (var key in messages.split("\n")) {
+                var message = messages.split("\n")[key];
+
+                Messenger().post({
+                    message: message,
+                    type: type,
+                    showCloseButton: true
+                });
+            }
+        };
+        return;
+    }
 });

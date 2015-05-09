@@ -25,7 +25,7 @@
                     <li>
                         <a href="/">
                             <img src="/assets/images/menu/icon_home.png" class="icon"/>
-                            @Messages("menu.home")
+                            {{'--.menu.home' | translateText}}
                         </a>
                     </li>
                 </ul>
@@ -46,21 +46,21 @@
                     </div>
 
                         <!-- title -->
-                    <h1>@Messages("site.name")</h1>
+                    <h1>{{'--."site.name"' | translateText}}</h1>
 
 
                         <!-- not connected menu -->
-                    <div class="profile-buttons-container" ng-show="myself==null">
-                        <button type="button" class="btn btn-primary" ng-click="login()">@Messages("welcome.login")</button>
-                        @Messages("generic.or")
-                        <button type="button" class="btn btn-primary" ng-click="registration()">@Messages("welcome.signIn")</button>
+                    <div class="profile-buttons-container" ng-show="model.MYSELF==null">
+                        <button type="button" class="btn btn-primary" ng-click="login()">{{'--.welcome.login' | translateText}}</button>
+                        {{'--.generic.or' | translateText}}
+                        <button type="button" class="btn btn-primary" ng-click="registration()">{{'--.welcome.signIn' | translateText}}</button>
                     </div>
 
                         <!-- connected menu -->
-                    <div class="profile-buttons-container" ng-show="myself!=null"  style="display: inline-block">
-                        <span class="visible-sm-inline">{{myself.firstname}} {{myself.lastname}}</span>
-                        <button type="button" class="btn btn-primary" ng-click="editProfile()">@Messages("welcome.myProfile")</button>
-                        <button type="button" class="btn btn-primary" ng-click="logout()">@Messages("generic.logout")</button>
+                    <div class="profile-buttons-container" ng-show="model.MYSELF!=null"  style="display: inline-block">
+                        <span class="visible-sm-inline">{{model.MYSELF.firstname}} {{model.MYSELF.lastname}}</span>
+                        <button type="button" class="btn btn-primary" ng-click="editProfile()">{{'--.welcome.myProfile' | translateText}}</button>
+                        <button type="button" class="btn btn-primary" ng-click="logout()">{{'--.generic.logout' | translateText}}</button>
                     </div>
 
                 </header>
@@ -78,20 +78,20 @@
                                 <!-- title -->
                             <div class="container">
 
-                                <h1>@Messages("site.name")</h1>
+                                <h1>{{'--.site.name' | translateText}}</h1>
 
                                     <!-- not connected menu -->
-                                <div class="profile-buttons-container" ng-show="myself==null">
-                                    <button type="button" class="btn btn-primary" ng-click="login()">@Messages("welcome.login")</button>
-                                    @Messages("generic.or")
-                                    <button type="button" class="btn btn-primary" ng-click="registration()">@Messages("welcome.signIn")</button>
+                                <div class="profile-buttons-container" ng-show="model.MYSELF==null">
+                                    <button type="button" class="btn btn-primary" ng-click="login()">{{'--.welcome.login' | translateText}}</button>
+                                    {{'--.generic.or' | translateText}}
+                                    <button type="button" class="btn btn-primary" ng-click="registration()">{{'--.welcome.signIn' | translateText}}</button>
                                 </div>
 
                                     <!-- connected menu -->
-                                <div class="profile-buttons-container" ng-show="myself!=null"  style="display: inline-block">
-                                    {{myself.firstname}} {{myself.lastname}}
-                                    <button type="button" class="btn btn-primary" ng-click="editProfile()">@Messages("welcome.myProfile")</button>
-                                        <button type="button" class="btn btn-primary" ng-click="logout()">@Messages("generic.logout")</button>
+                                <div class="profile-buttons-container" ng-show="model.MYSELF!=null"  style="display: inline-block">
+                                    {{model.MYSELF.firstname}} {{model.MYSELF.lastname}}
+                                    <button type="button" class="btn btn-primary" ng-click="editProfile()">{{'--.welcome.myProfile' | translateText}}</button>
+                                        <button type="button" class="btn btn-primary" ng-click="logout()">{{'--.generic.logout' | translateText}}</button>
                                 </div>
 
                             </div>
@@ -110,7 +110,7 @@
                                         <ul class="nav navbar-nav navbar-lev-1">
 
                                             <!-- home -->
-                                            <li><a href="/">@Messages("menu.home")</a></li>
+                                            <li><a href="/">{{'--.menu.home' | translateText}}</a></li>
 
 
                                         </ul>
