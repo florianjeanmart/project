@@ -36,15 +36,18 @@ myApp.service("facebookService", function ($http) {
             console.log('FB.getLoginStatus');
             console.log(response);
             if (response.status === 'connected') {
+                console.log('connected !! ');
                 var access_token = response.authResponse.accessToken;
                 var user_id = response.authResponse.userID;
-                this.loginToServer(access_token, user_id, function () {
+                console.log(access_token+' '+user_id);
+                loginToServer(access_token, user_id, function () {
                         console.log('success');
                     },
                     function () {
                         console.log('faild');
                     });
             } else {
+                console.log('faild');
             }
         });
     };
