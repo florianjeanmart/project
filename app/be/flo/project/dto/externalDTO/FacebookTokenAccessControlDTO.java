@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class FacebookTokenAccessControlDTO extends DTO {
 
-    private Long id;
+    private String id;
     private String email;
     private String first_name;
     private String gender;
@@ -22,11 +22,11 @@ public class FacebookTokenAccessControlDTO extends DTO {
     private Date updated_time;
     private boolean verified;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

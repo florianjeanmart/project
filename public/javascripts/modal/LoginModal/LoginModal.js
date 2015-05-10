@@ -1,4 +1,4 @@
-myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstance, facebookService, translationService, modelService) {
+myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstance, facebookService, translationService, modelService,$modal) {
 
     $scope.loading = false;
 
@@ -94,10 +94,31 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
                 $scope.close();
 
             },
-            function (message) {
+            function (data,status) {
+                if (status == 410) {
+                    $scope.fusion(data);
+                }
+                else {
+                    $flash.error(message);
+                }
                 $scope.loading = false;
-                $flash.error(message);
+                $scope.close();
             });
     };
+
+    $scope.fusion = function (accountFusion) {
+
+        var resolve = {
+            accountFusion: function () {
+                return accountFusion;
+            }
+        };
+        $modal.open({
+            templateUrl: "/assets/javascripts/modal/AccountFusionFacebookModal/view.html",
+            controller: "AccountFusionFacebookModalCtrl",
+            size: "l",
+            resolve: resolve
+        });
+    }
 
 });

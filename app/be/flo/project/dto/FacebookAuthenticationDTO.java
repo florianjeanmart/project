@@ -13,7 +13,7 @@ import javax.validation.constraints.Pattern;
 public class FacebookAuthenticationDTO extends DTO {
 
     @NotNull(message = "--.validation.dto.notNull")
-    private Long userId;
+    private String userId;
 
     @NotNull(message = "--.validation.dto.notNull")
     private String token;
@@ -22,11 +22,11 @@ public class FacebookAuthenticationDTO extends DTO {
     public FacebookAuthenticationDTO() {
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

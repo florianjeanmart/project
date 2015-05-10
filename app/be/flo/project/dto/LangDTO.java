@@ -11,6 +11,14 @@ public class LangDTO extends DTO {
 
     private String code;
 
+    public LangDTO() {
+    }
+
+    public LangDTO(String language, String code) {
+        this.language = language;
+        this.code = code;
+    }
+
     public String getLanguage() {
         return language;
     }

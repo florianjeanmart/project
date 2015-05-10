@@ -15,10 +15,10 @@ public class LoginCredential  extends AbstractEntity {
     @OneToOne(optional = false,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Account account;
 
-    @Column
+    @Basic
     private boolean keepSessionOpen;
 
-    @Column(nullable = false)
+    @Basic(optional =  false)
     private String password;
 
     @PrePersist

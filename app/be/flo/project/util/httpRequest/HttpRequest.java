@@ -47,23 +47,6 @@ public class HttpRequest {
 
     public String sendRequest(RequestMethod requestMethod, String site, Map<String, String> params) throws HttpRequestException {
 
-
-        //test connection
-        try {
-            URL urlTest = new URL("http://www.google.be");
-            HttpURLConnection connection = (HttpURLConnection) urlTest.openConnection();
-            InputStream is = connection.getInputStream();
-        } catch (java.net.UnknownHostException e) {
-            e.printStackTrace();
-            throw new HttpRequestException("no connection");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            throw new HttpRequestException("bad url");
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new HttpRequestException("connection error");
-        }
-
         if (params == null) {
             params = new HashMap<>();
         }

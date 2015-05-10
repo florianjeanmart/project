@@ -15,12 +15,12 @@ public class FacebookCredential extends AbstractEntity {
 
     @Basic(optional = false)
     @Column(unique = true)
-    private Long userId;
+    private String userId;
 
     public FacebookCredential() {
     }
 
-    public FacebookCredential(Account account, Long userId) {
+    public FacebookCredential(Account account, String userId) {
         this.account = account;
         this.userId = userId;
     }
@@ -33,11 +33,11 @@ public class FacebookCredential extends AbstractEntity {
         this.account = account;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

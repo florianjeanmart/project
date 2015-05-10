@@ -33,7 +33,7 @@ myApp.controller('MainCtrl', function ($scope,$locale, tmhDynamicLocale,translat
     //import data
     //store the current user into the model
     modelService.set(modelService.MY_SELF, data.mySelf);
-    modelService.set(modelService.APP_STATUS, data.appStatus);
+    modelService.set(modelService.APP_ID, data.appId);
     languageService.setLanguages(lang,languages);
 
     //

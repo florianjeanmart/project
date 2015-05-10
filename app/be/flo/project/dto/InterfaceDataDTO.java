@@ -17,7 +17,7 @@ public class InterfaceDataDTO extends DTO{
     private String langId;
 
     private List<LangDTO> languages;
-    private String appStatus;
+    private String appId;
 
     public List<LangDTO> getLanguages() {
         return languages;
@@ -59,11 +59,11 @@ public class InterfaceDataDTO extends DTO{
         languages.add(language);
     }
 
-    public void setAppStatus(String appStatus) {
-        this.appStatus = appStatus;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public String getAppStatus() {
-        return appStatus;
+    public String getAppId() {
+        return appId;
     }
 }

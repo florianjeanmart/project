@@ -2,7 +2,7 @@ package be.flo.project.controller;
 
 import be.flo.project.controller.technical.AbstractController;
 import be.flo.project.dto.*;
-import be.flo.project.util.AppStatusEnum;
+import be.flo.project.util.AppUtil;
 import play.Configuration;
 import play.Logger;
 import play.db.jpa.Transactional;
@@ -22,14 +22,14 @@ public class MainController  extends AbstractController {
     public Result mainPage() {
 
 
-        AppStatusEnum appStatus = AppStatusEnum.getByString(accessKey);
+        String facebookAppId = AppUtil.getFacebookAppId();
 
 
         //try with param
         InterfaceDataDTO interfaceDataDTO  = new InterfaceDataDTO();
         interfaceDataDTO.setLangId(lang().code());
         interfaceDataDTO.setTranslations(translationService.getTranslations(lang()));
-        interfaceDataDTO.setAppStatus(appStatus.getS());
+        interfaceDataDTO.setAppId(facebookAppId);
         if(securityController.isAuthenticated(ctx())) {
             MyselfDTO accountDTO = dozerService.map(securityController.getCurrentUser(), MyselfDTO.class);
             accountDTO.setFacebookAccount(securityController.getCurrentUser().getFacebookCredential()!=null);

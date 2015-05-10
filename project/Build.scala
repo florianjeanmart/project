@@ -19,7 +19,7 @@ object ApplicationBuild extends Build {
     "org.springframework" % "spring-context-support" % "4.1.6.RELEASE",
     "org.springframework" % "spring-expression" % "4.1.6.RELEASE",
     "org.springframework" % "spring-orm" % "4.1.6.RELEASE",
-//    "org.springframework" % "spring-test" % "4.1.6.RELEASE",
+    "org.springframework" % "spring-test" % "4.1.6.RELEASE",
 //    "org.springframework.security" % "spring-security-core" % "4.1.6.RELEASE",
     "org.hibernate" % "hibernate-entitymanager" % "4.3.5.Final",
 //    "org.hibernate" % "hibernate-ehcache" % "4.3.5.Final",
@@ -32,7 +32,8 @@ object ApplicationBuild extends Build {
     "org.apache.commons" % "commons-email" % "1.3.1",
     "commons-io" % "commons-io" % "2.3",
     "com.amazonaws" % "aws-java-sdk" % "1.8.5",
-    "net.sf.dozer" % "dozer" % "5.5.1"
+    "net.sf.dozer" % "dozer" % "5.5.1",
+    "com.jayway.facebooktestjavaapi" % "facebook-test-java-api" % "1.1.5"
   )
 
   val main = play.Project(name, version, appDependencies)

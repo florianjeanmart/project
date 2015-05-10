@@ -1,7 +1,7 @@
 myApp.service("modelService", function($rootScope) {
 
     this.MY_SELF="MYSELF";
-    this.APP_STATUS="APP_STATUS";
+    this.APP_ID="APP_ID";
 
     this.model = {};
 

@@ -4,14 +4,7 @@ myApp.service("facebookService", function ($http,modelService,$locale,languageSe
     // initialization
     //
     this.ini = function(){
-        var appId;
-        console.log("modelService.get(modelService.APP_STATUS) : "+modelService.get(modelService.APP_STATUS));
-        if(modelService.get(modelService.APP_STATUS) == 'local'){
-            appId='1446672245627002';
-        }
-        else{
-            appId='1432915530336007';
-        }
+        var appId = modelService.get(modelService.APP_ID);
         FB.init({
             appId: appId,
             cookie: true,
@@ -103,7 +96,7 @@ myApp.service("facebookService", function ($http,modelService,$locale,languageSe
             successCallback(data);
         })
             .error(function (data, status) {
-                failCallback(data.message);
+                failCallback(data, status);
             });
     };
 

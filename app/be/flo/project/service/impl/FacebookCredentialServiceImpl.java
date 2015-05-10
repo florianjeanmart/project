@@ -24,7 +24,7 @@ public class FacebookCredentialServiceImpl extends CrudServiceImpl<FacebookCrede
     private FacebookRequest facebookRequest;
 
     @Override
-    public FacebookCredential findByUserId(long userId) {
+    public FacebookCredential findByUserId(String userId) {
 
         CriteriaBuilder cb = JPA.em().getCriteriaBuilder();
         CriteriaQuery<FacebookCredential> cq = cb.createQuery(FacebookCredential.class);
