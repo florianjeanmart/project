@@ -1,4 +1,4 @@
-myApp.controller('RegistrationModalCtrl', function ($scope, $http, $flash, $modalInstance,login) {
+myApp.controller('RegistrationModalCtrl', function ($scope, $http, $flash, $modalInstance,modelService) {
 
     $scope.loading = false;
 
@@ -113,7 +113,7 @@ myApp.controller('RegistrationModalCtrl', function ($scope, $http, $flash, $moda
             }).success(function (data, status) {
                 $scope.loading = false;
                 $scope.close();
-                login(data.myself);
+                modelService.set(modelService.MY_SELF,data);
             })
                 .error(function (data, status) {
                     $scope.loading = false;

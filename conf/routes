@@ -18,7 +18,6 @@ GET         /logout                      @be.flo.project.controller.rest.LoginRe
 ##account
 GET         /myself                      @be.flo.project.controller.rest.AccountRestController.myself()
 PUT         /account/:id                 @be.flo.project.controller.rest.AccountRestController.editAccount(id:Long)
-PUT         /account/email/:id           @be.flo.project.controller.rest.AccountRestController.changeEmail(id:Long)
 PUT         /account/password/:id        @be.flo.project.controller.rest.AccountRestController.changePassword(id:Long)
 #session
 GET         /session                     @be.flo.project.controller.rest.AccountRestController.mySession()

@@ -68,11 +68,10 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
                 'headers': "Content-Type:application/json",
                 'data': dto
             }).success(function (data, status) {
-                modelService.set(modelService.MY_SELF, data.myself);
+                modelService.set(modelService.MY_SELF, data);
                 $flash.success(translationService.get("--.login.flash.success"));
                 $scope.loading = false;
                 $scope.close();
-                modelService.set(modelService.MY_SELF, data.myself);
                 //logout facebook in case
                 facebookService.logout();
             })
@@ -89,7 +88,7 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
     $scope.fb_login = function () {
         $scope.loading = true;
         facebookService.login(function (data) {
-                modelService.set(modelService.MY_SELF, data.myself);
+                modelService.set(modelService.MY_SELF, data);
                 $scope.loading = false;
                 $flash.success(translationService.get("--.login.flash.success"));
                 $scope.close();

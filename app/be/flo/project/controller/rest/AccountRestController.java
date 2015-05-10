@@ -5,6 +5,8 @@ import be.flo.project.controller.technical.security.role.RoleEnum;
 import be.flo.project.dto.*;
 import be.flo.project.model.entities.Account;
 import be.flo.project.model.entities.Session;
+import be.flo.project.service.FacebookCredentialService;
+import be.flo.project.service.LoginCredentialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import play.db.jpa.Transactional;
 import play.i18n.Lang;
@@ -19,11 +21,14 @@ import java.util.*;
  * Created by florian on 26/03/15.
  */
 @org.springframework.stereotype.Controller
-public class AccountRestController extends AbstractRestController {
+public class
+        AccountRestController extends AbstractRestController {
 
     //service
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private LoginCredentialService loginCredentialService;
 
     @Transactional
     @SecurityAnnotation(role = RoleEnum.USER)
@@ -58,6 +63,7 @@ public class AccountRestController extends AbstractRestController {
         account.setFirstname(dto.getFirstname());
         account.setLastname(dto.getLastname());
         account.setMale(dto.getMale());
+        account.setEmail(dto.getEmail());
 
         if (dto.getLang() != null) {
             Lang lang = Lang.forCode(dto.getLang().getCode());
@@ -85,52 +91,16 @@ public class AccountRestController extends AbstractRestController {
         ChangePasswordDTO changePasswordDTO = extractDTOFromRequest(ChangePasswordDTO.class);
 
         Account account = securityController.getCurrentUser();
-//TODO
-//        //control last password
-//        if (!accountService.controlPassword(changePasswordDTO.getOldPassword(), account)) {
-//            throw new MyRuntimeException(ErrorMessage.NOT_YOUR_PASSWORD);
-//        }
-//
-//        account.setPassword(changePasswordDTO.getNewPassword());
+
+        //control last password
+        if (account.getLoginCredential()==null || !loginCredentialService.controlPassword(changePasswordDTO.getOldPassword(), account.getLoginCredential())) {
+            throw new MyRuntimeException(ErrorMessageEnum.NOT_YOUR_PASSWORD);
+        }
+
+        account.getLoginCredential().setPassword(changePasswordDTO.getNewPassword());
 
         //operation
         accountService.saveOrUpdate(account);
-
-        return ok(dozerService.map(account, AccountDTO.class));
-    }
-
-    @Transactional
-    @SecurityAnnotation(role = RoleEnum.USER)
-    public Result changeEmail(long id) {
-
-        //control it's myself
-        if (!securityController.getCurrentUser().getId().equals(id)) {
-            throw new MyRuntimeException(ErrorMessageEnum.NOT_YOURSELF, id);
-        }
-
-        Account account = securityController.getCurrentUser();
-
-        ChangeEmailDTO changeEmailDTO = extractDTOFromRequest(ChangeEmailDTO.class);
-
-        //control email
-        Account sameEmailAccount = accountService.findByEmail(changeEmailDTO.getNewEmail());
-        if (sameEmailAccount != null && !sameEmailAccount.getId().equals(account.getId())) {
-            throw new MyRuntimeException(ErrorMessageEnum.EMAIL_ALREADY_USED);
-        }
-//TODO
-//        //control last password
-//        if (!accountService.controlPassword(changeEmailDTO.getOldPassword(), securityController.getCurrentUser())) {
-//            throw new MyRuntimeException(ErrorMessage.NOT_YOUR_OLD_PASSWORD);
-//        }
-
-        account.setEmail(changeEmailDTO.getNewEmail());
-
-        //operation
-        accountService.saveOrUpdate(account);
-
-        //store
-        securityController.storeAccount(ctx(), account);
-
 
         return ok(dozerService.map(account, AccountDTO.class));
     }

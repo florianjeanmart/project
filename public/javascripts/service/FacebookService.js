@@ -61,10 +61,10 @@ myApp.service("facebookService", function ($http,modelService,$locale,languageSe
                 loginToServer(response.authResponse, function (data) {
                             //success
                             //store connected user
-                            modelService.set(modelService.MY_SELF, data.myself);
+                            modelService.set(modelService.MY_SELF, data);
 
                             //test lang
-                            languageService.changeLanguage(data.myself.lang.code);
+                            languageService.changeLanguage(data.lang.code);
 
                             console.log("connected by facebook");
                         },
@@ -103,7 +103,7 @@ myApp.service("facebookService", function ($http,modelService,$locale,languageSe
             successCallback(data);
         })
             .error(function (data, status) {
-                failCallback(date.message);
+                failCallback(data.message);
             });
     };
 

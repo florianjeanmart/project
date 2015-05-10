@@ -48,7 +48,19 @@ public class Account extends AbstractEntity {
     private LoginCredential loginCredential;
 
 
+    @OneToOne(mappedBy = "account",optional = true,cascade = CascadeType.ALL)
+    private FacebookCredential facebookCredential;
+
+
     public Account() {
+    }
+
+    public FacebookCredential getFacebookCredential() {
+        return facebookCredential;
+    }
+
+    public void setFacebookCredential(FacebookCredential facebookCredential) {
+        this.facebookCredential = facebookCredential;
     }
 
     public LoginCredential getLoginCredential() {

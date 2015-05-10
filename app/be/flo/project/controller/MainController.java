@@ -1,10 +1,7 @@
 package be.flo.project.controller;
 
 import be.flo.project.controller.technical.AbstractController;
-import be.flo.project.dto.AccountDTO;
-import be.flo.project.dto.InterfaceDataDTO;
-import be.flo.project.dto.LangDTO;
-import be.flo.project.dto.ListDTO;
+import be.flo.project.dto.*;
 import be.flo.project.util.AppStatusEnum;
 import play.Configuration;
 import play.Logger;
@@ -34,7 +31,9 @@ public class MainController  extends AbstractController {
         interfaceDataDTO.setTranslations(translationService.getTranslations(lang()));
         interfaceDataDTO.setAppStatus(appStatus.getS());
         if(securityController.isAuthenticated(ctx())) {
-            AccountDTO accountDTO = dozerService.map(securityController.getCurrentUser(), AccountDTO.class);
+            MyselfDTO accountDTO = dozerService.map(securityController.getCurrentUser(), MyselfDTO.class);
+            accountDTO.setFacebookAccount(securityController.getCurrentUser().getFacebookCredential()!=null);
+            accountDTO.setLoginAccount(securityController.getCurrentUser().getLoginCredential()!=null);
             interfaceDataDTO.setMySelf(accountDTO);
             Logger.info(securityController.getCurrentUser()+"<=>"+accountDTO);
         }

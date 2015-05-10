@@ -62,7 +62,7 @@ public class AccountRestControllerTest extends AbstractControllerTest {
         assertEquals(FIRSTNAME2, myself.getFirstname());
         assertEquals(LASTNAME2, myself.getLastname());
         //the email address cannot be update by this way
-        assertNotEquals(EMAIL2, myself.getEmail());
+        assertEquals(EMAIL2, myself.getEmail());
 
     }
 

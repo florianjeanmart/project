@@ -18,19 +18,10 @@ myApp.controller('WelcomeCtrl', function ($scope, $modal, $window, $flash, $http
     //registration open modal
     $scope.registration = function () {
 
-        var resolve = {
-            login: function () {
-                return function (myself) {
-                    $scope.myself = myself;
-                }
-            }
-        };
-
         $modal.open({
             templateUrl: "/assets/javascripts/modal/RegistrationModal/view.html",
             controller: "RegistrationModalCtrl",
-            size: "l",
-            resolve: resolve
+            size: "l"
         });
     };
 

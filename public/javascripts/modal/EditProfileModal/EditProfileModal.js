@@ -2,7 +2,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
 
     $scope.loading = false;
 
-    var account = angular.copy(modelService.get(modelService.MY_SELF));
+    $scope.account = angular.copy(modelService.get(modelService.MY_SELF));
 
     $scope.fields = {
         gender:{
@@ -12,7 +12,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
             disabled: function () {
                 return $scope.loading;
             },
-            field:(account.male)?'male':'female'
+            field:($scope.account.male)?'male':'female'
 
         },
         language:{
@@ -22,7 +22,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
             disabled: function () {
                 return $scope.loading;
             },
-            field:account.lang.code
+            field:$scope.account.lang.code
 
         },
         firstname: {
@@ -33,7 +33,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
             disabled: function () {
                 return $scope.loading;
             },
-            field:account.firstname
+            field:$scope.account.firstname
         },
         lastname: {
             name:'lastname',
@@ -43,16 +43,13 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
             disabled: function () {
                 return $scope.loading;
             },
-            field:account.lastname
+            field:$scope.account.lastname
         },
         login: {
             fieldType:"email",
             name:'email',
             fieldTitle: "--.generic.email",
-            disabled: function () {
-                return true;
-            },
-            field:account.email,
+            field:$scope.account.email,
             isValid:true
         },
         password: {
@@ -102,7 +99,7 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
 
             $http({
                 'method': "PUT",
-                'url': "/account/"+account.id,
+                'url': "/account/"+$scope.account.id,
                 'headers': "Content-Type:application/json",
                 'data': dto
             }).success(function (data, status) {
@@ -115,36 +112,14 @@ myApp.controller('EditProfileModalCtrl', function ($scope, $http, $flash, $modal
                 $flash.error(data.message);
             });
         }
-    }
-
-    $scope.editEmail = function(){
-        var resolve = {
-            account: function () {
-                return account;
-            },
-            setEmail:function(){
-                return null;
-            }
-        };
-        $modal.open({
-            templateUrl: "/assets/javascripts/modal/ChangeEmail/view.html",
-            controller: "ChangeEmailModalCtrl",
-            size:"l",
-            resolve: resolve
-        });
-    }
+    };
 
     $scope.editPassword = function(){
-        var resolve = {
-            account: function () {
-                return account;
-            }
-        };
+
         $modal.open({
             templateUrl: "/assets/javascripts/modal/ChangePassword/view.html",
             controller: "ChangePasswordModalCtrl",
-            size:"l",
-            resolve: resolve
+            size:"l"
         });
     }
 

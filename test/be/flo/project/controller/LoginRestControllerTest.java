@@ -1,27 +1,16 @@
 package be.flo.project.controller;
 
-import be.flo.project.dto.LoginSuccessDTO;
+import be.flo.project.dto.MyselfDTO;
 import be.flo.project.dto.post.LoginDTO;
 import be.flo.project.dto.post.RegistrationDTO;
-import be.flo.project.dto.technical.DTO;
-import be.flo.project.model.entities.technical.AbstractEntity;
-import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import play.Logger;
-import play.Play;
-import play.db.jpa.JPA;
 import play.libs.Json;
 import play.mvc.Result;
 
-
-import java.util.Map;
-
-import static java.lang.Thread.sleep;
+import static org.junit.Assert.assertEquals;
 import static play.test.Helpers.*;
-import static org.fest.assertions.Assertions.*;
-import static org.junit.Assert.*;
 
 /**
  * Created by florian on 19/04/15.
@@ -47,11 +36,11 @@ public class LoginRestControllerTest extends AbstractControllerTest{
         assertEquals(printError(result), 200, status(result));
 
         // get LoginResultDTO
-        LoginSuccessDTO formDTO = Json.fromJson(Json.parse(new String(contentAsBytes(result))), LoginSuccessDTO.class);
+        MyselfDTO formDTO = Json.fromJson(Json.parse(new String(contentAsBytes(result))), MyselfDTO.class);
 
-        assertEquals(FIRSTNAME,formDTO.getMyself().getFirstname());
-        assertEquals(LASTNAME,formDTO.getMyself().getLastname());
-        assertEquals(EMAIL,formDTO.getMyself().getEmail());
+        assertEquals(FIRSTNAME,formDTO.getFirstname());
+        assertEquals(LASTNAME,formDTO.getLastname());
+        assertEquals(EMAIL,formDTO.getEmail());
 
 //        //test connection
 //        Map<String, String> flashData = Collections.emptyMap();
@@ -68,11 +57,11 @@ public class LoginRestControllerTest extends AbstractControllerTest{
 
         Result result = request(POST, "/login", new LoginDTO(EMAIL,PASSWORD));
 
-        LoginSuccessDTO formDTO = Json.fromJson(Json.parse(new String(contentAsBytes(result))), LoginSuccessDTO.class);
+        MyselfDTO formDTO = Json.fromJson(Json.parse(new String(contentAsBytes(result))), MyselfDTO.class);
 
-        assertEquals(FIRSTNAME,formDTO.getMyself().getFirstname());
-        assertEquals(LASTNAME,formDTO.getMyself().getLastname());
-        assertEquals(EMAIL,formDTO.getMyself().getEmail());
+        assertEquals(FIRSTNAME, formDTO.getFirstname());
+        assertEquals(LASTNAME,formDTO.getLastname());
+        assertEquals(EMAIL,formDTO.getEmail());
 
     }
 

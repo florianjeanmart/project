@@ -4,7 +4,7 @@ import be.flo.project.controller.EmailController;
 import be.flo.project.controller.technical.security.role.RoleEnum;
 import be.flo.project.dto.AccountDTO;
 import be.flo.project.dto.FacebookAuthenticationDTO;
-import be.flo.project.dto.LoginSuccessDTO;
+import be.flo.project.dto.MyselfDTO;
 import be.flo.project.dto.externalDTO.FacebookTokenAccessControlDTO;
 import be.flo.project.dto.post.LoginDTO;
 import be.flo.project.dto.post.RegistrationDTO;
@@ -58,12 +58,6 @@ public class LoginRestController extends AbstractRestController {
         if (facebookCredential != null) {
 
             account = facebookCredential.getAccount();
-
-            //session
-            sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
-
-            //storage
-            securityController.storeAccount(ctx(), account);
         } else {
             //create a new account
             //account
@@ -105,27 +99,9 @@ public class LoginRestController extends AbstractRestController {
 
             //save credential + account
             facebookCredentialService.saveOrUpdate(facebookCredential);
-
-            //create a new session
-            sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
-
-            //build success dto
-            LoginSuccessDTO result = new LoginSuccessDTO();
-            result.setMyself(dozerService.map(account, AccountDTO.class));
-            result.setAuthenticationKey(account.getAuthenticationKey());
-
-            //storage
-            securityController.storeAccount(ctx(), account);
         }
 
-        LoginSuccessDTO result = new LoginSuccessDTO();
-        result.setMyself(dozerService.map(account, AccountDTO.class));
-        result.setAuthenticationKey(account.getAuthenticationKey());
-
-        //storage
-        securityController.storeAccount(ctx(), account);
-
-        return ok(result);
+        return finalizeConnection(account);
     }
 
     /**
@@ -155,19 +131,7 @@ public class LoginRestController extends AbstractRestController {
             accountService.saveOrUpdate(account);
         }
 
-        //session
-        sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
-
-        //storage
-        securityController.storeAccount(ctx(), account);
-
-        //build result
-        LoginSuccessDTO result = new LoginSuccessDTO();
-        result.setMyself(dozerService.map(account, AccountDTO.class));
-        if (dto.getKeepSessionOpen()) {
-            result.setAuthenticationKey(account.getAuthenticationKey());
-        }
-        return ok(result);
+        return finalizeConnection(account);
     }
 
     /**
@@ -208,17 +172,7 @@ public class LoginRestController extends AbstractRestController {
 
         accountService.saveOrUpdate(account);
 
-        //session
-        sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
-
-        LoginSuccessDTO result = new LoginSuccessDTO();
-        result.setMyself(dozerService.map(account, AccountDTO.class));
-        result.setAuthenticationKey(account.getAuthenticationKey());
-
-        //storage
-        securityController.storeAccount(ctx(), account);
-
-        return ok(result);
+        return finalizeConnection(account);
 
     }
 
@@ -231,6 +185,22 @@ public class LoginRestController extends AbstractRestController {
     public Result logout() {
         securityController.logout(ctx());
         return redirect("/");
+    }
+
+    private Result finalizeConnection(Account account){
+
+        sessionService.saveOrUpdate(new Session(account, securityController.getSource(ctx())));
+
+        //build success dto
+        MyselfDTO myselfDTO = dozerService.map(account, MyselfDTO.class);
+        myselfDTO.setFacebookAccount(account.getFacebookCredential()!=null);
+        myselfDTO.setLoginAccount(account.getLoginCredential()!=null);
+        myselfDTO.setAuthenticationKey(account.getAuthenticationKey());
+
+        //storage
+        securityController.storeAccount(ctx(), account);
+
+        return ok(myselfDTO);
     }
 
 
