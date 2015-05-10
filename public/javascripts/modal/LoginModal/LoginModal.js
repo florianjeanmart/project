@@ -99,7 +99,7 @@ myApp.controller('LoginModalCtrl', function ($scope, $http, $flash, $modalInstan
                     $scope.fusion(data);
                 }
                 else {
-                    $flash.error(message);
+                    $flash.error(data.message);
                 }
                 $scope.loading = false;
                 $scope.close();
