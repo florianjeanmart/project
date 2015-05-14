@@ -1,7 +1,7 @@
 package be.flo.project.util.httpRequest;
 
 import be.flo.project.dto.externalDTO.FacebookTokenAccessControlDTO;
-import be.flo.project.util.ErrorMessageEnum;
+import be.flo.project.util.message.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

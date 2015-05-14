@@ -10,7 +10,7 @@ import play.mvc.Http;
 import play.mvc.Security;
 import be.flo.project.service.AccountService;
 import be.flo.project.service.impl.AccountServiceImpl;
-import be.flo.project.util.ErrorMessageEnum;
+import be.flo.project.util.message.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
 import play.mvc.SimpleResult;
 

@@ -3,8 +3,8 @@ package be.flo.project.service;
 import be.flo.project.dto.TranslationsDTO;
 import be.flo.project.model.entities.Translation;
 import play.i18n.Lang;
-import be.flo.project.util.EmailMessageEnum;
-import be.flo.project.util.ErrorMessageEnum;
+import be.flo.project.util.message.EmailMessageEnum;
+import be.flo.project.util.message.ErrorMessageEnum;
 
 /**
  * Created by florian on 6/12/14.

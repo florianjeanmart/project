@@ -12,8 +12,8 @@ import scala.Option;
 import scala.collection.JavaConverters;
 import scala.collection.immutable.Map;
 import be.flo.project.service.TranslationService;
-import be.flo.project.util.EmailMessageEnum;
-import be.flo.project.util.ErrorMessageEnum;
+import be.flo.project.util.message.EmailMessageEnum;
+import be.flo.project.util.message.ErrorMessageEnum;
 
 /**
  * Created by florian on 11/11/14.
@@ -54,7 +54,7 @@ public class TranslationServiceImpl implements TranslationService {
     @Override
     public String getTranslation(ErrorMessageEnum errorMessage, Lang language, Object... params) {
 
-        return Messages.get(language, errorMessage.name(), params);
+        return Messages.get(language, errorMessage.getKey(), params);
     }
 
     @Override

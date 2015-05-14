@@ -2,7 +2,6 @@ package be.flo.project.controller.rest;
 
 import be.flo.project.controller.EmailController;
 import be.flo.project.controller.technical.security.role.RoleEnum;
-import be.flo.project.dto.AccountDTO;
 import be.flo.project.dto.AccountFusionDTO;
 import be.flo.project.dto.FacebookAuthenticationDTO;
 import be.flo.project.dto.MyselfDTO;
@@ -14,7 +13,7 @@ import be.flo.project.service.AccountService;
 import be.flo.project.service.FacebookCredentialService;
 import be.flo.project.service.LoginCredentialService;
 import be.flo.project.service.SessionService;
-import be.flo.project.util.ErrorMessageEnum;
+import be.flo.project.util.message.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import play.db.jpa.Transactional;
@@ -126,14 +125,14 @@ public class LoginRestController extends AbstractRestController {
         //load account
         Account account = accountService.findByEmail(dto.getEmail());
         if (account == null) {
-            throw new MyRuntimeException(ErrorMessageEnum.LOGIN_WRONG_PASSWORD_LOGIN);
+            throw new MyRuntimeException(ErrorMessageEnum.WRONG_PASSWORD_OR_LOGIN);
         }
 
         //existing account
         if (account.getLoginCredential() != null) {
             //control password
             if (!loginCredentialService.controlPassword(dto.getPassword(), account.getLoginCredential())) {
-                throw new MyRuntimeException(ErrorMessageEnum.LOGIN_WRONG_PASSWORD_LOGIN);
+                throw new MyRuntimeException(ErrorMessageEnum.WRONG_PASSWORD_OR_LOGIN);
             }
 
             //control facebook
@@ -151,7 +150,7 @@ public class LoginRestController extends AbstractRestController {
             facebookCredentialService.saveOrUpdate(facebookCredential);
         } else {
             //??
-            throw new MyRuntimeException(ErrorMessageEnum.LOGIN_WRONG_PASSWORD_LOGIN);
+            throw new MyRuntimeException(ErrorMessageEnum.WRONG_PASSWORD_OR_LOGIN);
         }
 
         //connection
@@ -177,7 +176,7 @@ public class LoginRestController extends AbstractRestController {
 
         if (account == null || account.getLoginCredential() == null || !loginCredentialService.controlPassword(dto.getPassword(), account.getLoginCredential())) {
             //if there is no account for this email or the password doesn't the right, throw an exception
-            throw new MyRuntimeException(ErrorMessageEnum.LOGIN_WRONG_PASSWORD_LOGIN);
+            throw new MyRuntimeException(ErrorMessageEnum.WRONG_PASSWORD_OR_LOGIN);
         }
 
         if (!dto.getKeepSessionOpen().equals(account.getLoginCredential().isKeepSessionOpen())) {

@@ -1,6 +1,6 @@
 package be.flo.project.util.exception;
 
-import be.flo.project.util.ErrorMessageEnum;
+import be.flo.project.util.message.ErrorMessageEnum;
 
 import java.util.Arrays;
 

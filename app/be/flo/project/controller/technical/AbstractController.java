@@ -7,7 +7,7 @@ import be.flo.project.dto.technical.DTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import play.mvc.Controller;
 import be.flo.project.service.TranslationService;
-import be.flo.project.util.ErrorMessageEnum;
+import be.flo.project.util.message.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
 
 import java.util.Set;

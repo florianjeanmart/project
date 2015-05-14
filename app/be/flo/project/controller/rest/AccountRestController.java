@@ -5,14 +5,13 @@ import be.flo.project.controller.technical.security.role.RoleEnum;
 import be.flo.project.dto.*;
 import be.flo.project.model.entities.Account;
 import be.flo.project.model.entities.Session;
-import be.flo.project.service.FacebookCredentialService;
 import be.flo.project.service.LoginCredentialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import play.db.jpa.Transactional;
 import play.i18n.Lang;
 import play.mvc.Result;
 import be.flo.project.service.AccountService;
-import be.flo.project.util.ErrorMessageEnum;
+import be.flo.project.util.message.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
 
 import java.util.*;
@@ -54,7 +53,7 @@ public class
 
         //contorl it's myself'
         if (!securityController.getCurrentUser().getId().equals(id)) {
-            throw new MyRuntimeException(ErrorMessageEnum.NOT_YOURSELF, id);
+            throw new MyRuntimeException(ErrorMessageEnum.WRONG_AUTHORIZATION, id);
         }
 
         Account account = securityController.getCurrentUser();
@@ -85,7 +84,7 @@ public class
 
         //contorl it's myself'
         if (!securityController.getCurrentUser().getId().equals(id)) {
-            throw new MyRuntimeException(ErrorMessageEnum.NOT_YOURSELF, id);
+            throw new MyRuntimeException(ErrorMessageEnum.WRONG_AUTHORIZATION, id);
         }
 
         ChangePasswordDTO changePasswordDTO = extractDTOFromRequest(ChangePasswordDTO.class);
@@ -94,7 +93,7 @@ public class
 
         //control last password
         if (account.getLoginCredential()==null || !loginCredentialService.controlPassword(changePasswordDTO.getOldPassword(), account.getLoginCredential())) {
-            throw new MyRuntimeException(ErrorMessageEnum.NOT_YOUR_PASSWORD);
+            throw new MyRuntimeException(ErrorMessageEnum.VALIDATION_PASSWORD);
         }
 
         account.getLoginCredential().setPassword(changePasswordDTO.getNewPassword());

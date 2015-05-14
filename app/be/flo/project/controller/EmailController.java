@@ -4,7 +4,7 @@ import be.flo.project.controller.technical.AbstractController;
 import be.flo.project.model.entities.Account;
 import be.flo.project.service.EmailService;
 import be.flo.project.service.TranslationService;
-import be.flo.project.util.EmailMessageEnum;
+import be.flo.project.util.message.EmailMessageEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import play.db.jpa.Transactional;
 
@@ -23,7 +23,7 @@ public class EmailController extends AbstractController {
     @Transactional
     public void sendApplicationRegistrationEmail(Account account){
 
-        String title = translationService.getTranslation(EmailMessageEnum.REGISTRATION_APP_EMAIL_TITLE,lang());
+//        String title = translationService.getTranslation(EmailMessageEnum.REGISTRATION_APP_EMAIL_TITLE,lang());
 //TODO
 //        // 0 => account.name
 //        // 1 => password
@@ -41,9 +41,9 @@ public class EmailController extends AbstractController {
     @Transactional
     public void sendNewPasswordEmail(Account account) {
 
-        String title = translationService.getTranslation(
-                EmailMessageEnum.NEW_PASSWORD_EMAIL_TITLE,
-                account.getLang());
+//        String title = translationService.getTranslation(
+//                EmailMessageEnum.NEW_PASSWORD_EMAIL_TITLE,
+//                account.getLang());
 
         //TODO
 //        String body = translationService.getTranslation(

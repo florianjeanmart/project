@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import play.Logger;
 import play.mvc.Content;
-import be.flo.project.util.ErrorMessageEnum;
+import be.flo.project.util.message.ErrorMessageEnum;
 import be.flo.project.util.exception.MyRuntimeException;
 
 import java.io.IOException;
@@ -51,7 +51,7 @@ public class DTO implements Content {
 
     public void set__type(String __type) {
         if (!get__type().equals(__type)) {
-            throw new MyRuntimeException(ErrorMessageEnum.DTO_NOT_EXPECTED, get__type(), __type);
+            throw new MyRuntimeException(ErrorMessageEnum.FATAL_ERROR, get__type()+" instead of "+__type);
         }
     }
 
